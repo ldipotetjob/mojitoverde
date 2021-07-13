@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cactus theme example</title>
-    <link>https://ldipotetjob.github.io/mojitoverde/</link>
-    <description>Recent content on Cactus theme example</description>
+    <title>Posts on Cactus theme example</title>
+    <link>https://ldipotetjob.github.io/mojitoverde/posts/</link>
+    <description>Recent content in Posts on Cactus theme example</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>You</copyright>
-    <lastBuildDate>Sun, 27 Jun 2021 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Jun 2021 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Code Block Test</title>
       <link>https://ldipotetjob.github.io/mojitoverde/posts/code-block-test/</link>
@@ -335,15 +335,6 @@ Oh what a thing to have done
 And it was all Yellow
 噢这过程充满不安羞怯和点滴暖意
 Your skin</description>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/about/</link>
-      <pubDate>Wed, 24 Aug 2016 17:51:42 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/about/</guid>
-      <description>Github: monkeyWzr</description>
     </item>
     
   </channel>
