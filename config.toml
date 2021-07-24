@@ -1,9 +1,9 @@
 baseURL = "https://ldipotetjob.github.io/mojitoverde"
 languageCode = "en-us"
-title = "Cactus theme example"
+title = "Green Mojito in technology"
 publishdir = "docs"
 theme = "cactus"
-copyright = "You" # cactus will use title if copyright is not set
+copyright = "Scadip" # cactus will use title if copyright is not set
 disqusShortname = "example" # Used when comments is enabled. Cactus will use site title if not set
 # googleAnalytics = "UA-1234-5"
 
@@ -55,7 +55,7 @@ weight = 4
   showAllPostsArchive = false # default
 
   # Home page settings
-  description = "Hugo is a general-purpose website framework. Technically speaking, Hugo is a static site generator. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website’s end users and an ideal writing experience for website authors."
+  description = "Green Mojito is a fresh site where the knowlodge must be fresh but not simple, where the content can be complex but nice. This is a site where you can find different scenarios and use cases related with different technologies. We believe in the beginnings but we will not deal with the'hello world' projects."
   mainSection = "posts" # your main section
   showAllPostsOnHomePage = false # default
   postsOnHomePage = 5 # this option will be ignored if showAllPostsOnHomePage is set to true

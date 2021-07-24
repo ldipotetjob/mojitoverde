@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cactus theme example</title>
+    <title>Green Mojito in technology</title>
     <link>https://ldipotetjob.github.io/mojitoverde/</link>
-    <description>Recent content on Cactus theme example</description>
+    <description>Recent content on Green Mojito in technology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>You</copyright>
+    <copyright>Scadip</copyright>
     <lastBuildDate>Sun, 27 Jun 2021 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Code Block Test</title>
@@ -343,7 +343,7 @@ Your skin</description>
       <pubDate>Wed, 24 Aug 2016 17:51:42 +0000</pubDate>
       
       <guid>https://ldipotetjob.github.io/mojitoverde/about/</guid>
-      <description>I am first a software engineer and then a cloud engineer. I am fascinated by cutting-edge technologies, practicing sports, listening to music and mostly enjoying life with my two children and my wife. In my spare time I am helping people in the areas of technology or I write some articles on my blog. I am always studying and learning new technologies, not only in the fields of programming or the cloud.</description>
+      <description>I am first a software engineer and then a cloud engineer. I&amp;rsquo;m fascinated by cutting-edge technologies, practicing sports, listening to music and mostly enjoying life with my two children and my wife. In my spare time I help people in the areas of technology or I write some articles on my blog. I am always studying and learning new technologies, not only in the fields of programming or the cloud. Some times Blockchain or Bioinformatics also catch my attention.</description>
     </item>
     
   </channel>
