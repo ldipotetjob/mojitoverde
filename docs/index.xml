@@ -243,6 +243,18 @@ The comparison x == y, where x and y are values, produces true or false. Such a 
     </item>
     
     <item>
+      <title>Scala in a nutshell I - Collections - List</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-21-scalanutsheli/</link>
+      <pubDate>Tue, 21 Mar 2017 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-21-scalanutsheli/</guid>
+      <description>In this post I am gonna explain ONE of the main collection in Scala, List. The performance in this inmutable collection for some scenarios is great with optimal features and not so good in others because this performance is proportional to the size of the collection.
+You can find the performance of List and other collections here.
+Especific for List this is what we have:
+   head tail apply update prepend append insert     C C L L C L -    Differents way to create Lists:</description>
+    </item>
+    
+    <item>
       <title>java散列知识点总结</title>
       <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-02-18-hash/</link>
       <pubDate>Sat, 18 Feb 2017 19:19:01 +0000</pubDate>

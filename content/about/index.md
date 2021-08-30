@@ -9,9 +9,6 @@ I am first a software engineer and then a cloud engineer. I'm fascinated by cutt
 <br></br>
 
 
-{{<  myshortcode  >}}
 
 
-
-
-
+{{<  mediashortcode  >}}
