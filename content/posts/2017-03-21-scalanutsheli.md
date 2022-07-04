@@ -7,7 +7,7 @@ category: programming
 keywords:
     - Scala
 ---
-In this post I am gonna explain ONE of the main collection in Scala, List. The performance in this inmutable collection for some scenarios is great with optimal features and not so good in others because this performance is proportional to the size of the collection.\
+In this post I am gonna explain one of the main collection in Scala, List. The performance in this inmutable collection for some scenarios is great with optimal features and not so good in others because this performance is proportional to the size of the collection.\
 You can find the performance of List and other collections 
 [here](https://docs.scala-lang.org/overviews/collections-2.13/performance-characteristics.html).\
 Especific for List this is what we have: 
