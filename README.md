@@ -1,10 +1,11 @@
 # mojitoverde
-# https://github.com/monkeyWzr/hugo-theme-cactus
+ref. info https://github.com/monkeyWzr/hugo-theme-cactus
 
-# in aboutme footer is using my own shortcode
+*in aboutme footer is using my own shortcode*
 
-# style for align image: theme/../scss/style.css
+**style for align image: theme/../scss/style.css**
 
+```js
 img[src$='#floatleft']
   {
       float:left;
@@ -18,4 +19,4 @@ img[src$='#floatleft']
       margin: 0.7rem;      /* this margin is totally up to you */
       /* whatever else styles you fancy here */
   }
-  
+  ```
