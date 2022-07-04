@@ -55,8 +55,18 @@ List(10,20,30,40,50).map(element => flong(element)) //res7: List[Int] = List(20,
 List(10,20,30,40,50).map(flong(_)) //res8: List[Int] = List(20, 40, 60, 80, 100)
 ```
 
+collections can be grouped following different constraints or conditions
 
- flatMap() method is identical to the map() method, but the only difference is that in flatMap the inner grouping of an item is removed and a sequence is generated. [**It can be defined as a blend of map method and flatten method**](https://www.geeksforgeeks.org/scala-flatmap-method/)
+```scala
+/** grouping by length */
+List("test", "food", "trick", "deal", "canada", "drawing").groupBy(_.length)
+//res9: scala.collection.immutable.Map[Int,List[String]] = HashMap(5 -> List(trick), 6 -> List(canada), 7 -> List(drawing), 4 -> List(test, food, deal))
+
+List(1,2,34,33,56,56,32,20).groupBy(_<20)
+//res12: scala.collection.immutable.Map[Boolean,List[Int]] = HashMap(false -> List(34, 33, 56, 56, 32, 20), true -> List(1, 2))
+```
+
+flatMap() method is identical to the map() method, but the only difference is that in flatMap the inner grouping of an item is removed and a sequence is generated. [**It can be defined as a blend of map method and flatten method**](https://www.geeksforgeeks.org/scala-flatmap-method/)
 ```scala
 val ciudades: List[List[String]]=List(List("madrid","barcelona"),List("havana","cienfuegos"),List("london","manchester"))
 ciudades.flatMap(x=>x.map(cities=>cities.toUpperCase)) //res12: List[String] = List(MADRID, BARCELONA, HAVANA, CIENFUEGOS, LONDON, MANCHESTER)
