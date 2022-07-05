@@ -23,6 +23,6 @@ hugo server -D
     In the [config.toml](https://github.com/ldipotetjob/mojitoverde/blob/main/config.toml) file the key baseURL must have the github url   
     page </br>baseURL = `http(s)://<username>.github.io/$githubblogrepositoryname`
  2. The hugo static site will need to know the destination to generate the static site, this is a binding to github url      
-    publishing source:</br>publishdir = "docs". **This folder name must be the same that you configure on setting your githubblogrepository pages source**<br> **ref about how [configure publishing resources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)** 
+    publishing source:</br>publishdir = "docs". **This folder name must be the same that you configure on setting your githubblogrepository pages source**<br> **ref how [configure publishing resources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)** 
  3. Check that you are on $githubblogrepositoryname and then launch: hugo -d 
  4. Commit and upload the changes to remote and have fun 👍
