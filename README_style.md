@@ -1,7 +1,7 @@
 # mojitoverde
 ref. info https://github.com/monkeyWzr/hugo-theme-cactus
 
-*in aboutme footer is using my own shortcode*
+*About me footer is using my own shortcode*
 
 **style for align image: theme/../scss/style.css**
 
