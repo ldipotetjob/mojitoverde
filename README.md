@@ -6,7 +6,7 @@ you need to change your publishing source. </br>
 ### The next path could be a very easy solution, our starting point:
 
 1. You have Hugo generator installed. (ref: [how install hugo](https://gohugo.io/getting-started/installing))
-2. You have created and confugure github repository where you want save your blog info. (ref: [creating and configuring Hugo static website](https://github.com/ldipotetjob/nomorethanonehundredandsixtysix/blob/master/README.md#creating-and-configuring-github-repo-to-store-the-site-previously-created))
+2. You have created and configure github repository where you want save your blog info. (ref: [creating and configuring Hugo static website](https://github.com/ldipotetjob/nomorethanonehundredandsixtysix/blob/master/README.md#creating-and-configuring-github-repo-to-store-the-site-previously-created))
 
 ### Now let's check if everything went well. Deploy in local
 
