@@ -1,5 +1,5 @@
 ---
-title: Scala in a nutshell I - Collections - List
+title: Scala in a nutshell - Collections - List
 date: 2017-03-21 09:00:00
 tags:
     - Scala
@@ -16,7 +16,10 @@ Especific for List this is what we have:
 | :---  | :--- | :---  | :---   | :---    | :---   | :---   |
 | C     | C    | L     | L      | C       | L	   | -      |
 
-Differents way to create Lists:
+**C**	The operation takes (fast) constant time.\
+**L**	The operation is linear, that is it takes time proportional to the collection size.
+
+Creating different type of Lists:
 ```scala
 /** creating list */
 val numbers: List[Int] = List(2, 3, 4, 5, 8, 100, 200, 300)
@@ -25,11 +28,19 @@ val listOfList: List[List[Int]] = List(List(1,2,3),List(0,1,3),List(4,2,1))
 val emptyList: List[Nothing] = List()
 val newList: List[Int] = Nil
 ```
+Checking if the list is empty:
+
+```scala
+val emptyList = List() //val emptyList: List[Nothing] = List()
+emptyList == Nil //val res7: Boolean = true
+emptyList.isEmpty //val res8: Boolean = true
+```
 
 Adding element to an empty List:
 ```scala
 val newList :List[Int]= Nil
 1::3::4::newList // res1: List[Int] = List(1, 3, 4)
+newList.concat(List(1,2,3)) // res1: List[Int] = List(1, 3, 4)
 ```
 
 Filtering List and have a look about the use of **\_**:
@@ -49,7 +60,7 @@ List(10,20,30,40,50)..map(element => element * 2) //res14: List[Int] = List(20, 
 List(10,20,30,40,50).map(_ * 2) //res5: List[Int] = List(20, 40, 60, 80, 100)
 
 def flong(x:Int): Int= x*2
-def  otherwayOFflong: Int => Int = x  => x*2
+def otherwayOFflong: Int => Int = x => x*2
 
 List(10,20,30,40,50).map(element => flong(element)) //res7: List[Int] = List(20, 40, 60, 80, 100)
 List(10,20,30,40,50).map(flong(_)) //res8: List[Int] = List(20, 40, 60, 80, 100)
@@ -62,22 +73,29 @@ collections can be grouped following different constraints or conditions
 List("test", "food", "trick", "deal", "canada", "drawing").groupBy(_.length)
 //res9: scala.collection.immutable.Map[Int,List[String]] = HashMap(5 -> List(trick), 6 -> List(canada), 7 -> List(drawing), 4 -> List(test, food, deal))
 
+/** grouping by number size */
 List(1,2,34,33,56,56,32,20).groupBy(_<20)
 //res12: scala.collection.immutable.Map[Boolean,List[Int]] = HashMap(false -> List(34, 33, 56, 56, 32, 20), true -> List(1, 2))
 ```
 
-flatMap() method is identical to the map() method, but the only difference is that in flatMap the inner grouping of an item is removed and a sequence is generated. [**It can be defined as a blend of map method and flatten method**](https://www.geeksforgeeks.org/scala-flatmap-method/)
+**flatMap()** method is identical to the map() method, but the only difference is that in flatMap the inner grouping of an item is removed and a sequence is generated. [**It can be defined as a blend of map method and flatten method**](https://www.geeksforgeeks.org/scala-flatmap-method/)
 ```scala
 val ciudades: List[List[String]]=List(List("madrid","barcelona"),List("havana","cienfuegos"),List("london","manchester"))
 ciudades.flatMap(x=>x.map(cities=>cities.toUpperCase)) //res12: List[String] = List(MADRID, BARCELONA, HAVANA, CIENFUEGOS, LONDON, MANCHESTER)
 ```
+
+Since many of the collection methods return a standard Scala type for optional values, we'll explain this type in a simple way at the mmoment. We're talking about the Option type, it is a type to model optional values.
+
+When a value is of type Option it indicates that it can be of two types:
+* Some (x) where x is the current value.
+* None which indicates that it has no value or has a null value.
 
 ```scala
 List(Some(1),Some(3),Some(10),None).flatMap(x=>x) //res41: List[Int] = List(1, 3, 10)
 List(Some(1),Some(3),Some(10),None).flatten //res42: List[Int] = List(1, 3, 10)
 ```
 
-Filtering collections and some methods that help us to chaining solutions. Check examples below.  
+Filtering collections that fulfill a certain condition and some methods that help us to chaining solutions. Check examples below.  
 
 ```scala
 List(10,30,45,76,66,20).filter(_ > 30) //res45: List[Int] = List(45, 76, 66)
@@ -87,11 +105,18 @@ List(10,30,45,76,66,20).filter(_ > 30).headOption //res44: Option[Int] = Some(45
 List(10,30,45,76,66,20).filter(_ > 130).headOption //res47: Option[Int] = None
 ```
 
-Find the first element, if it exists and satisfies the Boolean condition. Our previous combination (filter + headOption) is done in a single method, achieving the same result and the consequent advantage of its use, in a line do almost everything.
+A solution similar to the previous code but more complete comes with the **find** method.
 
 ```scala
-List(10,30,45,76,66,20).find(_ > 30)
-val res51: Option[Int] = Some(45)
+def find(p: (A) ⇒ Boolean): Option[A]
+```
+
+Find the first element, if it exists and satisfies the Boolean condition. Our previous combination **(filter + headOption)** is done in a single method, achieving the same result and the consequent advantage of its use, in a line do almost everything.
+
+```scala
+List(10,30,45,76,66,20).find(_ > 30) //val res51: Option[Int] = Some(45)
+List("Havana","Madrid","Oporto").find(city=>city.contentEquals("Havana")) //val res9: Option[String] = Some(Havana)
+List("Havana","Madrid","Oporto").find(city=>city.contentEquals("NotHavana")) //val res10: Option[String] = None
 ```
 
 Let's see an example about a list of integers that we want to divide in 2 groups. The elements > 15 and the rest. Pay attention that **_>15** has the same implication that **elem=>elem>15**.
@@ -188,6 +213,7 @@ The previous use case would be better to use **reduce**. But imagine that our op
 &nbsp;
 &nbsp;
 
-ref: https://twitter.github.io/effectivescala/
+ref: https://twitter.github.io/effectivescala/ \
+&nbsp; &nbsp; &nbsp;[reference for scala api  collection list](https://www.scala-lang.org/api/2.13.3/scala/collection/immutable/List.html)
 
 
