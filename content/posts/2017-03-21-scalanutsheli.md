@@ -29,12 +29,16 @@ val emptyList: List[Nothing] = List()
 val newList: List[Int] = Nil
 ```
 Checking if the list is empty:
-
 ```scala
 val emptyList = List() //val emptyList: List[Nothing] = List()
 emptyList == Nil //val res7: Boolean = true
 emptyList.isEmpty //val res8: Boolean = true
 ```
+
+In previous sections of code we have seen the simplest way to generate a list. As well as how to check if a list is empty.
+A Scala list is composed of 2 parts:
+* Block of Elements
+* Nil
 
 Adding element to an empty List:
 ```scala
@@ -43,15 +47,54 @@ val newList :List[Int]= Nil
 newList.concat(List(1,2,3)) // res1: List[Int] = List(1, 3, 4)
 ```
 
-Filtering List and have a look about the use of **\_**:
+Filtering List:
+```scala
+def filter(p: (A) ⇒ Boolean): List[A]
+```
+Let's see the following example where there is a list that satisfies the filtered condition and another one in which it does not and **take a look at the use of the placeholder**(**\_**), although we will see it more in depth in future posts:
 ```scala
 val cities: List[String] = List("Havana","Madrid","Oporto","Malaga","Matanza")
-//val res2: List[String] = List(Madrid, Malaga, Matanza)
-cities.filter(city=>city.startsWith("M")) == cities.filter(_.startsWith("M"))
+cities.filter(city=>city.startsWith("M")) == cities.filter(_.startsWith("M")) //res2: List[String] = List(Madrid, Malaga, Matanza)
+cities.filter(city=>city.startsWith("x")) //val res0: List[String] = List()
+```
+
+Since many of the collection methods return a standard Scala type for optional values, we'll explain this type in a simple way at the mmoment. We're talking about the Option type, it is a type to model optional values.
+
+When a value is of type Option it indicates that it can be of two types:
+* Some (x) where x is the current value.
+* None which indicates that it has no value or has a null value.
+
+Filtering collections that fulfill a certain condition and some methods that help us to chaining solutions. Check examples below.  
+
+```scala
+List(10,30,45,76,66,20).filter(_ > 30) //res45: List[Int] = List(45, 76, 66)
+
+List(10,30,45,76,66,20).filter(_ > 30).headOption //res44: Option[Int] = Some(45)
+
+List(10,30,45,76,66,20).filter(_ > 130).headOption //res47: Option[Int] = None
+```
+
+A solution similar to the previous code but more complete comes with the **find** method.
+
+```scala
+def find(p: (A) ⇒ Boolean): Option[A]
+```
+
+Find the first element, if it exists and satisfies the Boolean condition. Our previous combination **(filter + headOption)** is done in a single method, achieving the same result and the consequent advantage of its use, in a line do almost everything.
+
+For each element in the collections, as detaied below, it will be asked if it meets the established condition, the first element that meets this condition will be returned in a Some (the_element_searching), in case no element meets the condition, it will return None
+
+```scala
+List(10,30,45,76,66,20).find(_ > 30) //val res51: Option[Int] = Some(45)
+List("Havana","Madrid","Oporto").find(city=>city.contentEquals("Havana")) //val res9: Option[String] = Some(Havana)
+List("Havana","Madrid","Oporto").find(city=>city.contentEquals("NotHavana")) //val res10: Option[String] = None
 ```
 
 Creating a new collection by applying an specific function to each of the elements of the collection on 
 which we want to make the map. **The elements will be returned in a collection of the same type that the collection involved in the operation.**
+```scala
+def map[B](f: (A) ⇒ B): List[B]
+```
 ```scala
 List(10,20,30,40,50).map(_ * 2) //res13: List[Int] = List(20, 40, 60, 80, 100)
 List(10,20,30,40,50)..map(element => element * 2) //res14: List[Int] = List(20, 40, 60, 80, 100)
@@ -59,8 +102,8 @@ List(10,20,30,40,50)..map(element => element * 2) //res14: List[Int] = List(20, 
 ```scala
 List(10,20,30,40,50).map(_ * 2) //res5: List[Int] = List(20, 40, 60, 80, 100)
 
-def flong(x:Int): Int= x*2
-def otherwayOFflong: Int => Int = x => x*2
+def flong(x:Int): Int= x*2 // def flong(x: Int): Int 
+def otherwayOFflong: Int => Int = x => x*2 // def otherwayOFflong: Int => Int
 
 List(10,20,30,40,50).map(element => flong(element)) //res7: List[Int] = List(20, 40, 60, 80, 100)
 List(10,20,30,40,50).map(flong(_)) //res8: List[Int] = List(20, 40, 60, 80, 100)
@@ -84,42 +127,18 @@ val ciudades: List[List[String]]=List(List("madrid","barcelona"),List("havana","
 ciudades.flatMap(x=>x.map(cities=>cities.toUpperCase)) //res12: List[String] = List(MADRID, BARCELONA, HAVANA, CIENFUEGOS, LONDON, MANCHESTER)
 ```
 
-Since many of the collection methods return a standard Scala type for optional values, we'll explain this type in a simple way at the mmoment. We're talking about the Option type, it is a type to model optional values.
-
-When a value is of type Option it indicates that it can be of two types:
-* Some (x) where x is the current value.
-* None which indicates that it has no value or has a null value.
-
 ```scala
 List(Some(1),Some(3),Some(10),None).flatMap(x=>x) //res41: List[Int] = List(1, 3, 10)
 List(Some(1),Some(3),Some(10),None).flatten //res42: List[Int] = List(1, 3, 10)
 ```
 
-Filtering collections that fulfill a certain condition and some methods that help us to chaining solutions. Check examples below.  
+A partition, for a boolean condition applied to a collection, all those members of the collection that meet the same are grouped on the left side of the tuple and those that do not fulfill on the right part.
 
 ```scala
-List(10,30,45,76,66,20).filter(_ > 30) //res45: List[Int] = List(45, 76, 66)
-
-List(10,30,45,76,66,20).filter(_ > 30).headOption //res44: Option[Int] = Some(45)
-
-List(10,30,45,76,66,20).filter(_ > 130).headOption //res47: Option[Int] = None
+def partition(p: (A) ⇒ Boolean): (List[A], List[A])
 ```
 
-A solution similar to the previous code but more complete comes with the **find** method.
-
-```scala
-def find(p: (A) ⇒ Boolean): Option[A]
-```
-
-Find the first element, if it exists and satisfies the Boolean condition. Our previous combination **(filter + headOption)** is done in a single method, achieving the same result and the consequent advantage of its use, in a line do almost everything.
-
-```scala
-List(10,30,45,76,66,20).find(_ > 30) //val res51: Option[Int] = Some(45)
-List("Havana","Madrid","Oporto").find(city=>city.contentEquals("Havana")) //val res9: Option[String] = Some(Havana)
-List("Havana","Madrid","Oporto").find(city=>city.contentEquals("NotHavana")) //val res10: Option[String] = None
-```
-
-Let's see an example about a list of integers that we want to divide in 2 groups. The elements > 15 and the rest. Pay attention that **_>15** has the same implication that **elem=>elem>15**.
+Let's see the next example about a list of integers that we want to divide in 2 groups. The elements > 15 and the rest. Pay attention that **_>15** has the same implication that **elem=>elem>15**.
 Remember that firt will go all element that satisfy the conditions and the other groups those element that don't 
 ```scala
 val numberList: List[Int] = List(1,3,4,5,8,20,28,14,12)
