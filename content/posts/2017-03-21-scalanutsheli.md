@@ -318,7 +318,7 @@ List(10,30,45,76,66,20).reduceRight(_ min _) //res29: Int = 10
 
 The previous use case would be better to use **reduce**. But imagine that our op instead of being **max** or **min**, is a **division**, in this case we must care about the order of the operations and we would then have to see what **reduces method** (left or right) to use.
 
-This post have described some of the most important method of List but the rests of them can be found at [the scala api](https://www.scala-lang.org/api/current/scala/index.html).  
+This post has described some of the most important List methods, but the rest of them can be found at [scala api](https://www.scala-lang.org/api/current/scala/index.html).  
 
 &nbsp;
 &nbsp;
