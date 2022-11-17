@@ -19,7 +19,19 @@ Especific for List this is what we have:
 **C**	The operation takes (fast) constant time.\
 **L**	The operation is linear, that is it takes time proportional to the collection size.
 
-Creating different type of Lists:
+
+Based above you shouldn't for example **Append** element to the list because the time it takes to append to a list grows linearly with the size of the list, whereas **Prepending** takes constant time. 
+
+Alternative to Append:
+1. Prepend + reverse
+2. [ListBuffer](https://www.scala-lang.org/api/2.13.6/scala/collection/mutable/ListBuffer.html)
+
+**Something you to know:** 
+```
+val: makes a variable immutable 
+var: makes a variable mutable
+```
+Creating different types of Lists:
 ```scala
 /** creating list */
 val numbers: List[Int] = List(2, 3, 4, 5, 8, 100, 200, 300)
@@ -314,6 +326,10 @@ List(10,30).reduce(_ - _) //res27: Int = -20
 
 List(10,30,45,76,66,20).reduceLeft(_ min _) //res28: Int = 10
 List(10,30,45,76,66,20).reduceRight(_ min _) //res29: Int = 10
+
+val lines: List[String] = List("firsts_string_value","second_string_value", "third_string_value")
+val longestLine = lines.reduceLeft((a, b) => if (a.length > b.length) a else b)
+//val longestLine: String = second_string_value
 ```
 
 The previous use case would be better to use **reduce**. But imagine that our op instead of being **max** or **min**, is a **division**, in this case we must care about the order of the operations and we would then have to see what **reduces method** (left or right) to use.
