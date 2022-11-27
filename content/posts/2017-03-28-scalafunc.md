@@ -82,6 +82,18 @@ val greeting = () => s"hello, $name" //val greeting: () => String = $Lambda$1259
 greeting() //val res18: String = hello, world
 ```
 
+5. Defining closures
+
+This is the best [definition that I've found about closure](https://gist.github.com/ldipotetjob/08b41957431ec9014d02ac1c5e7eed23). It's a paradigm that can be applied to any language.
+
+```scala
+def closure_function(inc: Int) = (x: Int) => x + inc //def closure_function(inc: Int): Int => Int
+val increment = closure_function(10) //val increment: Int => Int = $Lambda$1140/653292129@2b55ea4d
+val increment5 = increment(5) //val increment5: Int = 15
+scala> val increment5 = increment(10) //val increment5: Int = 20
+```
+Based on the above definition, the closure can be implemented in all scenarios where the value it returns depends on one or more variables(of any type) created or generated outside of it.
+
 **Not purely functional**
 
 ```scala
