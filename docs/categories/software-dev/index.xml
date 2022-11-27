@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>software dev on Green Mojito in technology</title>
+    <link>https://ldipotetjob.github.io/mojitoverde/categories/software-dev/</link>
+    <description>Recent content in software dev on Green Mojito in technology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Scadip</copyright>
+    <lastBuildDate>Tue, 28 Mar 2017 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/categories/software-dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scala in a nutshell - Functions</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-28-scalafunc/</link>
+      <pubDate>Tue, 28 Mar 2017 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-28-scalafunc/</guid>
+      <description>In this post I will talk about the role of functions in scala, how create them and its implication on the scala language. We are going to run many of them from Scala REPL (“Read-Evaluate-Print-Loop”).
+We want to make clear we are working with scala 2.x You can find below some useful commad and if you want to go deeper try the Scala REPL page:
+use :quit to exit from the scala REPL.</description>
+    </item>
+    
+  </channel>
+</rss>

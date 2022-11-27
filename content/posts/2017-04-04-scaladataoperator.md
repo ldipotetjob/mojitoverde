@@ -3,7 +3,8 @@ title: Scala in a nutshell - Data Types - Operators
 date: 2017-04-04 09:00:00
 tags:
     - Scala
-category: programming
+categories:
+    - scala programming
 keywords:
     - Scala
     - Data Types

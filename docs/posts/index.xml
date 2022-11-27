@@ -243,68 +243,57 @@ The comparison x == y, where x and y are values, produces true or false. Such a 
     </item>
     
     <item>
+      <title>Scala - Classes - Objects</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-12-scalaclassobject/</link>
+      <pubDate>Wed, 12 Apr 2017 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-12-scalaclassobject/</guid>
+      <description>In this post we talk about Scala Class, Objects, Traits and Interfaces. Its relationships between different components and inheritance. We are assuming that classes, methods, and polymorphism are familiar to the reader and we will only delve into those terms that are new to the scenario at hand.
+The next example or its idea have been taken from Programming in scala, 3rd edition
+Defining classes in scala like in any other language is a blueprint for creating objects.</description>
+    </item>
+    
+    <item>
+      <title>Api Rest - Playframework - Testing</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/</link>
+      <pubDate>Tue, 04 Apr 2017 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/</guid>
+      <description>As was argued by Robert C. Martin in his Clean Code bible, there are several aspects that we have to pay attention when we design our tests:
+ Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  </description>
+    </item>
+    
+    <item>
+      <title>Scala in a nutshell - Data Types - Operators</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-04-scaladataoperator/</link>
+      <pubDate>Tue, 04 Apr 2017 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-04-scaladataoperator/</guid>
+      <description>In this post we talk about Scala Data Types and its perspective in the easiest way.
+Basic type Range Byte 8-bit signed two&#39;s complement integer (-27 to 27 - 1, inclusive) Short 16-bit signed two&#39;s complement integer (-215 to 215 - 1, inclusive) Int 32-bit signed two&#39;s complement integer (-231 to 231 - 1, inclusive) Long 64-bit signed two&#39;s complement integer (-263 to 263 - 1, inclusive) Char 16-bit unsigned Unicode character (0 to 216 - 1, inclusive) String a sequence of Chars Float 32-bit IEEE 754 single-precision float Double 64-bit IEEE 754 double-precision float Boolean true or false Scala brings a mechanism for string interpolation, which allows to embed expressions within string literals.</description>
+    </item>
+    
+    <item>
+      <title>Scala in a nutshell - Functions</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-28-scalafunc/</link>
+      <pubDate>Tue, 28 Mar 2017 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-28-scalafunc/</guid>
+      <description>In this post I will talk about the role of functions in scala, how create them and its implication on the scala language. We are going to run many of them from Scala REPL (“Read-Evaluate-Print-Loop”).
+We want to make clear we are working with scala 2.x You can find below some useful commad and if you want to go deeper try the Scala REPL page:
+use :quit to exit from the scala REPL.</description>
+    </item>
+    
+    <item>
       <title>Scala in a nutshell - Collections - List</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-21-scalanutsheli/</link>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-21-scalanutshell/</link>
       <pubDate>Tue, 21 Mar 2017 09:00:00 +0000</pubDate>
       
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-21-scalanutsheli/</guid>
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-21-scalanutshell/</guid>
       <description>In this post I am gonna explain one of the main collection in Scala, List. The performance in this inmutable collection for some scenarios is great with optimal features and not so good in others because this performance is proportional to the size of the collection.
 You can find the performance of List and other collections here.
 Especific for List this is what we have:
    head tail apply update prepend append insert     C C L L C L -    C	The operation takes (fast) constant time.</description>
-    </item>
-    
-    <item>
-      <title>java散列知识点总结</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-02-18-hash/</link>
-      <pubDate>Sat, 18 Feb 2017 19:19:01 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-02-18-hash/</guid>
-      <description>java 的根类 Object 具有 hashcode 方法。当 equal 方法被重写时也应当重写 hashcode 方法。
-基本数据类型的散列码  byte short int char 类型的搜索键将会转换为 int。 float 类型的搜索键使用 Float.floatToIntBits(key) 作为散列码。 long 类型的搜索键会进行折叠操作，如下：  1iny hashCode = (int) (key ^ (key &amp;gt;&amp;gt; 32));  double 类型的搜索键会使用 Double.doubleToLongBits(key) 方法转换为 long 类型然后再进行折叠。  字符串类型的散列码 对于字符串一般使用多项式散列码进行计算，
-这里放个公式的图
-b的较好取值为31，33，37，39，41。在 java String 类中 b 取31。
-1public static int hash(String key, int tableSize) 2{ 3 int hashVal = 0; 4 5 for (int i = 0; i &amp;lt; key.</description>
-    </item>
-    
-    <item>
-      <title>php的闭包特性</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-01-11-php-lambada/</link>
-      <pubDate>Wed, 11 Jan 2017 18:39:17 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-01-11-php-lambada/</guid>
-      <description>闭包和匿名函数在PHP 5.3.0引入，并且PHP将两者视为相同的概念。闭包其实是伪装成函数的对象，它的实质其实是Closure实例。
-创建闭包非常简单：
-1$c = function($name) { 2 return sprintf(&amp;#34;Hello World! Hello %s!&amp;#34;, $name); 3}; 4 5echo $c(&amp;#39;PHP&amp;#39;); 使用use对闭包附加状态，多个参数使用,分隔：
-1function callPerson($name) { 2 return function($about) use ($name) { 3 return sprintf(&amp;#34;%s, %s&amp;#34;, $name, $about); 4 } 5} 6 7$triver = callPerson(&amp;#39;Triver&amp;#39;); 8echo $triver(&amp;#34;slow down, please!!&amp;#34;); 9 附加的变量会被封装到闭包内，即使返回的闭包队形已经跳出了callPerson()的作用域也仍然会记住$name的值。
-闭包有一个有趣的bindTo()方法，可以将闭包的内部状态绑定到其他对象上，第二个参数指定了绑定闭包的对象所属的类，从而实现在闭包中访问绑定对象的私有方法和属性。
-1class Bind { 2 protected $name = &amp;#39;no name&amp;#39;; 3 public $change; 4 5 public function addAction($action) { 6 $this-&amp;gt;change = $action-&amp;gt;bindTo($this, __CLASS__); 7 } 8} 9 10$bind = new Bind(); 11$bind-&amp;gt;addAction(function() { 12 $this-&amp;gt;name = &amp;#34;php&amp;#34;; 13 return $this-&amp;gt;name; 14 }); 15 16$change = $bind-&amp;gt;change; 17echo $change(); 使用这个特性可以方便的为类添加方法并绑定：</description>
-    </item>
-    
-    <item>
-      <title>ruby学习笔记</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2016-12-08-ruby-notes/</link>
-      <pubDate>Thu, 08 Dec 2016 22:54:49 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2016-12-08-ruby-notes/</guid>
-      <description>regular expressions =~是用于正则表达式的匹配操作符。返回匹配到的字符串位置或nil。
-1&amp;#34;abcdef&amp;#34; =~ /d/ # return 3 2&amp;#34;aaaaaa&amp;#34; =~ /d/ # return nil !和? The exclamation point (!, sometimes pronounced aloud as &amp;ldquo;bang!&amp;quot;) indicates something potentially destructive, that is to say, something that can change the value of what it touches.
-ruby&amp;gt; s1 = &amp;quot;forth&amp;quot; &amp;quot;forth&amp;quot; ruby&amp;gt; s1.chop! # This changes s1. &amp;quot;fort&amp;quot; ruby&amp;gt; s2 = s1.chop # This puts a changed copy in s2, &amp;quot;for&amp;quot; ruby&amp;gt; s1 # .</description>
-    </item>
-    
-    <item>
-      <title>netfilter/iptables 笔记</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2016-11-29-iptables-usage/</link>
-      <pubDate>Tue, 29 Nov 2016 21:08:52 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2016-11-29-iptables-usage/</guid>
-      <description>netfilter 与 iptables3333 netfilter是linux默认的防火墙，在2.4之后的版本正式进入内核。netfilter 使用四个表(Table)来存放控制信息包过滤处理的规则集。每张表由链(Chain)组成，每条链又包含了多条规则(rule)。
-iptables是用来编辑操作这些表的一个工具。iptables包中也包含了针对IPv6的工具ip6tables。
-四个表及其包含的链：
- filter  INPUT FORWARD OUTPUT   nat  PREROUTING POSTROUTING OUTPUT   mangle  PREROUTING INPUT FORWARD OUTPUT POSTROUTING   raw  PREROUTING OUTPUT    filter机制 filter是netfilter中最重要的机制，其任务是执行数据包的过滤操作。具有三种内建链：
- INPUT - 来自外部的数据包（访问本机） OUTPUT - 发往外部的数据包（本机访问外部） FORWORD - “路过”本机的数据包，转发到其他设备  链中规则的匹配方式遵循first match。filter会根据数据包特征从相应链中的第一条规则开始逐一进行匹配。只要遇到满足特征的规则后便不再继续。 每条链在最底端都定义了默认规则。默认规则只会有一种状态：ACCEPT或者DROP。默认为ACCEPT。
-iptables命令参数 格式：
-iptables -操作方式 [链名] [条件匹配] [选项] iptables -[ACD] chain rule-specification [options] iptables -I chain [rulenum] rule-specification [options] iptables -R chain rulenum rule-specification [options] iptables -D chain rulenum [options] iptables -[LS] [chain [rulenum]] [options] iptables -[FZ] [chain] [options] iptables -[NX] chain iptables -E old-chain-name new-chain-name iptables -P chain target [options] iptables -h (print this help information) 常用操作方式：</description>
     </item>
     
     <item>
@@ -315,38 +304,6 @@ iptables -操作方式 [链名] [条件匹配] [选项] iptables -[ACD] chain ru
       <guid>https://ldipotetjob.github.io/mojitoverde/posts/2016-11-05-php-composer-autoload/</guid>
       <description>composer的autoload可以轻松的实现php的自动加载。在composer.json中添加autoload字段即可。当前支持 PSR-0 PSR-4 classmap解析和files包含。官方推荐PSR-4标准（添加类时不需要重新生成加载器）。
 PSR-4 Under the psr-4 key you define a mapping from namespaces to paths, relative to the package root. When autoloading a class like Foo\\Bar\\Baz a namespace prefix Foo\\ pointing to a directory src/ means that the autoloader will look for a file named src/Bar/Baz.php and include it if present. Note that as opposed to the older PSR-0 style, the prefix (Foo\\) is not present in the file path.</description>
-    </item>
-    
-    <item>
-      <title>幸せ</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2016-10-22-z/</link>
-      <pubDate>Sat, 22 Oct 2016 16:56:54 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2016-10-22-z/</guid>
-      <description>:-)
-Look at the stars
-抬头仰望满天繁星
-Look how they shine for you
-看它们为你绽放着 闪烁不息
-And everything you do
-而你的一颦一举
-Yeah&#39; they were all Yellow
-却满含胆怯和羞意
-I came along
-我追随着你的气息
-I wrote a song for you
-为你写下一首歌曲
-And all the things you do
-回想着你的所有举动和笑意
-it was called Yellow
-并用Yellow为这首歌命名
-So then I took my turn
-我耗尽心力
-Oh what a thing to have done
-用行动表达我的爱意
-And it was all Yellow
-噢这过程充满不安羞怯和点滴暖意
-Your skin</description>
     </item>
     
   </channel>

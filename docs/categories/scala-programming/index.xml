@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Scala on Green Mojito in technology</title>
-    <link>https://ldipotetjob.github.io/mojitoverde/tags/scala/</link>
-    <description>Recent content in Scala on Green Mojito in technology</description>
+    <title>scala programming on Green Mojito in technology</title>
+    <link>https://ldipotetjob.github.io/mojitoverde/categories/scala-programming/</link>
+    <description>Recent content in scala programming on Green Mojito in technology</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Scadip</copyright>
-    <lastBuildDate>Wed, 12 Apr 2017 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/tags/scala/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Apr 2017 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/categories/scala-programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Scala - Classes - Objects</title>
       <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-12-scalaclassobject/</link>

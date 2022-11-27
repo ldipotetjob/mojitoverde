@@ -3,7 +3,8 @@ title: Scala in a nutshell - Collections - List
 date: 2017-03-21 09:00:00
 tags:
     - Scala
-category: programming
+categories:
+    - scala programming
 keywords:
     - Scala
 ---

@@ -1,9 +1,10 @@
 ---
 title: composer中的autoload
 date: 2016-11-05 02:42:06
-category: tech
 tags:
     - php
+categories:
+    - tech    
 keywords:
     - composer
     - autoload

@@ -3,7 +3,8 @@ title: Scala - Classes - Objects
 date: 2017-04-12 09:00:00
 tags:
     - Scala
-category: programming
+categories:
+    - scala programming 
 keywords:
     - Scala
 ---

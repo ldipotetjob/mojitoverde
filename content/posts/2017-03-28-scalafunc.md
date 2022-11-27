@@ -1,9 +1,10 @@
 ---
 title: Scala in a nutshell - Functions
 date: 2017-03-28 09:00:00
-category: notes
 tags:
     - Scala
+categories:
+    - scala programming 
 keywords:
     - Scala
 ---

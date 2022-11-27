@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/mojitoverde/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/mojitoverde/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/mojitoverde/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/mojitoverde/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Scala in a nutshell - Functions | Green Mojito in technology</title>
+  <link rel = 'canonical' href = 'https://ldipotetjob.github.io/mojitoverde/posts/2017-03-28-scalafunc/'>
+  <meta name="description" content="Green Mojito is a fresh site where the knowledge must be fresh but not simple, where the content can be complex but nice. This is a site where you can find different scenarios and use cases related with different technologies. We believe in the beginnings but we won&#39;t deal with &#39;hello world&#39; projects.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Scala in a nutshell - Functions" />
+<meta property="og:description" content="In this post I will talk about the role of functions in scala, how create them and its implication on the scala language. We are going to run many of them from Scala REPL (“Read-Evaluate-Print-Loop”).
+We want to make clear we are working with scala 2.x You can find below some useful commad and if you want to go deeper try the Scala REPL page:
+use :quit to exit from the scala REPL." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ldipotetjob.github.io/mojitoverde/posts/2017-03-28-scalafunc/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-03-28T09:00:00+00:00" />
+<meta property="article:modified_time" content="2017-03-28T09:00:00+00:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Scala in a nutshell - Functions"/>
+<meta name="twitter:description" content="In this post I will talk about the role of functions in scala, how create them and its implication on the scala language. We are going to run many of them from Scala REPL (“Read-Evaluate-Print-Loop”).
+We want to make clear we are working with scala 2.x You can find below some useful commad and if you want to go deeper try the Scala REPL page:
+use :quit to exit from the scala REPL."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://ldipotetjob.github.io/mojitoverde/css/styles.04f09ad390971c33c5cb6ac0042be29517b0eb4ebedab77d15c6486a6820c0739c80ea8de6dd80a746f9abddef23f0b0e220d9e16b2fcf288db310f513f4d646.css" integrity="sha512-BPCa05CXHDPFy2rABCvilRew606&#43;2rd9FcZIamggwHOcgOqN5t2Ap0b5q93vI/Cw4iDZ4WsvzyiNsxD1E/TWRg=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://ldipotetjob.github.io/mojitoverde/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/mojitoverde/">Home</a></li>
+         
+        <li><a href="/mojitoverde/posts">Blog</a></li>
+         
+        <li><a href="/mojitoverde/tags">Tags</a></li>
+         
+        <li><a href="/mojitoverde/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://ldipotetjob.github.io/mojitoverde/posts/2017-03-21-scalanutshell/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2017-04-04-scaladataoperator/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&text=Scala%20in%20a%20nutshell%20-%20Functions" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&title=Scala%20in%20a%20nutshell%20-%20Functions" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&is_video=false&description=Scala%20in%20a%20nutshell%20-%20Functions" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Scala%20in%20a%20nutshell%20-%20Functions&body=Check out this article: https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&title=Scala%20in%20a%20nutshell%20-%20Functions" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&title=Scala%20in%20a%20nutshell%20-%20Functions" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&name=Scala%20in%20a%20nutshell%20-%20Functions&description=In%20this%20post%20I%20will%20talk%20about%20the%20role%20of%20functions%20in%20scala%2c%20how%20create%20them%20and%20its%20implication%20on%20the%20scala%20language.%20We%20are%20going%20to%20run%20many%20of%20them%20from%20Scala%20REPL%20%28%e2%80%9cRead-Evaluate-Print-Loop%e2%80%9d%29.%0aWe%20want%20to%20make%20clear%20we%20are%20working%20with%20scala%202.x%20You%20can%20find%20below%20some%20useful%20commad%20and%20if%20you%20want%20to%20go%20deeper%20try%20the%20Scala%20REPL%20page%3a%0ause%20%3aquit%20to%20exit%20from%20the%20scala%20REPL." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&t=Scala%20in%20a%20nutshell%20-%20Functions" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents"></nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Scala in a nutshell - Functions
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2017-03-28 09:00:00 &#43;0000 UTC" itemprop="datePublished">2017-03-28</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          2 minute read
+        </div>
+        
+        
+        <div class="article-category">
+            <i class="fas fa-archive"></i>
+            
+            
+            <a class="category-link" href="/mojitoverde/categories/scala-programming">scala programming</a>
+            
+        </div>
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/mojitoverde/tags/scala" rel="tag">Scala</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <p>In this post I will talk about the role of functions in scala, how create them and its implication on the scala language. We are going to run many of them from Scala REPL (“<strong>Read-Evaluate-Print-Loop</strong>”).</p>
+<p>We want to make clear we are working with scala 2.x
+You can find below some useful commad and if you want to go deeper try the <a href="https://docs.scala-lang.org/overviews/repl/overview.html">Scala REPL page</a>:</p>
+<pre><code>use :quit to exit from the scala REPL.
+use tab for completion.
+use :help for a list of commands.
+use :paste to enter a class and object as companions.
+</code></pre><p><strong>The telltale sign of a function with side effects is that its result type is Unit.</strong></p>
+<p>Defining simple functions in scala:</p>
+<ol>
+<li>Defining a <a href="https://www.scala-lang.org/api/2.13.3/scala/Function1.html">Function1 (function of 1 parameter)</a>:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">val</span> f<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Function1</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Int</span>,<span style="color:#8be9fd">String</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> myInt <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;my Int value: &#34;</span> <span style="color:#ff79c6">+</span> myInt<span style="color:#ff79c6">.</span>toString
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#6272a4">//val f: Int =&gt; String = $Lambda$1228/2144835163@9742012
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#6272a4"></span>f<span style="color:#ff79c6">(</span><span style="color:#bd93f9">20</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val res10: String = my Int value: 20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#6272a4"></span><span style="color:#6272a4">/* another way of Function1 */</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#ff79c6">val</span> f1<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#50fa7b">String</span> <span style="color:#ff79c6">=</span> myInt <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;my other Int value: &#34;</span> <span style="color:#ff79c6">+</span> myInt<span style="color:#ff79c6">.</span>toString
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#6272a4">//val f1: Int =&gt; String = $Lambda$1230/2101422773@74ee07e
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#6272a4"></span>f1<span style="color:#ff79c6">(</span><span style="color:#bd93f9">20</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val res11: String = my other Int value: 20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#6272a4">/* another way of Function1 as an anonymous function */</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#ff79c6">val</span> f2 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;my new one Int value: &#34;</span> <span style="color:#ff79c6">+</span> x<span style="color:#ff79c6">.</span>toString
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#6272a4">//val f2: Int =&gt; String = $Lambda$1232/711327915@1c724957
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#6272a4"></span>f2<span style="color:#ff79c6">(</span><span style="color:#bd93f9">20</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val res13: String = my new one Int value: 20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#ff79c6">val</span> formatArgs<span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>args<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Array</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">])</span> <span style="color:#ff79c6">=&gt;</span>  args<span style="color:#ff79c6">.</span>mkString<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;\n&#34;</span><span style="color:#ff79c6">)</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#6272a4">//val formatArgs: Array[String] =&gt; String = $Lambda$1235/699894580@3817d886
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>formatArgs<span style="color:#ff79c6">(</span><span style="color:#50fa7b">Array</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;functional&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;approach&#34;</span><span style="color:#ff79c6">))</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span style="color:#6272a4">//val res7: String =
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#6272a4">//functional
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span style="color:#6272a4">//approach
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span style="color:#6272a4">/* Defining function in a ay of &lt;def&gt; */</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span style="color:#ff79c6">def</span> formatArgs<span style="color:#ff79c6">(</span>args<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Array</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">])</span> <span style="color:#ff79c6">=</span> args<span style="color:#ff79c6">.</span>mkString<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;\n&#34;</span><span style="color:#ff79c6">)</span> 	<span style="color:#6272a4">//def formatArgs(args: Array[String]): String
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span style="color:#6272a4"></span>formatArgs<span style="color:#ff79c6">(</span><span style="color:#50fa7b">Array</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;functional&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;approach&#34;</span><span style="color:#ff79c6">))</span> 
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span style="color:#6272a4">//val res7: String =
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span style="color:#6272a4">//functional
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span style="color:#6272a4">//approach
+</span></code></pre></div><ol start="2">
+<li>Defining a <a href="https://www.scala-lang.org/api/2.13.3/scala/Function2.html">Function2 (function of 2 parameters)</a> in this case with functional approach:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">def</span> max<span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span> y<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>           <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>x <span style="color:#ff79c6">&gt;</span> y<span style="color:#ff79c6">)</span> x
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#ff79c6">else</span> y <span style="color:#ff79c6">}</span> <span style="color:#6272a4">//def max(x: Int, y: Int): Int
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#6272a4"></span>max<span style="color:#ff79c6">(</span><span style="color:#bd93f9">10</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">20</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val res0: Int = 20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#6272a4">/* another way of Function2 as an anonymous function */</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#ff79c6">val</span> max <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span> y<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span>  <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>x <span style="color:#ff79c6">&lt;</span> y<span style="color:#ff79c6">)</span> y <span style="color:#ff79c6">else</span> x
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#6272a4">//val max: (Int, Int) =&gt; Int = $Lambda$1254/801597836@5960fd98
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span style="color:#6272a4"></span>max<span style="color:#ff79c6">(</span><span style="color:#bd93f9">10</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">20</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val res16: Int = 20
+</span></code></pre></div><ol start="3">
+<li>Function with <a href="https://www.scala-lang.org/api/2.13.x/scala/Function0.html">0 parameter</a> as input and not returning value:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">val</span> name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;world&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#ff79c6">val</span> greeting <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">()</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">s&#34;hello, </span><span style="color:#f1fa8c">$name</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#6272a4">//val greeting: () =&gt; String = $Lambda$1259/1959562325@64b05928 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>greeting<span style="color:#ff79c6">()</span> <span style="color:#6272a4">//val res18: String = hello, world
+</span></code></pre></div><p><strong>Not purely functional</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">def</span> greet<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">=</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Hello, world!&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//def greet(): Unit
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#6272a4">/*Anonymous function*/</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#ff79c6">val</span> greet <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">()</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Hello, world!&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#6272a4">/* Other way of Function0 */</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#ff79c6">val</span> greet<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Function0</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Unit</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">()</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Hello, world!&#34;</span><span style="color:#ff79c6">)</span>
+</code></pre></div><p>In this post you have seen different paths to create functions in Scala. We avoid the definition of Function 0..2 in Scala, basically because it requires definitions like <strong>Trait</strong> and <strong>Object</strong> as a <strong>Singleton</strong>.  We&rsquo;ll address these concepts in next posts.</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/mojitoverde/">Home</a></li>
+         
+          <li><a href="/mojitoverde/posts">Blog</a></li>
+         
+          <li><a href="/mojitoverde/tags">Tags</a></li>
+         
+          <li><a href="/mojitoverde/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents"></nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&text=Scala%20in%20a%20nutshell%20-%20Functions" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&title=Scala%20in%20a%20nutshell%20-%20Functions" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&is_video=false&description=Scala%20in%20a%20nutshell%20-%20Functions" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Scala%20in%20a%20nutshell%20-%20Functions&body=Check out this article: https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&title=Scala%20in%20a%20nutshell%20-%20Functions" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&title=Scala%20in%20a%20nutshell%20-%20Functions" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&name=Scala%20in%20a%20nutshell%20-%20Functions&description=In%20this%20post%20I%20will%20talk%20about%20the%20role%20of%20functions%20in%20scala%2c%20how%20create%20them%20and%20its%20implication%20on%20the%20scala%20language.%20We%20are%20going%20to%20run%20many%20of%20them%20from%20Scala%20REPL%20%28%e2%80%9cRead-Evaluate-Print-Loop%e2%80%9d%29.%0aWe%20want%20to%20make%20clear%20we%20are%20working%20with%20scala%202.x%20You%20can%20find%20below%20some%20useful%20commad%20and%20if%20you%20want%20to%20go%20deeper%20try%20the%20Scala%20REPL%20page%3a%0ause%20%3aquit%20to%20exit%20from%20the%20scala%20REPL." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&t=Scala%20in%20a%20nutshell%20-%20Functions" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  Scadip 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/mojitoverde/">Home</a></li>
+         
+        <li><a href="/mojitoverde/posts">Blog</a></li>
+         
+        <li><a href="/mojitoverde/tags">Tags</a></li>
+         
+        <li><a href="/mojitoverde/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/mojitoverde/lib/font-awesome/css/all.min.css>
+<script src=/mojitoverde/lib/jquery/jquery.min.js></script>
+<script src=/mojitoverde/js/main.js></script>
+<script src=/mojitoverde/js/code-copy.js></script>
+
+
+
+</html>

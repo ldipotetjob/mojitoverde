@@ -5,7 +5,8 @@ tags:
     - Scala
     - PlayFramework
     - Testing
-category: programming
+categories:
+    - scala programming 
 keywords:
     - Scala
     - PlayFramework
