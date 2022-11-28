@@ -1,6 +1,6 @@
 ---
 title: Api Rest - Playframework - Testing 
-date: 2017-04-04 09:00:00
+date: 2018-05-30 09:00:00
 tags:
     - Scala
     - PlayFramework

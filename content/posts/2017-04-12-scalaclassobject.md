@@ -8,7 +8,7 @@ categories:
 keywords:
     - Scala
 ---
-In this post we talk about Scala Class, Objects, Traits and Interfaces. Its relationships between different components and inheritance. We are assuming **that classes, methods, and polymorphism are familiar to the reader** and we will only delve into those terms that are new to the scenario at hand.
+In this post we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We are assuming **that classes, methods, and polymorphism are familiar to the reader** and we will only delve into those terms that are new to the scenario at hand.
 
 The next example or its idea have been taken from [Programming in scala, 3rd edition](https://www.amazon.co.uk/Programming-Scala-3rd-Martin-Odersky/dp/0981531687)
 
