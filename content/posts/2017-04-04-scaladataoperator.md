@@ -36,6 +36,47 @@ println(s"Good morning, $userName!") //Good morning, Luis!
 println(s"You have to check this value:${21%2}") //You have to check this value:1
 ```
 
+Repeated params. It implies that a params in a function can include one or more of element of the specific type:
+```scala
+def echo(args: String*) =
+            for (arg <- args) println(arg)
+// def echo(args: String*): Unit
+
+echo("hello") // hello
+echo("hello","i am louis")
+// hello
+// i am louis
+
+echo("hello","i am louis","and you")
+// hello
+// i am louis
+// and you
+```
+
+Even when inside it's declared as an array you can't pass a collection(array, list, ...) as a parameter:
+
+```scala
+// the same scenario when using arrays 
+echo(List("hello","i am louis","and you ?"))
+                ^
+       error: type mismatch;
+        found   : List[String]
+        required: String
+```
+
+So we need to tell the compiler to pass each element of my list as its own argument to echo, rather than all of it as a single argument. This is the way, our single argument: _*. 
+\
+Check below code:
+
+```scala 
+val myechoList = List("hello","i am louis","and you ?")
+// val myechoList: List[String] = List(hello, i am louis, and you ?)
+
+echo(myechoList: _*)
+hello
+i am louis
+and you ?
+```
 
 
 
