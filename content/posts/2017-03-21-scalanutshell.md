@@ -8,26 +8,26 @@ categories:
 keywords:
     - Scala
 ---
-In this post I am gonna explain one of the main collection in Scala, List. The performance in this inmutable collection for some scenarios is great with optimal features and not so good in others because this performance is proportional to the size of the collection.\
+In this post I'm going to explain one of the main collections in Scala, **List**. The performance in this inmutable collection for some scenarios is great with optimal features however, it doesn't work as well in others scenarios because this performance is proportional to the size of the collection.\
 You can find the performance of List and other collections 
 [here](https://docs.scala-lang.org/overviews/collections-2.13/performance-characteristics.html).\
-Especific for List this is what we have: 
+Specific for **List**, this is what we have: 
 
 | head  | tail | apply | update | prepend | append | insert |
 | :---  | :--- | :---  | :---   | :---    | :---   | :---   |
 | C     | C    | L     | L      | C       | L	   | -      |
 
 **C**	The operation takes (fast) constant time.\
-**L**	The operation is linear, that is it takes time proportional to the collection size.
+**L**	The operation is linear, meaning it takes time proportional to the collection size.
 
 
-Based above you shouldn't for example **Append** element to the list because the time it takes to append to a list grows linearly with the size of the list, whereas **Prepending** takes constant time. 
+Based in the table above, you shouldn't for example **Append** elements to the list because the time it takes to append to a list grows linearly with the size of the list, whereas **Prepending** takes constant time. 
 
 Alternative to Append:
 1. Prepend + reverse
 2. [ListBuffer](https://www.scala-lang.org/api/2.13.6/scala/collection/mutable/ListBuffer.html)
 
-**Something you to know:** 
+**Something you should know:** 
 ```
 val: makes a variable immutable 
 var: makes a variable mutable
@@ -48,42 +48,42 @@ emptyList == Nil //val res7: Boolean = true
 emptyList.isEmpty //val res8: Boolean = true
 ```
 
-In previous sections of code we have seen the simplest way to generate a list. As well as how to check if a list is empty.
+In previous sections of code we have seen the simplest way to generate a list as well as how to check if a list is empty.
 A Scala list is composed of 2 parts:
 * Block of Elements
 * Nil
 
-Adding element to an empty List:
+Adding elements to an empty List:
 ```scala
 val newList :List[Int]= Nil
 1::3::4::newList // res1: List[Int] = List(1, 3, 4)
 newList.concat(List(1,2,3)) // res1: List[Int] = List(1, 3, 4)
 ```
-The **filter** method of a collection, as its name implies, given **a boolean expression** will return all those elements of the collection that meet that condition. An important detail of this method is that **if it finds elements that satisfy this condition, those element will be returned in a collection of the same type that we perform the filtering, in case no element meets the condition will return a collection of the type queried empty.**
+The **filter** method of a collection, as its name suggests, given **a boolean expression** will return all those elements of the collection that meet that expression. An important detail of this method is that **if it finds elements that satisfy this expression, those elements will be returned in a collection of the same type before we performed the filtering. In case no element meets the expression, the **filter** method will return an empty collection of the type queried.**
 
 Filtering List:
 ```scala
 def filter(p: (A) ⇒ Boolean): List[A]
 ```
-Let's see the following example where there is a list that satisfies the filtered condition and another one in which it does not and **take a look at the use of the placeholder**(**\_**), although we will see it more in depth in future posts:
+Let's see the following example where there is a list that satisfies the filtered condition(**line 1**) and another one(**line 2**) in which it does not.**Take a look at the use of the placeholder**(**\_**), although we will see it more in depth in future posts:
 ```scala
 val cities: List[String] = List("Havana","Madrid","Oporto","Malaga","Matanza")
 cities.filter(city=>city.startsWith("M")) == cities.filter(_.startsWith("M")) //res2: List[String] = List(Madrid, Malaga, Matanza)
 cities.filter(city=>city.startsWith("x")) //val res0: List[String] = List()
 ```
 
-Since many of the collection methods return a standard Scala type for optional values, we'll explain this type in a simple way at the mmoment. We're talking about the Option type, it is a type to model optional values.
+Many of the collection methods return a standard **Scala type for optional values**, we'll simply explain these optional values, which are implemented by the Option type:
 
-When a value is of type Option it indicates that it can be of two types:
+When a value is of type Option it indicates that it can be of two different types:
 * Some (x) where x is the current value.
 * None which indicates that it has no value or has a null value.
 
-We filter a collection and if the filtered collection we apply the headOption it returns the first element of the collection in a **Some(first_element)** or a **None** as no element meets the requirements.
+We filter a collection and if the **headOption** method is applied to the filtered collection, the method returns the first element of the collection in a **Some(first_element)** or a **None** as no element meets the requirements.
 ```scala
 def headOption: Option[A]
 ```
 
-Filtering collections that fulfill a certain condition and some methods that help us to chaining solutions. Check examples below.  
+Filtering collections that fulfill a certain condition and some methods that help us chaining solutions. Check examples below:  
 
 ```scala
 List(10,30,45,76,66,20).filter(_ > 30) //res45: List[Int] = List(45, 76, 66)
@@ -99,9 +99,9 @@ A solution similar to the previous code but more complete comes with the **find*
 def find(p: (A) ⇒ Boolean): Option[A]
 ```
 
-Find the first element, if it exists and satisfies the Boolean condition. Our previous combination **(filter + headOption)** is done in a single method, achieving the same result and the consequent advantage of its use, in a line do almost everything.
+**Find** the first element that satisfies the Boolean condition. Our previous combination **(filter + headOption)** is done in a single method(**Find**), achieving the same result and the consequent advantage of its use due to doing almost everything  in a line.
 
-For each element in the collections, as detaied below, it will be asked if it meets the established condition, the first element that meets this condition will be returned in a Some (the_element_searching), in case no element meets the condition, it will return None
+For each element in the collections, as detailed below, it will be asked if it meets the established condition. The first element that meets this condition will be returned in a Some (the_element_searching). In case no element meets the condition, it will return None.
 
 ```scala
 List(10,30,45,76,66,20).find(_ > 30) //val res51: Option[Int] = Some(45)
@@ -109,8 +109,7 @@ List("Havana","Madrid","Oporto").find(city=>city.contentEquals("Havana")) //val 
 List("Havana","Madrid","Oporto").find(city=>city.contentEquals("NotHavana")) //val res10: Option[String] = None
 ```
 
-Creating a new collection by applying an specific function to each of the elements of the collection on 
-which we want to make the map. **The elements will be returned in a collection of the same type that the collection involved in the operation.**
+Creating a new collection by applying a specific function to each element that we need to make the map. **The elements will be returned in a collection of the same type as the collection involved in the operation.**
 ```scala
 def map[B](f: (A) ⇒ B): List[B]
 ```
@@ -135,7 +134,7 @@ Collections can be grouped following different constraints or conditions.
 def groupBy[K](f: (A) ⇒ K): Map[K, List[A]]
 ```
 
-So this method **partitions** the collection in a map of lists according to a particular function. So for example if we group a list of String by its length all those elements of the list that have the same length will be in a same key K and will belong to the same List [A]. As an important detail, the key K is the type that returns our function used to discriminate
+So this method **splits** the collection in a map of lists according to a particular function. For example, if we group a list of String by its length, all those elements of the list with the same length will be in a same key K and will belong to the same List [A].
 
 ```scala
 /** grouping by length */
@@ -147,14 +146,14 @@ List(1,2,34,33,56,56,32,20).groupBy(_<20)
 //res12: scala.collection.immutable.Map[Boolean,List[Int]] = HashMap(false -> List(34, 33, 56, 56, 32, 20), true -> List(1, 2))
 ```
 
-A partition, for a boolean condition applied to a collection, all those members of the collection that meet the same are grouped on the left side of the tuple and those that do not fulfill on the right part.
+In a **partition**, all members of the collection that meet a boolean condition are grouped on the left side of the tuple and those that do not fulfill, on the right side.
 
 ```scala
 def partition(p: (A) ⇒ Boolean): (List[A], List[A])
 ```
 
-Let's see the next example about a list of integers that we want to divide in 2 groups. The elements > 15 and the rest.
-Remember that first will go all elements that satisfy the conditions and then the other groups those element that don't
+Let's see the next example about a list of integers that we want to divide into **the integers > 15** and **the rest**.
+Integers that satisfy the conditions are grouped at the left side and the rest at the right side.
 ```scala
 val numberList: List[Int] = List(1,3,4,5,8,20,28,14,12)
 numberList.partition(_>15) //res12: (List[Int], List[Int]) = (List(20, 28),List(1, 3, 4, 5, 8, 14, 12))
@@ -165,13 +164,13 @@ val elementLessThan10: List[Int] = List(1, 3, 4, 5, 8)
 
 ```
 
-The Span method of a collection, returns **a prefix / suffix** tuple, from the first element of the collection that does not meet the condition will conform the second part of the tuple, no matter that there are other remaining elements that meet the condition.
+The Span method of a collection, returns a **(prefix,suffix)** tuple, from the first element of the collection that does not meet the condition will conform the second part of the tuple, no matter that there are other remaining elements that meet the condition.
 
 ```scala
 final def span(p: (A) ⇒ Boolean): (List[A], List[A])
 ```
 
-Below, we have made a span with those elements less than 20 and have divided our list starting from the number 20(is not less than 20), the first element that did not comply with the condition. No matter that there are other elements after the number 20 that meet the condition, from the first one that fails will form the other part of the tuple. **The elements will be returned in a collection of the same type that the collection involved in the operation.**
+Below, we have applied the span method to an integer collection. It divides our collection starting from the number 20(not < 20), the first element that didn't meet the condition. **No matter that there are other elements after the number 20 that meet the condition**, the first one that fails and the other elements at its right side in the collection will form the other part of the tuple.
 ```scala
 List(15, 10, 5, 20, 12, 8).span(_ < 20) //res1: (List[Int], List[Int]) = (List(15, 10, 5),List(20, 12, 8))
 List(15, 10,45, 5, 20, 12, 8).span(_ < 20) //res2: (List[Int], List[Int]) = (List(15, 10),List(45, 5, 20, 12, 8))
@@ -194,8 +193,8 @@ List(Map("Six" -> 6, "five" -> 5, "four" -> 4),Map("Nine" -> 9, "eight" -> 8, "s
 List(Some(1),Some(3),Some(10),None).flatMap(x=>x) //res41: List[Int] = List(1, 3, 10)
 List(Some(1),Some(3),Some(10),None).flatten //res42: List[Int] = List(1, 3, 10)
 ```
-Let's see the operation of the fold method which **"merge or synthesize"** the elements of the collection using an associative operator (which can be executed in an arbitrary order [sum, multiplication]). **Always have an initial value or accumulator.**
-In fold we're always talking about associative binary operation which means the order of operations is irrelevant, **fold**, is a monoid, have a look to our [source examples](https://github.com/ldipotetjob/functionalprog/blob/main/src/main/scala/functionalProg-monoids.sc)
+Let's see the operation of the fold method, which **"merge or synthesize"** the elements of the collection using an associative operator (which can be executed in an arbitrary order [sum, multiplication]). **Always have an initial value or accumulator.**
+In the fold method we talk about associative binary operation which means the order of operations is irrelevant. **The fold method**, is a monoid, have a look to our [source examples](https://github.com/ldipotetjob/functionalprog/blob/main/src/main/scala/functionalProg-monoids.sc)
 
 ```scala
 def fold[A1 >: A](z: A1)(op: (A1, A1) ⇒ A1): A1

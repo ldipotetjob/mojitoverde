@@ -1,5 +1,5 @@
 ---
-title: Scala - Abstrac  - Generic Type
+title: Scala - Abstract  - Generic Type
 date: 2018-06-13 09:00:00
 tags:
     - Scala
@@ -156,6 +156,10 @@ There is a solution for the above scenario, **Lower Bounds** and **Upper Bounds*
 | :---          | :-----------                      | :----    |
 | Upper Bounds  | T refers to a subtype of type A.  | [T <: A] |
 | Lower Bounds  | T refers to a supertype of type A.| [T >: A ]|
+
+
+Going deeper with Upper and Lower bound resources in scala when implementing inheritance and generic class, have a look to the code below:
+
 
 
 
