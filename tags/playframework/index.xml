@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PlayFramework on Green Mojito in technology</title>
+    <link>https://ldipotetjob.github.io/mojitoverde/tags/playframework/</link>
+    <description>Recent content in PlayFramework on Green Mojito in technology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Scadip</copyright>
+    <lastBuildDate>Wed, 30 May 2018 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/tags/playframework/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Api Rest - Playframework - Testing</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/</link>
+      <pubDate>Wed, 30 May 2018 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/</guid>
+      <description>As was argued by Robert C. Martin in his Clean Code bible, there are several aspects that we have to pay attention when we design our tests:
+ Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  </description>
+    </item>
+    
+    <item>
+      <title>Api Rest - Playframework - Htpp</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-23-scalahttpplay/</link>
+      <pubDate>Wed, 23 May 2018 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-23-scalahttpplay/</guid>
+      <description>In this post we talk about http api in play framework, addressing some basic standards to build RESTful API. Play Framework can be used widely in other scenarios which involve MVC for example. Honestly there are other frameworks more taylored for RESTful APIs. In my opinion trying to implement HATEOAS in Play Framework is a nightmare so this is a point that we won&amp;rsquo;t approach. I am assuming that you know the main concept of http protocol, its use and implementation as the core of concept when we talk properly about Restful Apis.</description>
+    </item>
+    
+  </channel>
+</rss>

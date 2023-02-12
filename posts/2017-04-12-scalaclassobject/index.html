@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/mojitoverde/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/mojitoverde/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/mojitoverde/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/mojitoverde/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Scala - Classes - Objects | Green Mojito in technology</title>
+  <link rel = 'canonical' href = 'https://ldipotetjob.github.io/mojitoverde/posts/2017-04-12-scalaclassobject/'>
+  <meta name="description" content="Green Mojito is a fresh site where the knowledge must be fresh but not simple, where the content can be complex but nice. This is a site where you can find different scenarios and use cases related with different technologies. We believe in the beginnings but we won&#39;t deal with &#39;hello world&#39; projects.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Scala - Classes - Objects" />
+<meta property="og:description" content="In this post we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We are assuming that classes, methods, and polymorphism are familiar to the reader and we will only delve into those terms that are new to the scenario at hand.
+The next example or its idea have been taken from Programming in scala, 3rd edition
+Defining classes in scala like in any other language is a blueprint for creating objects." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ldipotetjob.github.io/mojitoverde/posts/2017-04-12-scalaclassobject/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-04-12T09:00:00+00:00" />
+<meta property="article:modified_time" content="2017-04-12T09:00:00+00:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Scala - Classes - Objects"/>
+<meta name="twitter:description" content="In this post we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We are assuming that classes, methods, and polymorphism are familiar to the reader and we will only delve into those terms that are new to the scenario at hand.
+The next example or its idea have been taken from Programming in scala, 3rd edition
+Defining classes in scala like in any other language is a blueprint for creating objects."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://ldipotetjob.github.io/mojitoverde/css/styles.04f09ad390971c33c5cb6ac0042be29517b0eb4ebedab77d15c6486a6820c0739c80ea8de6dd80a746f9abddef23f0b0e220d9e16b2fcf288db310f513f4d646.css" integrity="sha512-BPCa05CXHDPFy2rABCvilRew606&#43;2rd9FcZIamggwHOcgOqN5t2Ap0b5q93vI/Cw4iDZ4WsvzyiNsxD1E/TWRg=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://ldipotetjob.github.io/mojitoverde/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/mojitoverde/">Home</a></li>
+         
+        <li><a href="/mojitoverde/posts">Blog</a></li>
+         
+        <li><a href="/mojitoverde/tags">Tags</a></li>
+         
+        <li><a href="/mojitoverde/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://ldipotetjob.github.io/mojitoverde/posts/2017-04-04-scaladataoperator/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2017-04-28-scalatraitinheritance/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&text=Scala%20-%20Classes%20-%20Objects" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&title=Scala%20-%20Classes%20-%20Objects" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&is_video=false&description=Scala%20-%20Classes%20-%20Objects" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Scala%20-%20Classes%20-%20Objects&body=Check out this article: https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&title=Scala%20-%20Classes%20-%20Objects" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&title=Scala%20-%20Classes%20-%20Objects" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&name=Scala%20-%20Classes%20-%20Objects&description=In%20this%20post%20we%20talk%20about%20Scala%20Classes%20and%20Objects.%20Its%20relationships%20between%20different%20components%20and%20inheritance.%20We%20are%20assuming%20that%20classes%2c%20methods%2c%20and%20polymorphism%20are%20familiar%20to%20the%20reader%20and%20we%20will%20only%20delve%20into%20those%20terms%20that%20are%20new%20to%20the%20scenario%20at%20hand.%0aThe%20next%20example%20or%20its%20idea%20have%20been%20taken%20from%20Programming%20in%20scala%2c%203rd%20edition%0aDefining%20classes%20in%20scala%20like%20in%20any%20other%20language%20is%20a%20blueprint%20for%20creating%20objects." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&t=Scala%20-%20Classes%20-%20Objects" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents"></nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Scala - Classes - Objects
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2017-04-12 09:00:00 &#43;0000 UTC" itemprop="datePublished">2017-04-12</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          8 minute read
+        </div>
+        
+        
+        <div class="article-category">
+            <i class="fas fa-archive"></i>
+            
+            
+            <a class="category-link" href="/mojitoverde/categories/scala-programming">scala programming</a>
+            
+        </div>
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/mojitoverde/tags/scala" rel="tag">Scala</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <p>In this post we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We are assuming <strong>that classes, methods, and polymorphism are familiar to the reader</strong> and we will only delve into those terms that are new to the scenario at hand.</p>
+<p>The next example or its idea have been taken from <a href="https://www.amazon.co.uk/Programming-Scala-3rd-Martin-Odersky/dp/0981531687">Programming in scala, 3rd edition</a></p>
+<p>Defining classes in scala like in any other language  is a blueprint for creating objects.</p>
+<p>Let&rsquo;s define a very simple implementation of the Rational numbers, just a few simple operations:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#6272a4">// Modeling Rational numbers 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#6272a4"></span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span>n<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span> d<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#6272a4">// rise java.lang.IllegalArgumentException
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#6272a4"></span>  require<span style="color:#ff79c6">(</span>d <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">val</span> g <span style="color:#ff79c6">=</span> gcd<span style="color:#ff79c6">(</span>n<span style="color:#ff79c6">.</span>abs<span style="color:#ff79c6">,</span> d<span style="color:#ff79c6">.</span>abs<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>  <span style="color:#ff79c6">val</span> numer <span style="color:#ff79c6">=</span> n <span style="color:#ff79c6">/</span> g
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>  <span style="color:#ff79c6">val</span> denom <span style="color:#ff79c6">=</span> d <span style="color:#ff79c6">/</span> g
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#ff79c6">def</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">(</span>n<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">(</span>n<span style="color:#ff79c6">,</span> <span style="color:#bd93f9">1</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>  <span style="color:#6272a4">// addition  operation between rational numbers
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">def</span> <span style="color:#ff79c6">+</span> <span style="color:#ff79c6">(</span>that<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span> <span style="color:#ff79c6">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>    <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>      numer <span style="color:#ff79c6">*</span> that<span style="color:#ff79c6">.</span>denom <span style="color:#ff79c6">+</span> that<span style="color:#ff79c6">.</span>numer <span style="color:#ff79c6">*</span> denom<span style="color:#ff79c6">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>      denom <span style="color:#ff79c6">*</span> that<span style="color:#ff79c6">.</span>denom
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>    <span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>  <span style="color:#6272a4">// addition  operation between rational number and integer number
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">def</span> <span style="color:#ff79c6">+</span> <span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span> <span style="color:#ff79c6">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>    <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span>numer <span style="color:#ff79c6">+</span> i <span style="color:#ff79c6">*</span> denom<span style="color:#ff79c6">,</span> denom<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>  <span style="color:#6272a4">// subtraction operation between rational numbers
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">def</span> <span style="color:#ff79c6">-</span> <span style="color:#ff79c6">(</span>that<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span> <span style="color:#ff79c6">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>    <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>      numer <span style="color:#ff79c6">*</span> that<span style="color:#ff79c6">.</span>denom <span style="color:#ff79c6">-</span> that<span style="color:#ff79c6">.</span>numer <span style="color:#ff79c6">*</span> denom<span style="color:#ff79c6">,</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>      denom <span style="color:#ff79c6">*</span> that<span style="color:#ff79c6">.</span>denom
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>    <span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>  <span style="color:#6272a4">// subtraction operation between rational number and integer number
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">def</span> <span style="color:#ff79c6">-</span> <span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span> <span style="color:#ff79c6">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>    <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span>numer <span style="color:#ff79c6">-</span> i <span style="color:#ff79c6">*</span> denom<span style="color:#ff79c6">,</span> denom<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>  <span style="color:#6272a4">// multiplication between rational numbers
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">def</span> <span style="color:#ff79c6">*</span> <span style="color:#ff79c6">(</span>that<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span> <span style="color:#ff79c6">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>    <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span>numer <span style="color:#ff79c6">*</span> that<span style="color:#ff79c6">.</span>numer<span style="color:#ff79c6">,</span> denom <span style="color:#ff79c6">*</span> that<span style="color:#ff79c6">.</span>denom<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>  <span style="color:#6272a4">// multiplication between rational num and int number
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">def</span> <span style="color:#ff79c6">*</span> <span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span> <span style="color:#ff79c6">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>    <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span>numer <span style="color:#ff79c6">*</span> i<span style="color:#ff79c6">,</span> denom<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span>  <span style="color:#6272a4">//  division between rational numbers
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">def</span> <span style="color:#ff79c6">/</span> <span style="color:#ff79c6">(</span>that<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span> <span style="color:#ff79c6">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span>    <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span>numer <span style="color:#ff79c6">*</span> that<span style="color:#ff79c6">.</span>denom<span style="color:#ff79c6">,</span> denom <span style="color:#ff79c6">*</span> that<span style="color:#ff79c6">.</span>numer<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span>  <span style="color:#6272a4">//  division between rational number and integer number
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">def</span> <span style="color:#ff79c6">/</span> <span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span> <span style="color:#ff79c6">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span>    <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span>numer<span style="color:#ff79c6">,</span> denom <span style="color:#ff79c6">*</span> i<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span>  <span style="color:#6272a4">// we override here the default definition of toString method
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">def</span> toString <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">s&#34;</span><span style="color:#f1fa8c">$numer</span><span style="color:#f1fa8c">/</span><span style="color:#f1fa8c">$denom</span><span style="color:#f1fa8c">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span>  <span style="color:#6272a4">// gcd: greatest common divisor
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span style="color:#6272a4"></span>  <span style="color:#6272a4">// because &#34;private&#34; it can only be call inside the class
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">def</span> gcd<span style="color:#ff79c6">(</span>a<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span> b<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span> <span style="color:#ff79c6">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>b <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">)</span> a <span style="color:#ff79c6">else</span> gcd<span style="color:#ff79c6">(</span>b<span style="color:#ff79c6">,</span> a <span style="color:#ff79c6">%</span> b<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span><span style="color:#ff79c6">val</span> rational<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">3</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">4</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//rational: Rational = 3/4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span><span style="color:#6272a4"></span><span style="color:#ff79c6">val</span> rational1<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">5</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">6</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//rational1: Rational = 5/6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span><span style="color:#6272a4">// Normal scenario
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span><span style="color:#6272a4"></span>rational <span style="color:#ff79c6">+</span> rational1 <span style="color:#6272a4">//res0: Rational = 19/12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span><span style="color:#6272a4"></span>rational <span style="color:#ff79c6">-</span> rational1 <span style="color:#6272a4">//res1: Rational = -1/12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59</span>rational<span style="color:#ff79c6">*(</span><span style="color:#bd93f9">2</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//res2: Rational = 3/2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60</span><span style="color:#6272a4"></span>rational<span style="color:#ff79c6">+(</span><span style="color:#bd93f9">3</span><span style="color:#ff79c6">)</span> res3<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">15</span><span style="color:#ff79c6">/</span><span style="color:#bd93f9">4</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61</span>
+</code></pre></div><p>Based in the revious scenario are operation between a cardinal numbers and rational numbers. Basically because the scala standar libraries do not contain operation with rational number.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#bd93f9">2</span><span style="color:#ff79c6">*</span>rational
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>        <span style="color:#ff79c6">^</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>       error<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">overloaded</span> <span style="color:#8be9fd">method</span> <span style="color:#8be9fd">*</span> <span style="color:#8be9fd">with</span> <span style="color:#8be9fd">alternatives:</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>         <span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Double</span><span style="color:#ff79c6">)</span><span style="color:#50fa7b">Double</span> <span style="color:#ff79c6">&lt;</span>and<span style="color:#ff79c6">&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>         <span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Float</span><span style="color:#ff79c6">)</span><span style="color:#50fa7b">Float</span> <span style="color:#ff79c6">&lt;</span>and<span style="color:#ff79c6">&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>         <span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Long</span><span style="color:#ff79c6">)</span><span style="color:#50fa7b">Long</span> <span style="color:#ff79c6">&lt;</span>and<span style="color:#ff79c6">&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>         <span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#50fa7b">Int</span> <span style="color:#ff79c6">&lt;</span>and<span style="color:#ff79c6">&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>         <span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Char</span><span style="color:#ff79c6">)</span><span style="color:#50fa7b">Int</span> <span style="color:#ff79c6">&lt;</span>and<span style="color:#ff79c6">&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>         <span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Short</span><span style="color:#ff79c6">)</span><span style="color:#50fa7b">Int</span> <span style="color:#ff79c6">&lt;</span>and<span style="color:#ff79c6">&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>         <span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Byte</span><span style="color:#ff79c6">)</span><span style="color:#50fa7b">Int</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        cannot be applied to <span style="color:#ff79c6">(</span><span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>
+</code></pre></div><p>So basically a solution can be <strong>implicit convertion</strong>. Implicit definitions are those that the compiler is allowed to insert into a program in order to fix any of its type errors. For example, if x * Rational_number does not type check, then the compiler might change it
+to convert(x) * Rational_number, where convert is some available implicit conversion. If convert changes x into something that has a * method that accept Rational Number, then this change might fix a program so that it type checks and runs correctly.</p>
+<p>Places where implicit convertions are implemented:</p>
+<ol>
+<li>Conversions to an expected type. It lets you use one type in a context where a different type is expected</li>
+<li>Conversions of the receiver of a selection. It lets you adapt the receiver of a method call (i.e., the object on which a method is invoked), if the method is not applicable on the original type</li>
+<li>Implicit parameters. They are usually used to provide more information to the called function about what the caller wants. Useful with generic functions.</li>
+</ol>
+<p>So the solution to the previous compilation error can be the next line of code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">implicit</span> <span style="color:#ff79c6">def</span> intToRational<span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>                    <span style="color:#ff79c6">^</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>       warning<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">implicit</span> <span style="color:#8be9fd">conversion</span> <span style="color:#8be9fd">method</span> <span style="color:#8be9fd">intToRational</span> <span style="color:#8be9fd">should</span> <span style="color:#8be9fd">be</span> <span style="color:#8be9fd">enabled</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>       by making the <span style="color:#ff79c6">implicit</span> value scala<span style="color:#ff79c6">.</span>language<span style="color:#ff79c6">.</span>implicitConversions visible<span style="color:#ff79c6">.</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>       <span style="color:#50fa7b">This</span> can be achieved by adding the <span style="color:#ff79c6">import</span> clause &#39;import scala<span style="color:#ff79c6">.</span>language<span style="color:#ff79c6">.</span>implicitConversions&#39;
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>       or by setting the compiler option <span style="color:#ff79c6">-</span>language<span style="color:#ff79c6">:</span><span style="color:#8be9fd">implicitConversions.</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>       <span style="color:#8be9fd">See</span> <span style="color:#8be9fd">the</span> <span style="color:#8be9fd">Scaladoc</span> <span style="color:#8be9fd">for</span> <span style="color:#8be9fd">value</span> <span style="color:#8be9fd">scala.language.implicitConversions</span> <span style="color:#8be9fd">for</span> <span style="color:#8be9fd">a</span> <span style="color:#8be9fd">discussion</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>       why the feature should be explicitly enabled<span style="color:#ff79c6">.</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#ff79c6">def</span> intToRational<span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#bd93f9">2</span><span style="color:#ff79c6">*</span>rational <span style="color:#6272a4">//val res6: Rational = 3/2
+</span></code></pre></div><p>In the previous piece of code when we execute 2*rational what&rsquo;s really happen is <strong>intToRational</strong>(2)*<strong>rational</strong></p>
+<p>The  warning on the previous piece of code can be solved with the following import on the scope of code:<br>
+<strong>scala.language.implicitConversions</strong></p>
+<p>Implicits conversion can complicate the code and made it confuse so use it just when it&rsquo;s needed.</p>
+<p>An <strong>object</strong> is a class that has exactly one instance. It is created lazily when it is referenced, like a lazy val. In scala doesn&rsquo;t exist static values but we have singleton objects which can be imported from everywhere in our code(<strong>objects</strong>). Every NOT private method can be used for any instant that imports the object previously.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4">// Singleton object
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4"></span><span style="color:#ff79c6">object</span> <span style="color:#50fa7b">Person</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#ff79c6">import</span> java.time.LocalDate
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#ff79c6">val</span> year <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">LocalDate</span><span style="color:#ff79c6">.</span>now<span style="color:#ff79c6">.</span>getYear
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">def</span> calculateYearOfBirth<span style="color:#ff79c6">(</span>yearOfBirth<span style="color:#ff79c6">:</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span> <span style="color:#ff79c6">=</span>  year <span style="color:#ff79c6">-</span> yearOfBirth
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#ff79c6">}</span>
+</code></pre></div><p>If there is a class with the same name as our objects the class is named <strong>companion class</strong> and the object is named <strong>companion object</strong>. <strong>class or object can access the private members of its companion</strong>. Take a look at the code below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#6272a4">// Companion class
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#6272a4"></span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Person</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">val</span> firstName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">val</span> lastName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">val</span> yearOfbirth<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">val</span> address<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>   <span style="color:#ff79c6">import</span> Person.calculateAge
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#ff79c6">val</span> fullName <span style="color:#ff79c6">=</span> firstName <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">+</span> lastName
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#ff79c6">def</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">(</span>firstName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> lastName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> year<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span><span style="color:#ff79c6">(</span>firstName<span style="color:#ff79c6">,</span> lastName<span style="color:#ff79c6">,</span> year <span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>  <span style="color:#ff79c6">def</span> printFullName <span style="color:#ff79c6">=</span> println<span style="color:#ff79c6">(</span>fullName<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>  <span style="color:#ff79c6">def</span> age<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span> <span style="color:#ff79c6">=</span> calculateAge<span style="color:#ff79c6">(</span>yearOfbirth<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#6272a4">// Companion object
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#6272a4"></span><span style="color:#ff79c6">object</span> <span style="color:#50fa7b">Person</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>  <span style="color:#ff79c6">import</span> java.time.LocalDate
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>  <span style="color:#ff79c6">val</span> year <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">LocalDate</span><span style="color:#ff79c6">.</span>now<span style="color:#ff79c6">.</span>getYear
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>  <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">def</span> calculateAge<span style="color:#ff79c6">(</span>yearOfBirth<span style="color:#ff79c6">:</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span> <span style="color:#ff79c6">=</span>  year <span style="color:#ff79c6">-</span> yearOfBirth
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#ff79c6">}</span>
+</code></pre></div><p><strong>Objects</strong> can have constructors(apply) which take argument and create objects or extractors(unapply), which extracts object values(arguments) and give them back.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PersonObj</span><span style="color:#ff79c6">(</span>firstName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> lastName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> yearOfbirth<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span> address<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">){</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">def</span> toString <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">s&#34;Person </span><span style="color:#f1fa8c">$firstName</span><span style="color:#f1fa8c"> </span><span style="color:#f1fa8c">$lastName</span><span style="color:#f1fa8c"> born </span><span style="color:#f1fa8c">$yearOfbirth</span><span style="color:#f1fa8c"> and live on </span><span style="color:#f1fa8c">$address</span><span style="color:#f1fa8c">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#6272a4">// defined class PersonObj
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#ff79c6">object</span> <span style="color:#50fa7b">PersonObj</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span> <span style="color:#ff79c6">def</span> apply <span style="color:#ff79c6">(</span>firstName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> lastName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> yearOfbirth<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span> address<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>   <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">PersonObj</span><span style="color:#ff79c6">(</span>firstName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> lastName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> yearOfbirth<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span> address<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>  <span style="color:#ff79c6">def</span> unapply <span style="color:#ff79c6">(</span>personObj<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">PersonObj</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Option</span><span style="color:#ff79c6">[(</span><span style="color:#8be9fd">PersonObj</span><span style="color:#ff79c6">)]</span> <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">Some</span><span style="color:#ff79c6">(</span>personObj<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#6272a4">// defined object PersonObj
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#ff79c6">val</span> person <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">PersonObj</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Peter&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;Gabriel&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">1970</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#6272a4">//person: PersonObj = Person Peter Gabriel born 1970 and live on
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span style="color:#50fa7b">PersonObj</span><span style="color:#ff79c6">.</span>unapply<span style="color:#ff79c6">(</span>person<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span style="color:#6272a4">//res5: Option[PersonObj] = Some(Person Peter Gabriel born 1970 and live on )
+</span></code></pre></div><p>On code above, the unapply method returns Some(our_object) and  our_object will return the default method, toString, which has been overridden.</p>
+<p>A better example is the scala <strong>List object</strong>, so let&rsquo;s check apply and unapply methods:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4">// List constructor
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4"></span><span style="color:#ff79c6">def</span> apply<span style="color:#ff79c6">[</span><span style="color:#8be9fd">A</span><span style="color:#ff79c6">](</span>elems<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">A*</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">List</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">A</span><span style="color:#ff79c6">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#6272a4">// List extractor 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#6272a4"></span><span style="color:#ff79c6">final</span> <span style="color:#ff79c6">def</span> unapplySeq<span style="color:#ff79c6">[</span><span style="color:#8be9fd">A</span><span style="color:#ff79c6">](</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">List</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">A</span><span style="color:#ff79c6">])</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">UnapplySeqWrapper</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">A</span><span style="color:#ff79c6">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#6272a4">// UnapplySeqWrapper class 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#6272a4"></span><span style="color:#ff79c6">def</span> apply<span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">A</span>
+</code></pre></div><p>So based on previous code, let&rsquo;s create and inspect the following List:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#6272a4">// list constructor 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#6272a4"></span><span style="color:#50fa7b">List</span><span style="color:#ff79c6">.</span>apply<span style="color:#ff79c6">(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">2</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">3</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#ff79c6">val</span> res0<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">List</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">List</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">2</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">3</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#6272a4">//list extractor 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#6272a4"></span>res0<span style="color:#ff79c6">.</span>unapply<span style="color:#ff79c6">(</span><span style="color:#bd93f9">0</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#ff79c6">val</span> res13<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Option</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">Some</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#6272a4">//list extractor 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#6272a4"></span>res0<span style="color:#ff79c6">.</span>unapply<span style="color:#ff79c6">(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#ff79c6">val</span> res14<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Option</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">Some</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">2</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#6272a4">//list extractor 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#6272a4"></span>res0<span style="color:#ff79c6">.</span>unapply<span style="color:#ff79c6">(</span><span style="color:#bd93f9">4</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#ff79c6">val</span> res15<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Option</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">None</span>
+</code></pre></div><p>In the above code, pay attention to how unapply is invoking UnapplySeqWrapper.apply getting to the indexed value of the collection. As a proper extractor in case of List, its extractor extracts an specific index of a value introduced as an argument.</p>
+<p>Value classes(class with just one argument) can help to augment the ones that are built in.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Dollars</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">val</span> amount<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">AnyVal</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">def</span> toString<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;$&#34;</span> <span style="color:#ff79c6">+</span> amount
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#ff79c6">}</span>
+</code></pre></div><p>Adding the <strong>case</strong> identifier to the classes we get the case classes. Case classes are immutable and quite useful when dealing with pattern matching. In my opinion, we should use <strong>case</strong> classes instead of regular classes whenever we can.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PlayerStats</span> <span style="color:#ff79c6">(</span>teamPlayer<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> namePlayer<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> goals<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Student</span> <span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> yearofbirth<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#ff79c6">val</span> playerStats <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">PlayerStats</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Barça&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;David Villa&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">30</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">// val playerStats: PlayerStats = PlayerStats(Barça,David Villa,30)
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#6272a4"></span>playerStats<span style="color:#ff79c6">.</span>namePlayer <span style="color:#6272a4">//val res25: String = David Villa
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#ff79c6">val</span> student <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">Student</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Peter Parker&#34;</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">2006</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val student: Student = Student(Peter Parker,2006)
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#6272a4"></span>student<span style="color:#ff79c6">.</span>name <span style="color:#6272a4">//val res22: String = Peter Parker
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#6272a4">//this is an autogenerated definition on case classes 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#6272a4"></span>student<span style="color:#ff79c6">.</span>copy <span style="color:#6272a4">//def copy(name: String, yearofbirth: Int): Student
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>student<span style="color:#ff79c6">.</span>copy<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Tom Holland&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val res30: Student = Student(Tom Holland,2006)
+</span></code></pre></div><p>Explore this usefull definitions on case class:</p>
+<ol>
+<li>copy</li>
+<li>asInstanceOf</li>
+<li>hasCode</li>
+<li>getClass</li>
+</ol>
+<p>A very important problem in pattern matching when you want to make sure you are covering all possibilities is played by <strong>sealed classes</strong> that will help you, even to be warned in case you miss any possible pattern in your execution.</p>
+<p>We show you here 2 quite simple example that we find in <a href="https://docs.scala-lang.org/tour/pattern-matching.html#sealed-classes">the scala tutorial</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">sealed</span> <span style="color:#ff79c6">trait</span> <span style="color:#50fa7b">Notification</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Email</span><span style="color:#ff79c6">(</span>sender<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> title<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> body<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">Notification</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">SMS</span><span style="color:#ff79c6">(</span>caller<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> message<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">Notification</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">VoiceRecording</span><span style="color:#ff79c6">(</span>contactName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> link<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">Notification</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#ff79c6">def</span> showNotification<span style="color:#ff79c6">(</span>notification<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Notification</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  notification <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    <span style="color:#ff79c6">case</span> <span style="color:#50fa7b">Email</span><span style="color:#ff79c6">(</span>sender<span style="color:#ff79c6">,</span> title<span style="color:#ff79c6">,</span> <span style="color:#ff79c6">_</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>      <span style="color:#f1fa8c">s&#34;You got an email from </span><span style="color:#f1fa8c">$sender</span><span style="color:#f1fa8c"> with title: </span><span style="color:#f1fa8c">$title</span><span style="color:#f1fa8c">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    <span style="color:#ff79c6">case</span> <span style="color:#50fa7b">SMS</span><span style="color:#ff79c6">(</span>number<span style="color:#ff79c6">,</span> message<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>      <span style="color:#f1fa8c">s&#34;You got an SMS from </span><span style="color:#f1fa8c">$number</span><span style="color:#f1fa8c">! Message: </span><span style="color:#f1fa8c">$message</span><span style="color:#f1fa8c">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    <span style="color:#ff79c6">case</span> <span style="color:#50fa7b">VoiceRecording</span><span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">,</span> link<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>      <span style="color:#f1fa8c">s&#34;You received a Voice Recording from </span><span style="color:#f1fa8c">$name</span><span style="color:#f1fa8c">! Click the link to hear it: </span><span style="color:#f1fa8c">$link</span><span style="color:#f1fa8c">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#ff79c6">}</span>
+</code></pre></div><p>Pay attention below with <strong>sealed class</strong> and <strong>definitions</strong> inside case classes</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">sealed</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Device</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Phone</span><span style="color:#ff79c6">(</span>model<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">Device</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#ff79c6">def</span> screenOff <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Turning screen off&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Computer</span><span style="color:#ff79c6">(</span>model<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">Device</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>  <span style="color:#ff79c6">def</span> screenSaverOn <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Turning screen saver on...&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#6272a4">//checking by type 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#6272a4"></span><span style="color:#ff79c6">def</span> goIdle<span style="color:#ff79c6">(</span>device<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Device</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span> <span style="color:#ff79c6">=</span> device <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>  <span style="color:#ff79c6">case</span> p<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Phone</span> <span style="color:#ff79c6">=&gt;</span> p<span style="color:#ff79c6">.</span>screenOff
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>  <span style="color:#ff79c6">case</span> c<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Computer</span> <span style="color:#ff79c6">=&gt;</span> c<span style="color:#ff79c6">.</span>screenSaverOn
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#ff79c6">}</span>
+</code></pre></div><p>In this post we have talked about case classes, pattern matching and the objects as a new element to model our data in scala and its relationship with classes</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/mojitoverde/">Home</a></li>
+         
+          <li><a href="/mojitoverde/posts">Blog</a></li>
+         
+          <li><a href="/mojitoverde/tags">Tags</a></li>
+         
+          <li><a href="/mojitoverde/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents"></nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&text=Scala%20-%20Classes%20-%20Objects" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&title=Scala%20-%20Classes%20-%20Objects" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&is_video=false&description=Scala%20-%20Classes%20-%20Objects" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Scala%20-%20Classes%20-%20Objects&body=Check out this article: https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&title=Scala%20-%20Classes%20-%20Objects" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&title=Scala%20-%20Classes%20-%20Objects" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&name=Scala%20-%20Classes%20-%20Objects&description=In%20this%20post%20we%20talk%20about%20Scala%20Classes%20and%20Objects.%20Its%20relationships%20between%20different%20components%20and%20inheritance.%20We%20are%20assuming%20that%20classes%2c%20methods%2c%20and%20polymorphism%20are%20familiar%20to%20the%20reader%20and%20we%20will%20only%20delve%20into%20those%20terms%20that%20are%20new%20to%20the%20scenario%20at%20hand.%0aThe%20next%20example%20or%20its%20idea%20have%20been%20taken%20from%20Programming%20in%20scala%2c%203rd%20edition%0aDefining%20classes%20in%20scala%20like%20in%20any%20other%20language%20is%20a%20blueprint%20for%20creating%20objects." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&t=Scala%20-%20Classes%20-%20Objects" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2023  Scadip 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/mojitoverde/">Home</a></li>
+         
+        <li><a href="/mojitoverde/posts">Blog</a></li>
+         
+        <li><a href="/mojitoverde/tags">Tags</a></li>
+         
+        <li><a href="/mojitoverde/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/mojitoverde/lib/font-awesome/css/all.min.css>
+<script src=/mojitoverde/lib/jquery/jquery.min.js></script>
+<script src=/mojitoverde/js/main.js></script>
+<script src=/mojitoverde/js/code-copy.js></script>
+
+
+
+</html>

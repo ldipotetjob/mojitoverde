@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/mojitoverde/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/mojitoverde/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/mojitoverde/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/mojitoverde/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Scala - Complex Types | Green Mojito in technology</title>
+  <link rel = 'canonical' href = 'https://ldipotetjob.github.io/mojitoverde/posts/2018-06-20-scalacomplextypes/'>
+  <meta name="description" content="Green Mojito is a fresh site where the knowledge must be fresh but not simple, where the content can be complex but nice. This is a site where you can find different scenarios and use cases related with different technologies. We believe in the beginnings but we won&#39;t deal with &#39;hello world&#39; projects.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Scala - Complex Types" />
+<meta property="og:description" content="In this post we will talk about scala complex type. One of the most useful mechanisms in the Scala programming language for deal with:
+Exceptions &hellip;&hellip;
+https://www.scala-lang.org/api/2.13.6/scala/util/Try.html https://www.scala-lang.org/api/2.13.6/scala/util/Either.html https://www.scala-lang.org/api/2.13.6/scala/Option.html
+look chained operation with Try !!
+(ver en otro blog scala loops)(for =&gt; yield )" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ldipotetjob.github.io/mojitoverde/posts/2018-06-20-scalacomplextypes/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-06-13T09:00:00+00:00" />
+<meta property="article:modified_time" content="2018-06-13T09:00:00+00:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Scala - Complex Types"/>
+<meta name="twitter:description" content="In this post we will talk about scala complex type. One of the most useful mechanisms in the Scala programming language for deal with:
+Exceptions &hellip;&hellip;
+https://www.scala-lang.org/api/2.13.6/scala/util/Try.html https://www.scala-lang.org/api/2.13.6/scala/util/Either.html https://www.scala-lang.org/api/2.13.6/scala/Option.html
+look chained operation with Try !!
+(ver en otro blog scala loops)(for =&gt; yield )"/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://ldipotetjob.github.io/mojitoverde/css/styles.04f09ad390971c33c5cb6ac0042be29517b0eb4ebedab77d15c6486a6820c0739c80ea8de6dd80a746f9abddef23f0b0e220d9e16b2fcf288db310f513f4d646.css" integrity="sha512-BPCa05CXHDPFy2rABCvilRew606&#43;2rd9FcZIamggwHOcgOqN5t2Ap0b5q93vI/Cw4iDZ4WsvzyiNsxD1E/TWRg=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://ldipotetjob.github.io/mojitoverde/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/mojitoverde/">Home</a></li>
+         
+        <li><a href="/mojitoverde/posts">Blog</a></li>
+         
+        <li><a href="/mojitoverde/tags">Tags</a></li>
+         
+        <li><a href="/mojitoverde/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2018-06-13-scalageneric/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&text=Scala%20-%20Complex%20Types" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&title=Scala%20-%20Complex%20Types" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&is_video=false&description=Scala%20-%20Complex%20Types" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Scala%20-%20Complex%20Types&body=Check out this article: https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&title=Scala%20-%20Complex%20Types" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&title=Scala%20-%20Complex%20Types" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&name=Scala%20-%20Complex%20Types&description=In%20this%20post%20we%20will%20talk%20about%20scala%20complex%20type.%20One%20of%20the%20most%20useful%20mechanisms%20in%20the%20Scala%20programming%20language%20for%20deal%20with%3a%0aExceptions%20%26hellip%3b%26hellip%3b%0ahttps%3a%2f%2fwww.scala-lang.org%2fapi%2f2.13.6%2fscala%2futil%2fTry.html%20https%3a%2f%2fwww.scala-lang.org%2fapi%2f2.13.6%2fscala%2futil%2fEither.html%20https%3a%2f%2fwww.scala-lang.org%2fapi%2f2.13.6%2fscala%2fOption.html%0alook%20chained%20operation%20with%20Try%20%21%21%0a%28ver%20en%20otro%20blog%20scala%20loops%29%28for%20%3d%26gt%3b%20yield%20%29" aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&t=Scala%20-%20Complex%20Types" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents"></nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Scala - Complex Types
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2018-06-13 09:00:00 &#43;0000 UTC" itemprop="datePublished">2018-06-13</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          0 minute read
+        </div>
+        
+        
+        <div class="article-category">
+            <i class="fas fa-archive"></i>
+            
+            
+            <a class="category-link" href="/mojitoverde/categories/scala-programming">scala programming</a>
+            
+        </div>
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/mojitoverde/tags/scala" rel="tag">Scala</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <p>In this post we will talk about <strong>scala complex type</strong>. One of the most useful mechanisms in the Scala programming language for deal with:</p>
+<p>Exceptions
+&hellip;&hellip;</p>
+<p><a href="https://www.scala-lang.org/api/2.13.6/scala/util/Try.html">https://www.scala-lang.org/api/2.13.6/scala/util/Try.html</a>
+<a href="https://www.scala-lang.org/api/2.13.6/scala/util/Either.html">https://www.scala-lang.org/api/2.13.6/scala/util/Either.html</a>
+<a href="https://www.scala-lang.org/api/2.13.6/scala/Option.html">https://www.scala-lang.org/api/2.13.6/scala/Option.html</a></p>
+<p>look chained operation with Try !!</p>
+<p>(ver en otro blog scala loops)(for =&gt; yield )</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/mojitoverde/">Home</a></li>
+         
+          <li><a href="/mojitoverde/posts">Blog</a></li>
+         
+          <li><a href="/mojitoverde/tags">Tags</a></li>
+         
+          <li><a href="/mojitoverde/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents"></nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&text=Scala%20-%20Complex%20Types" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&title=Scala%20-%20Complex%20Types" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&is_video=false&description=Scala%20-%20Complex%20Types" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Scala%20-%20Complex%20Types&body=Check out this article: https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&title=Scala%20-%20Complex%20Types" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&title=Scala%20-%20Complex%20Types" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&name=Scala%20-%20Complex%20Types&description=In%20this%20post%20we%20will%20talk%20about%20scala%20complex%20type.%20One%20of%20the%20most%20useful%20mechanisms%20in%20the%20Scala%20programming%20language%20for%20deal%20with%3a%0aExceptions%20%26hellip%3b%26hellip%3b%0ahttps%3a%2f%2fwww.scala-lang.org%2fapi%2f2.13.6%2fscala%2futil%2fTry.html%20https%3a%2f%2fwww.scala-lang.org%2fapi%2f2.13.6%2fscala%2futil%2fEither.html%20https%3a%2f%2fwww.scala-lang.org%2fapi%2f2.13.6%2fscala%2fOption.html%0alook%20chained%20operation%20with%20Try%20%21%21%0a%28ver%20en%20otro%20blog%20scala%20loops%29%28for%20%3d%26gt%3b%20yield%20%29" aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&t=Scala%20-%20Complex%20Types" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2023  Scadip 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/mojitoverde/">Home</a></li>
+         
+        <li><a href="/mojitoverde/posts">Blog</a></li>
+         
+        <li><a href="/mojitoverde/tags">Tags</a></li>
+         
+        <li><a href="/mojitoverde/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/mojitoverde/lib/font-awesome/css/all.min.css>
+<script src=/mojitoverde/lib/jquery/jquery.min.js></script>
+<script src=/mojitoverde/js/main.js></script>
+<script src=/mojitoverde/js/code-copy.js></script>
+
+
+
+</html>

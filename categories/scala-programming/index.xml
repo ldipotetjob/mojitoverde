@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>scala programming on Green Mojito in technology</title>
+    <link>https://ldipotetjob.github.io/mojitoverde/categories/scala-programming/</link>
+    <description>Recent content in scala programming on Green Mojito in technology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Scadip</copyright>
+    <lastBuildDate>Wed, 13 Jun 2018 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/categories/scala-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scala - Abstract  - Generic Type</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-06-13-scalageneric/</link>
+      <pubDate>Wed, 13 Jun 2018 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-06-13-scalageneric/</guid>
+      <description>In this post we will talk about Generic Elements. One of the most useful mechanisms in the Scala programming language. This mechanism is quite useful when a member of a class, feature or even a method definition does not have a complete definition in its body and can also be usable by different implementations.
+The following example is quite simple but jut to give an idea about using inheritance and polymorphism:</description>
+    </item>
+    
+    <item>
+      <title>Scala - Complex Types</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-06-20-scalacomplextypes/</link>
+      <pubDate>Wed, 13 Jun 2018 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-06-20-scalacomplextypes/</guid>
+      <description>In this post we will talk about scala complex type. One of the most useful mechanisms in the Scala programming language for deal with:
+Exceptions &amp;hellip;&amp;hellip;
+https://www.scala-lang.org/api/2.13.6/scala/util/Try.html https://www.scala-lang.org/api/2.13.6/scala/util/Either.html https://www.scala-lang.org/api/2.13.6/scala/Option.html
+look chained operation with Try !!
+(ver en otro blog scala loops)(for =&amp;gt; yield )</description>
+    </item>
+    
+    <item>
+      <title>Api Rest - Playframework - Testing</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/</link>
+      <pubDate>Wed, 30 May 2018 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/</guid>
+      <description>As was argued by Robert C. Martin in his Clean Code bible, there are several aspects that we have to pay attention when we design our tests:
+ Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  </description>
+    </item>
+    
+    <item>
+      <title>Api Rest - Playframework - Htpp</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-23-scalahttpplay/</link>
+      <pubDate>Wed, 23 May 2018 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-23-scalahttpplay/</guid>
+      <description>In this post we talk about http api in play framework, addressing some basic standards to build RESTful API. Play Framework can be used widely in other scenarios which involve MVC for example. Honestly there are other frameworks more taylored for RESTful APIs. In my opinion trying to implement HATEOAS in Play Framework is a nightmare so this is a point that we won&amp;rsquo;t approach. I am assuming that you know the main concept of http protocol, its use and implementation as the core of concept when we talk properly about Restful Apis.</description>
+    </item>
+    
+    <item>
+      <title>Scala - Trait - inheritance</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-28-scalatraitinheritance/</link>
+      <pubDate>Fri, 28 Apr 2017 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-28-scalatraitinheritance/</guid>
+      <description>In this post we talk about the Scala traits and how to implement inheritance with classes. In some specifics scenarios like when you have to deal with base class with arguments it is beter to use abstract classes instead of traits. Classes and objects can extends from traits which encapsulate methods and field defnitions.
+A quite simple example below(base class with arguments) inherits(implements too) from abstract class:
+1abstract class Element { 2 def contents: Array[String] 3 def height = contents.</description>
+    </item>
+    
+    <item>
+      <title>Scala - Classes - Objects</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-12-scalaclassobject/</link>
+      <pubDate>Wed, 12 Apr 2017 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-12-scalaclassobject/</guid>
+      <description>In this post we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We are assuming that classes, methods, and polymorphism are familiar to the reader and we will only delve into those terms that are new to the scenario at hand.
+The next example or its idea have been taken from Programming in scala, 3rd edition
+Defining classes in scala like in any other language is a blueprint for creating objects.</description>
+    </item>
+    
+    <item>
+      <title>Scala in a nutshell - Data Types - Operators</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-04-scaladataoperator/</link>
+      <pubDate>Tue, 04 Apr 2017 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-04-scaladataoperator/</guid>
+      <description>In this post we talk about Scala Data Types and its perspective in the easiest way.
+Basic type Range Byte 8-bit signed two&#39;s complement integer (-27 to 27 - 1, inclusive) Short 16-bit signed two&#39;s complement integer (-215 to 215 - 1, inclusive) Int 32-bit signed two&#39;s complement integer (-231 to 231 - 1, inclusive) Long 64-bit signed two&#39;s complement integer (-263 to 263 - 1, inclusive) Char 16-bit unsigned Unicode character (0 to 216 - 1, inclusive) String a sequence of Chars Float 32-bit IEEE 754 single-precision float Double 64-bit IEEE 754 double-precision float Boolean true or false Scala brings a mechanism for string interpolation, which allows to embed expressions within string literals.</description>
+    </item>
+    
+    <item>
+      <title>Scala in a nutshell - Functions</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-28-scalafunc/</link>
+      <pubDate>Tue, 28 Mar 2017 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-28-scalafunc/</guid>
+      <description>In this post I will talk about the role of functions in scala, how create them and its implication on the scala language. We are going to run many of them from Scala REPL (“Read-Evaluate-Print-Loop”).
+We want to make clear we are working with scala 2.x You can find below some useful commad and if you want to go deeper try the Scala REPL page:
+use :quit to exit from the scala REPL.</description>
+    </item>
+    
+    <item>
+      <title>Scala in a nutshell - Collections - List</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-21-scalanutshell/</link>
+      <pubDate>Tue, 21 Mar 2017 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-21-scalanutshell/</guid>
+      <description>In this post I&amp;rsquo;m going to explain one of the main collections in Scala, List. The performance in this inmutable collection for some scenarios is great with optimal features however, it doesn&amp;rsquo;t work as well in others scenarios because this performance is proportional to the size of the collection.
+You can find the performance of List and other collections here.
+Specific for List, this is what we have:
+   head tail apply update prepend append insert     C C L L C L -    C	The operation takes (fast) constant time.</description>
+    </item>
+    
+  </channel>
+</rss>
