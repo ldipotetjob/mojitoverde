@@ -7,25 +7,31 @@
   <link rel="preload" href="/mojitoverde/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title> Api Rest - Playframework - Testing | Green Mojito in technology</title>
-  <link rel = 'canonical' href = 'https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/'>
+  <title> Scala - Complex Types | Green Mojito in technology</title>
+  <link rel = 'canonical' href = 'https://ldipotetjob.github.io/mojitoverde/posts/2018-06-20-scalacomplextypes/'>
   <meta name="description" content="Green Mojito is a fresh site where the knowledge must be fresh but not simple, where the content can be complex but nice. This is a site where you can find different scenarios and use cases related with different technologies. We believe in the beginnings but we won&#39;t deal with &#39;hello world&#39; projects.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
-  <meta property="og:title" content="Api Rest - Playframework - Testing" />
-<meta property="og:description" content="As was argued by Robert C. Martin in his Clean Code bible, there are several aspects that we have to pay attention when we design our tests:
- Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  " />
+  <meta property="og:title" content="Scala - Complex Types" />
+<meta property="og:description" content="In this post we will talk about scala complex type. One of the most useful mechanisms in the Scala programming language for deal with:
+Exceptions &hellip;&hellip;
+https://www.scala-lang.org/api/2.13.6/scala/util/Try.html https://www.scala-lang.org/api/2.13.6/scala/util/Either.html https://www.scala-lang.org/api/2.13.6/scala/Option.html
+look chained operation with Try !!
+(ver en otro blog scala loops)(for =&gt; yield )" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-05-30T09:00:00+00:00" />
-<meta property="article:modified_time" content="2018-05-30T09:00:00+00:00" />
+<meta property="og:url" content="https://ldipotetjob.github.io/mojitoverde/posts/2018-06-20-scalacomplextypes/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-06-13T09:00:00+00:00" />
+<meta property="article:modified_time" content="2018-06-13T09:00:00+00:00" />
 
 
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Api Rest - Playframework - Testing"/>
-<meta name="twitter:description" content="As was argued by Robert C. Martin in his Clean Code bible, there are several aspects that we have to pay attention when we design our tests:
- Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  "/>
+<meta name="twitter:title" content="Scala - Complex Types"/>
+<meta name="twitter:description" content="In this post we will talk about scala complex type. One of the most useful mechanisms in the Scala programming language for deal with:
+Exceptions &hellip;&hellip;
+https://www.scala-lang.org/api/2.13.6/scala/util/Try.html https://www.scala-lang.org/api/2.13.6/scala/util/Either.html https://www.scala-lang.org/api/2.13.6/scala/Option.html
+look chained operation with Try !!
+(ver en otro blog scala loops)(for =&gt; yield )"/>
 
   
   
@@ -78,14 +84,14 @@
       <ul>
         
         <li>
-          <a class="icon" href=" https://ldipotetjob.github.io/mojitoverde/posts/2018-05-23-scalahttpplay/" aria-label="Previous">
+          <a class="icon" href=" https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/" aria-label="Previous">
             <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
           </a>
         </li>
         
         
         <li>
-          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2018-06-20-scalacomplextypes/" aria-label="Next">
+          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2018-06-13-scalageneric/" aria-label="Next">
             <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
           </a>
         </li>
@@ -116,47 +122,47 @@
   
   
   <li>
-    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f" aria-label="Facebook">
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f" aria-label="Facebook">
       <i class="fab fa-facebook " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&text=Api%20Rest%20-%20Playframework%20-%20Testing" aria-label="Twitter">
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&text=Scala%20-%20Complex%20Types" aria-label="Twitter">
       <i class="fab fa-twitter " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&title=Api%20Rest%20-%20Playframework%20-%20Testing" aria-label="Linkedin">
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&title=Scala%20-%20Complex%20Types" aria-label="Linkedin">
       <i class="fab fa-linkedin " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&is_video=false&description=Api%20Rest%20-%20Playframework%20-%20Testing" aria-label="Pinterest">
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&is_video=false&description=Scala%20-%20Complex%20Types" aria-label="Pinterest">
       <i class="fab fa-pinterest " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="mailto:?subject=Api%20Rest%20-%20Playframework%20-%20Testing&body=Check out this article: https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f" aria-label="Email">
+    <a class="icon" href="mailto:?subject=Scala%20-%20Complex%20Types&body=Check out this article: https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f" aria-label="Email">
       <i class="fas fa-envelope " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&title=Api%20Rest%20-%20Playframework%20-%20Testing" aria-label="Pocket">
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&title=Scala%20-%20Complex%20Types" aria-label="Pocket">
       <i class="fab fa-get-pocket " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&title=Api%20Rest%20-%20Playframework%20-%20Testing" aria-label="reddit">
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&title=Scala%20-%20Complex%20Types" aria-label="reddit">
       <i class="fab fa-reddit " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&name=Api%20Rest%20-%20Playframework%20-%20Testing&description=As%20was%20argued%20by%20Robert%20C.%20Martin%20in%20his%20Clean%20Code%20bible%2c%20there%20are%20several%20aspects%20that%20we%20have%20to%20pay%20attention%20when%20we%20design%20our%20tests%3a%0a%20Minimize%20the%20number%20of%20assert%20per%20concept.%20Test%20just%20one%20concept%20per%20test%20function.%20Test%20should%20not%20depend%20on%20each%20other.%20Test%20should%20run%20in%20any%20environment.%20%20" aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&name=Scala%20-%20Complex%20Types&description=In%20this%20post%20we%20will%20talk%20about%20scala%20complex%20type.%20One%20of%20the%20most%20useful%20mechanisms%20in%20the%20Scala%20programming%20language%20for%20deal%20with%3a%0aExceptions%20%26hellip%3b%26hellip%3b%0ahttps%3a%2f%2fwww.scala-lang.org%2fapi%2f2.13.6%2fscala%2futil%2fTry.html%20https%3a%2f%2fwww.scala-lang.org%2fapi%2f2.13.6%2fscala%2futil%2fEither.html%20https%3a%2f%2fwww.scala-lang.org%2fapi%2f2.13.6%2fscala%2fOption.html%0alook%20chained%20operation%20with%20Try%20%21%21%0a%28ver%20en%20otro%20blog%20scala%20loops%29%28for%20%3d%26gt%3b%20yield%20%29" aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&t=Api%20Rest%20-%20Playframework%20-%20Testing" aria-label="Hacker News">
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&t=Scala%20-%20Complex%20Types" aria-label="Hacker News">
       <i class="fab fa-hacker-news " aria-hidden="true"></i>
     </a>
   </li>
@@ -173,13 +179,13 @@
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
     <header>
       <h1 class="posttitle" itemprop="name headline">
-        Api Rest - Playframework - Testing
+        Scala - Complex Types
       </h1>
       <div class="meta">
         
         <div class="postdate">
           
-          <time datetime="2018-05-30 09:00:00 &#43;0000 UTC" itemprop="datePublished">2018-05-30</time>
+          <time datetime="2018-06-13 09:00:00 &#43;0000 UTC" itemprop="datePublished">2018-06-13</time>
           
         </div>
         
@@ -206,12 +212,6 @@
             
             <a class="tag-link" href="/mojitoverde/tags/scala" rel="tag">Scala</a>
             
-             ,  
-            <a class="tag-link" href="/mojitoverde/tags/playframework" rel="tag">PlayFramework</a>
-            
-             ,  
-            <a class="tag-link" href="/mojitoverde/tags/testing" rel="tag">Testing</a>
-            
         </div>
         
       </div>
@@ -219,13 +219,14 @@
 
   
     <div class="content" itemprop="articleBody">
-      <p>As was  argued by <a href="https://www.amazon.es/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882">Robert C. Martin in his Clean Code bible</a>, there are several aspects that we have to pay attention when we design our tests:</p>
-<ul>
-<li>Minimize the number of assert per concept.</li>
-<li>Test just one concept per test function.</li>
-<li>Test should not depend on each other.</li>
-<li>Test should run in any environment.</li>
-</ul>
+      <p>In this post we will talk about <strong>scala complex type</strong>. One of the most useful mechanisms in the Scala programming language for deal with:</p>
+<p>Exceptions
+&hellip;&hellip;</p>
+<p><a href="https://www.scala-lang.org/api/2.13.6/scala/util/Try.html">https://www.scala-lang.org/api/2.13.6/scala/util/Try.html</a>
+<a href="https://www.scala-lang.org/api/2.13.6/scala/util/Either.html">https://www.scala-lang.org/api/2.13.6/scala/util/Either.html</a>
+<a href="https://www.scala-lang.org/api/2.13.6/scala/Option.html">https://www.scala-lang.org/api/2.13.6/scala/Option.html</a></p>
+<p>look chained operation with Try !!</p>
+<p>(ver en otro blog scala loops)(for =&gt; yield )</p>
 
     </div>
   </article>
@@ -267,47 +268,47 @@
   
   
   <li>
-    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f" aria-label="Facebook">
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f" aria-label="Facebook">
       <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&text=Api%20Rest%20-%20Playframework%20-%20Testing" aria-label="Twitter">
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&text=Scala%20-%20Complex%20Types" aria-label="Twitter">
       <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&title=Api%20Rest%20-%20Playframework%20-%20Testing" aria-label="Linkedin">
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&title=Scala%20-%20Complex%20Types" aria-label="Linkedin">
       <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&is_video=false&description=Api%20Rest%20-%20Playframework%20-%20Testing" aria-label="Pinterest">
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&is_video=false&description=Scala%20-%20Complex%20Types" aria-label="Pinterest">
       <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="mailto:?subject=Api%20Rest%20-%20Playframework%20-%20Testing&body=Check out this article: https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f" aria-label="Email">
+    <a class="icon" href="mailto:?subject=Scala%20-%20Complex%20Types&body=Check out this article: https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f" aria-label="Email">
       <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&title=Api%20Rest%20-%20Playframework%20-%20Testing" aria-label="Pocket">
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&title=Scala%20-%20Complex%20Types" aria-label="Pocket">
       <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&title=Api%20Rest%20-%20Playframework%20-%20Testing" aria-label="reddit">
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&title=Scala%20-%20Complex%20Types" aria-label="reddit">
       <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&name=Api%20Rest%20-%20Playframework%20-%20Testing&description=As%20was%20argued%20by%20Robert%20C.%20Martin%20in%20his%20Clean%20Code%20bible%2c%20there%20are%20several%20aspects%20that%20we%20have%20to%20pay%20attention%20when%20we%20design%20our%20tests%3a%0a%20Minimize%20the%20number%20of%20assert%20per%20concept.%20Test%20just%20one%20concept%20per%20test%20function.%20Test%20should%20not%20depend%20on%20each%20other.%20Test%20should%20run%20in%20any%20environment.%20%20" aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&name=Scala%20-%20Complex%20Types&description=In%20this%20post%20we%20will%20talk%20about%20scala%20complex%20type.%20One%20of%20the%20most%20useful%20mechanisms%20in%20the%20Scala%20programming%20language%20for%20deal%20with%3a%0aExceptions%20%26hellip%3b%26hellip%3b%0ahttps%3a%2f%2fwww.scala-lang.org%2fapi%2f2.13.6%2fscala%2futil%2fTry.html%20https%3a%2f%2fwww.scala-lang.org%2fapi%2f2.13.6%2fscala%2futil%2fEither.html%20https%3a%2f%2fwww.scala-lang.org%2fapi%2f2.13.6%2fscala%2fOption.html%0alook%20chained%20operation%20with%20Try%20%21%21%0a%28ver%20en%20otro%20blog%20scala%20loops%29%28for%20%3d%26gt%3b%20yield%20%29" aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&t=Api%20Rest%20-%20Playframework%20-%20Testing" aria-label="Hacker News">
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-20-scalacomplextypes%2f&t=Scala%20-%20Complex%20Types" aria-label="Hacker News">
       <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
     </a>
   </li>

@@ -85,7 +85,7 @@ Basic type Range Byte 8-bit signed two&#39;s complement integer (-27 to 27 - 1, 
         
         
         <li>
-          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/" aria-label="Next">
+          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2017-04-12-scalaclassobject/" aria-label="Next">
             <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
           </a>
         </li>
@@ -232,7 +232,38 @@ An example below:</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#6272a4"></span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#6272a4">/* doing the calculations inside */</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">s&#34;You have to check this value:</span><span style="color:#f1fa8c">${</span><span style="color:#bd93f9">21</span><span style="color:#ff79c6">%</span><span style="color:#bd93f9">2</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//You have to check this value:1
-</span></code></pre></div>
+</span></code></pre></div><p>Repeated params. It implies that a params in a function can include one or more of element of the specific type:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">def</span> echo<span style="color:#ff79c6">(</span>args<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String*</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>            <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span>arg <span style="color:#ff79c6">&lt;-</span> args<span style="color:#ff79c6">)</span> println<span style="color:#ff79c6">(</span>arg<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#6272a4">// def echo(args: String*): Unit
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>echo<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;hello&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">// hello
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#6272a4"></span>echo<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;hello&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;i am louis&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#6272a4">// hello
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#6272a4">// i am louis
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>echo<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;hello&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;i am louis&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;and you&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#6272a4">// hello
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#6272a4">// i am louis
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#6272a4">// and you
+</span></code></pre></div><p>Even when inside it&rsquo;s declared as an array you can&rsquo;t pass a collection(array, list, &hellip;) as a parameter:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4">// the same scenario when using arrays 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4"></span>echo<span style="color:#ff79c6">(</span><span style="color:#50fa7b">List</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;hello&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;i am louis&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;and you ?&#34;</span><span style="color:#ff79c6">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>                <span style="color:#ff79c6">^</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>       error<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">type</span> <span style="color:#8be9fd">mismatch</span><span style="color:#ff79c6">;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>        found   <span style="color:#ff79c6">:</span> <span style="color:#8be9fd">List</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>        required<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span>
+</code></pre></div><p>So we need to tell the compiler to pass each element of my list as its own argument to echo, rather than all of it as a single argument. This is the way, our single argument: _*.
+<br>
+Check below code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">val</span> myechoList <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">List</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;hello&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;i am louis&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;and you ?&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4">// val myechoList: List[String] = List(hello, i am louis, and you ?)
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>echo<span style="color:#ff79c6">(</span>myechoList<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">_</span><span style="color:#8be9fd">*</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>hello
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>i am louis
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>and you <span style="color:#ff79c6">?</span>
+</code></pre></div>
     </div>
   </article>
 
@@ -339,7 +370,7 @@ An example below:</p>
 
   <footer id="footer">
   <div class="footer-left">
-    Copyright  &copy; 2022  Scadip 
+    Copyright  &copy; 2023  Scadip 
   </div>
   <div class="footer-right">
     <nav>

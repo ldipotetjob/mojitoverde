@@ -14,7 +14,7 @@
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Scala - Classes - Objects" />
-<meta property="og:description" content="In this post we talk about Scala Class, Objects, Traits and Interfaces. Its relationships between different components and inheritance. We are assuming that classes, methods, and polymorphism are familiar to the reader and we will only delve into those terms that are new to the scenario at hand.
+<meta property="og:description" content="In this post we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We are assuming that classes, methods, and polymorphism are familiar to the reader and we will only delve into those terms that are new to the scenario at hand.
 The next example or its idea have been taken from Programming in scala, 3rd edition
 Defining classes in scala like in any other language is a blueprint for creating objects." />
 <meta property="og:type" content="article" />
@@ -25,7 +25,7 @@ Defining classes in scala like in any other language is a blueprint for creating
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Scala - Classes - Objects"/>
-<meta name="twitter:description" content="In this post we talk about Scala Class, Objects, Traits and Interfaces. Its relationships between different components and inheritance. We are assuming that classes, methods, and polymorphism are familiar to the reader and we will only delve into those terms that are new to the scenario at hand.
+<meta name="twitter:description" content="In this post we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We are assuming that classes, methods, and polymorphism are familiar to the reader and we will only delve into those terms that are new to the scenario at hand.
 The next example or its idea have been taken from Programming in scala, 3rd edition
 Defining classes in scala like in any other language is a blueprint for creating objects."/>
 
@@ -80,14 +80,14 @@ Defining classes in scala like in any other language is a blueprint for creating
       <ul>
         
         <li>
-          <a class="icon" href=" https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/" aria-label="Previous">
+          <a class="icon" href=" https://ldipotetjob.github.io/mojitoverde/posts/2017-04-04-scaladataoperator/" aria-label="Previous">
             <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
           </a>
         </li>
         
         
         <li>
-          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2019-01-18-es6/" aria-label="Next">
+          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2017-04-28-scalatraitinheritance/" aria-label="Next">
             <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
           </a>
         </li>
@@ -153,7 +153,7 @@ Defining classes in scala like in any other language is a blueprint for creating
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&name=Scala%20-%20Classes%20-%20Objects&description=In%20this%20post%20we%20talk%20about%20Scala%20Class%2c%20Objects%2c%20Traits%20and%20Interfaces.%20Its%20relationships%20between%20different%20components%20and%20inheritance.%20We%20are%20assuming%20that%20classes%2c%20methods%2c%20and%20polymorphism%20are%20familiar%20to%20the%20reader%20and%20we%20will%20only%20delve%20into%20those%20terms%20that%20are%20new%20to%20the%20scenario%20at%20hand.%0aThe%20next%20example%20or%20its%20idea%20have%20been%20taken%20from%20Programming%20in%20scala%2c%203rd%20edition%0aDefining%20classes%20in%20scala%20like%20in%20any%20other%20language%20is%20a%20blueprint%20for%20creating%20objects." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&name=Scala%20-%20Classes%20-%20Objects&description=In%20this%20post%20we%20talk%20about%20Scala%20Classes%20and%20Objects.%20Its%20relationships%20between%20different%20components%20and%20inheritance.%20We%20are%20assuming%20that%20classes%2c%20methods%2c%20and%20polymorphism%20are%20familiar%20to%20the%20reader%20and%20we%20will%20only%20delve%20into%20those%20terms%20that%20are%20new%20to%20the%20scenario%20at%20hand.%0aThe%20next%20example%20or%20its%20idea%20have%20been%20taken%20from%20Programming%20in%20scala%2c%203rd%20edition%0aDefining%20classes%20in%20scala%20like%20in%20any%20other%20language%20is%20a%20blueprint%20for%20creating%20objects." aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -189,7 +189,7 @@ Defining classes in scala like in any other language is a blueprint for creating
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          6 minute read
+          8 minute read
         </div>
         
         
@@ -215,7 +215,7 @@ Defining classes in scala like in any other language is a blueprint for creating
 
   
     <div class="content" itemprop="articleBody">
-      <p>In this post we talk about Scala Class, Objects, Traits and Interfaces. Its relationships between different components and inheritance. We are assuming <strong>that classes, methods, and polymorphism are familiar to the reader</strong> and we will only delve into those terms that are new to the scenario at hand.</p>
+      <p>In this post we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We are assuming <strong>that classes, methods, and polymorphism are familiar to the reader</strong> and we will only delve into those terms that are new to the scenario at hand.</p>
 <p>The next example or its idea have been taken from <a href="https://www.amazon.co.uk/Programming-Scala-3rd-Martin-Odersky/dp/0981531687">Programming in scala, 3rd edition</a></p>
 <p>Defining classes in scala like in any other language  is a blueprint for creating objects.</p>
 <p>Let&rsquo;s define a very simple implementation of the Rational numbers, just a few simple operations:</p>
@@ -387,7 +387,64 @@ to convert(x) * Rational_number, where convert is some available implicit conver
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#6272a4"></span>res0<span style="color:#ff79c6">.</span>unapply<span style="color:#ff79c6">(</span><span style="color:#bd93f9">4</span><span style="color:#ff79c6">)</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#ff79c6">val</span> res15<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Option</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">None</span>
 </code></pre></div><p>In the above code, pay attention to how unapply is invoking UnapplySeqWrapper.apply getting to the indexed value of the collection. As a proper extractor in case of List, its extractor extracts an specific index of a value introduced as an argument.</p>
-<p>In this post we have talked about the objects as a new element to model our data in scala and its relationship with classes. I assume that abstract class and final class are familiar for you because they are not new in this programming language.</p>
+<p>Value classes(class with just one argument) can help to augment the ones that are built in.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Dollars</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">val</span> amount<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">AnyVal</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">def</span> toString<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;$&#34;</span> <span style="color:#ff79c6">+</span> amount
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#ff79c6">}</span>
+</code></pre></div><p>Adding the <strong>case</strong> identifier to the classes we get the case classes. Case classes are immutable and quite useful when dealing with pattern matching. In my opinion, we should use <strong>case</strong> classes instead of regular classes whenever we can.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PlayerStats</span> <span style="color:#ff79c6">(</span>teamPlayer<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> namePlayer<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> goals<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Student</span> <span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> yearofbirth<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#ff79c6">val</span> playerStats <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">PlayerStats</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Barça&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;David Villa&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">30</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">// val playerStats: PlayerStats = PlayerStats(Barça,David Villa,30)
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#6272a4"></span>playerStats<span style="color:#ff79c6">.</span>namePlayer <span style="color:#6272a4">//val res25: String = David Villa
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#ff79c6">val</span> student <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">Student</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Peter Parker&#34;</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">2006</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val student: Student = Student(Peter Parker,2006)
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#6272a4"></span>student<span style="color:#ff79c6">.</span>name <span style="color:#6272a4">//val res22: String = Peter Parker
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#6272a4">//this is an autogenerated definition on case classes 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#6272a4"></span>student<span style="color:#ff79c6">.</span>copy <span style="color:#6272a4">//def copy(name: String, yearofbirth: Int): Student
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>student<span style="color:#ff79c6">.</span>copy<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Tom Holland&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val res30: Student = Student(Tom Holland,2006)
+</span></code></pre></div><p>Explore this usefull definitions on case class:</p>
+<ol>
+<li>copy</li>
+<li>asInstanceOf</li>
+<li>hasCode</li>
+<li>getClass</li>
+</ol>
+<p>A very important problem in pattern matching when you want to make sure you are covering all possibilities is played by <strong>sealed classes</strong> that will help you, even to be warned in case you miss any possible pattern in your execution.</p>
+<p>We show you here 2 quite simple example that we find in <a href="https://docs.scala-lang.org/tour/pattern-matching.html#sealed-classes">the scala tutorial</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">sealed</span> <span style="color:#ff79c6">trait</span> <span style="color:#50fa7b">Notification</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Email</span><span style="color:#ff79c6">(</span>sender<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> title<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> body<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">Notification</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">SMS</span><span style="color:#ff79c6">(</span>caller<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> message<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">Notification</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">VoiceRecording</span><span style="color:#ff79c6">(</span>contactName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> link<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">Notification</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#ff79c6">def</span> showNotification<span style="color:#ff79c6">(</span>notification<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Notification</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  notification <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    <span style="color:#ff79c6">case</span> <span style="color:#50fa7b">Email</span><span style="color:#ff79c6">(</span>sender<span style="color:#ff79c6">,</span> title<span style="color:#ff79c6">,</span> <span style="color:#ff79c6">_</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>      <span style="color:#f1fa8c">s&#34;You got an email from </span><span style="color:#f1fa8c">$sender</span><span style="color:#f1fa8c"> with title: </span><span style="color:#f1fa8c">$title</span><span style="color:#f1fa8c">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    <span style="color:#ff79c6">case</span> <span style="color:#50fa7b">SMS</span><span style="color:#ff79c6">(</span>number<span style="color:#ff79c6">,</span> message<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>      <span style="color:#f1fa8c">s&#34;You got an SMS from </span><span style="color:#f1fa8c">$number</span><span style="color:#f1fa8c">! Message: </span><span style="color:#f1fa8c">$message</span><span style="color:#f1fa8c">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    <span style="color:#ff79c6">case</span> <span style="color:#50fa7b">VoiceRecording</span><span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">,</span> link<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>      <span style="color:#f1fa8c">s&#34;You received a Voice Recording from </span><span style="color:#f1fa8c">$name</span><span style="color:#f1fa8c">! Click the link to hear it: </span><span style="color:#f1fa8c">$link</span><span style="color:#f1fa8c">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#ff79c6">}</span>
+</code></pre></div><p>Pay attention below with <strong>sealed class</strong> and <strong>definitions</strong> inside case classes</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">sealed</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Device</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Phone</span><span style="color:#ff79c6">(</span>model<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">Device</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#ff79c6">def</span> screenOff <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Turning screen off&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Computer</span><span style="color:#ff79c6">(</span>model<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">Device</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>  <span style="color:#ff79c6">def</span> screenSaverOn <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Turning screen saver on...&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#6272a4">//checking by type 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#6272a4"></span><span style="color:#ff79c6">def</span> goIdle<span style="color:#ff79c6">(</span>device<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Device</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span> <span style="color:#ff79c6">=</span> device <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>  <span style="color:#ff79c6">case</span> p<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Phone</span> <span style="color:#ff79c6">=&gt;</span> p<span style="color:#ff79c6">.</span>screenOff
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>  <span style="color:#ff79c6">case</span> c<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Computer</span> <span style="color:#ff79c6">=&gt;</span> c<span style="color:#ff79c6">.</span>screenSaverOn
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#ff79c6">}</span>
+</code></pre></div><p>In this post we have talked about case classes, pattern matching and the objects as a new element to model our data in scala and its relationship with classes</p>
 
     </div>
   </article>
@@ -464,7 +521,7 @@ to convert(x) * Rational_number, where convert is some available implicit conver
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&name=Scala%20-%20Classes%20-%20Objects&description=In%20this%20post%20we%20talk%20about%20Scala%20Class%2c%20Objects%2c%20Traits%20and%20Interfaces.%20Its%20relationships%20between%20different%20components%20and%20inheritance.%20We%20are%20assuming%20that%20classes%2c%20methods%2c%20and%20polymorphism%20are%20familiar%20to%20the%20reader%20and%20we%20will%20only%20delve%20into%20those%20terms%20that%20are%20new%20to%20the%20scenario%20at%20hand.%0aThe%20next%20example%20or%20its%20idea%20have%20been%20taken%20from%20Programming%20in%20scala%2c%203rd%20edition%0aDefining%20classes%20in%20scala%20like%20in%20any%20other%20language%20is%20a%20blueprint%20for%20creating%20objects." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&name=Scala%20-%20Classes%20-%20Objects&description=In%20this%20post%20we%20talk%20about%20Scala%20Classes%20and%20Objects.%20Its%20relationships%20between%20different%20components%20and%20inheritance.%20We%20are%20assuming%20that%20classes%2c%20methods%2c%20and%20polymorphism%20are%20familiar%20to%20the%20reader%20and%20we%20will%20only%20delve%20into%20those%20terms%20that%20are%20new%20to%20the%20scenario%20at%20hand.%0aThe%20next%20example%20or%20its%20idea%20have%20been%20taken%20from%20Programming%20in%20scala%2c%203rd%20edition%0aDefining%20classes%20in%20scala%20like%20in%20any%20other%20language%20is%20a%20blueprint%20for%20creating%20objects." aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>
@@ -495,7 +552,7 @@ to convert(x) * Rational_number, where convert is some available implicit conver
 
   <footer id="footer">
   <div class="footer-left">
-    Copyright  &copy; 2022  Scadip 
+    Copyright  &copy; 2023  Scadip 
   </div>
   <div class="footer-right">
     <nav>

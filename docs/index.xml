@@ -7,41 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Scadip</copyright>
-    <lastBuildDate>Sun, 27 Jun 2021 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Code Block Test</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/code-block-test/</link>
-      <pubDate>Sun, 27 Jun 2021 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/code-block-test/</guid>
-      <description>String
-Using indents:
-text text text  Fenced code block:
-text text &amp;lt;tag&amp;gt; Fenced code block with language (lineNumbersInTable = false):
-1// JavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJavaJava 2public final class String 3 implements java.io.Serializable, Comparable&amp;lt;String&amp;gt;, CharSequence 4{ 5 /** The value is used for character storage. */ 6 private final char value[]; 7 8 /** The offset is the first index of the storage that is used. */ 9 private final int offset; 10 11 /** The count is the number of characters in the String.</description>
-    </item>
-    
-    <item>
-      <title>Changes to String in java (from 1.7.0_06)</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2020-06-06-changes-in-java-string/</link>
-      <pubDate>Sat, 06 Jun 2020 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2020-06-06-changes-in-java-string/</guid>
-      <description>Before 1.7.0_06, String has 4 non static field:
- char[] value int[] offset int count int hash  Subing.substring create a String by sharing the original String&amp;rsquo;s internal char[] value and setting offset. This saves memory and makes String.substring run in a constant time($O(1)$). Meanwhile, this feature may cause memory leak1.
-http://hg.openjdk.java.net/jdk6/jdk6/jdk/file/8deef18bb749/src/share/classes/java/lang/String.java
-1public final class String 2 implements java.io.Serializable, Comparable&amp;lt;String&amp;gt;, CharSequence 3{ 4 /** The value is used for character storage.</description>
-    </item>
-    
-    <item>
-      <title>Algorithms - Graphs</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2020-05-01-algorithms-graphs/</link>
-      <pubDate>Fri, 01 May 2020 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2020-05-01-algorithms-graphs/</guid>
-      <description>Undirected Graphs Some problems  Path Shortest path Cycle Ehler tour: A cycle that uses each edge excatly once. Hamilton tour: A cycle that uses each vertex exactly once  classical NP-complete problem.   Connectivity MST: Biconnectivity: A vertex whose removal disconnects the graph Planarity Graph isomorphism: Are two graphs identical?  No one knows so far. A lonstanding open problem    Representations Real-world graphs tend to be sparse (huge number of vertices, small average vertex degree).</description>
-    </item>
-    
+    <lastBuildDate>Wed, 29 Apr 2020 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Programming Language - Subtyping</title>
       <link>https://ldipotetjob.github.io/mojitoverde/posts/2020-04-29-subtyping/</link>
@@ -49,15 +15,6 @@ http://hg.openjdk.java.net/jdk6/jdk6/jdk/file/8deef18bb749/src/share/classes/jav
       
       <guid>https://ldipotetjob.github.io/mojitoverde/posts/2020-04-29-subtyping/</guid>
       <description>Some Good Subtyping Rules  Width subtyping: A supertype can have a subset of fields with the same types, i.e., a subtype can have extra fields. Permutation subtypings: A supertype can have the same set of fields with the same types in a different order. Transitivity: if t1 is subtype of t2, and t2 is subtype of t3, then t1 is subtype of t3. Reflexivity: Every type is a subtype of itself.</description>
-    </item>
-    
-    <item>
-      <title>Racket notes</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2020-02-29-racket/</link>
-      <pubDate>Sat, 29 Feb 2020 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2020-02-29-racket/</guid>
-      <description>Basic 1#lang racket 2(provide (all-defined-out)) 3 4;this is a comment 5 6(define s &amp;#34;hello&amp;#34;) 7 8(define x 3) 9(define y (+ x 2)) 10 11(define cube1 12 (lambda (x) 13 (* x (* x x)))) 14 15(define cube2 16 (lambda (x) 17 (* x x x))) 18 19(define (cube3 x) 20 (* x x x)) 21 22(define (pow1 x y) 23 (if (=y 0) 24 1 25 (* x (pow1 x (- y 1))))) 26 27; currying 28(define pow2 29 (lambda (x) 30 (lambda (y) 31 (pow1 x y)))) 32 List  Empty list: null  () doesn&amp;quot;t work for null but &#39;() does   build a list: (list e1 .</description>
     </item>
     
     <item>
@@ -71,46 +28,6 @@ http://hg.openjdk.java.net/jdk6/jdk6/jdk/file/8deef18bb749/src/share/classes/jav
     </item>
     
     <item>
-      <title>uipath ノート（三）- uipath orchestrator</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2019-11-23-uipath-orchestrator/</link>
-      <pubDate>Sat, 23 Nov 2019 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2019-11-23-uipath-orchestrator/</guid>
-      <description>利用手順 Official doc: https://docs.uipath.com/robot/docs/from-orchestrator-and-the-orchestrator-settings-window
-マシンを追加 マシン側でマシン名とユーザ名を確認
-C:\Users\user&amp;gt;hostname DESKTOP-ABCDE5F C:\Users\user&amp;gt;whoami desktop-abcde5f\user C:\Users\user&amp;gt; 追加完了後、マシンキーを取得する。
-ロボットを登録  Type: studio (開発用？) Domain/Username: 上記のユーザ名  ローカルのorchestrator設定 Uipath Robotを開き⇒orchestratorの設定で、上記のマシンキーを入力する。 orchestrator URLに https://platform.uipath.com/ を入力する. Invalid machine keyというエラーが出たら、下記のようなURLを試す：
-https://platform.uipath.com/&amp;lt;account name&amp;gt;/&amp;lt;service name&amp;gt; 参照：Uipath orchestrator error : invalid machine key
-ロボットグループ(Environment)作成 プロジェクトをパブリッシュ(Publish) プロセスを追加 Automations　⇒　Processes
-ジョブ(Jobs)の実行 Monitoring　⇒　Jobs
-その他 再パブリッシュすると、Processが最新バージョンを使うため、変更作業が必要 Processes　⇒　More Options　⇒　View Process　⇒　最新のバージョンに切り替える
-ジョブの停止  停止(Stop)：必ずワークフロー内で「停止すべきか確認(Should Stop)」アクティビティを使用する 強制終了(Kill)：処理中の内容に関わらず、ジョブを停止する  アクティブなジョブは削除できない パラメーター変更の優先順位 ジョブ (Jobs) -&amp;gt; プロセス (Processes) -&amp;gt; パッケージ(UiPath Studio)</description>
-    </item>
-    
-    <item>
-      <title>uipath ノート（二）- Best Practice</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2019-11-18-uipath-best-practice/</link>
-      <pubDate>Mon, 18 Nov 2019 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2019-11-18-uipath-best-practice/</guid>
-      <description>時間をかけて各ワークフローに適したレイアウトを選択しましょう。   メイン: フローチャートまたはステートマシン
-  ビジネスロジック: フローチャート
-  UI インタラクション: シーケンス
-  フローチャートを使用することで、入れ子状の IF を回避
-  プロセスを小さなワークフローに分割しましょう。   分割したものを個別に開発、テスト
-  ワークフローの再利用
-  分割ファイルで作業することによる、より効率的な共同作業
-  必ず例外を処理しましょう。   例外が発生しやすいワークフローを [Try Catch (トライキャッチ)] ブロックに配置
-  外部から呼び出されたワークフローでも同様
-  リカバリシーケンスの設定
-  ワークフローを読みやすいものにしましょう。   すべてのコンポーネントにわかりやすい名前を選択
-  注記やコメントの使用
-  リアルタイムの実行状況のログ取得
-  環境設定を Config ファイルに格納
-  不要になったアプリケーションを終了させることで、常にクリーンな状態を維持しましょう。 </description>
-    </item>
-    
-    <item>
       <title>JavaScript URI エンコーディング</title>
       <link>https://ldipotetjob.github.io/mojitoverde/posts/2019-11-10-encodeuricomponent/</link>
       <pubDate>Sun, 10 Nov 2019 09:00:00 +0000</pubDate>
@@ -119,18 +36,6 @@ https://platform.uipath.com/&amp;lt;account name&amp;gt;/&amp;lt;service name&am
       <description>まとめ encodeURI()とencodeURIComponent()はRFC 2396準拠である。 encodeURI() は完全な URI を表すのに必要な文字 (Reserved Characters) はエンコードしません。 また、予約されていないが &amp;ldquo;そのまま&amp;rdquo; URI に使用できる(Unreserved Marks) 文字をエンコードしません。 encodeURIComponent() は &amp;ldquo;Unreserved Marks&amp;rdquo; 文字をエンコードしません。
 1var set1 = &amp;#34;;,/?:@&amp;amp;=+$#&amp;#34;; // Reserved Characters 2var set2 = &amp;#34;-_.!~*&amp;#39;()&amp;#34;; // Unreserved Marks 3 4console.log(encodeURI(set1)); // ;,/?:@&amp;amp;=+$ 5console.log(encodeURI(set2)); // -_.!~*&amp;#39;() 6 7console.log(encodeURIComponent(set1)); // %3B%2C%2F%3F%3A%40%26%3D%2B%24 8console.log(encodeURIComponent(set2)); // -_.!~*&amp;#39;() rfc2396 appendix-A https://tools.ietf.org/html/rfc2396#appendix-A
 URI-reference = [ absoluteURI | relativeURI ] [ &amp;quot;#&amp;quot; fragment ] absoluteURI = scheme &amp;quot;:&amp;quot; ( hier_part | opaque_part ) relativeURI = ( net_path | abs_path | rel_path ) [ &amp;quot;?</description>
-    </item>
-    
-    <item>
-      <title>uipath ノート（一）</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2019-10-27-uipath/</link>
-      <pubDate>Sun, 27 Oct 2019 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2019-10-27-uipath/</guid>
-      <description>変数  Int32 String Boolean GenericValue　参照   UiPath Studio には GenericValue 変数の自動変換メカニズムがあり、式を正しく定義することで、目的の結果を得ることができます。式の最初の要素は、Studio から操作するガイドラインとして使用されることを考慮してください。例えば、2 つの GenericValue 変数を追加し、式の最初の変数が String として定義されてた場合、最初に代入された値を元に 2 つの値を結合し、文字列となります。 Integer として定義した場合の結果は、合計の値となります。
-  Array DataTime DataTable  .Net 変数型を参照して探す方法
-アクティビティ レイアウトダイアグラム  シーエンス：　より高度で複雑な自動化に向こう フローチャート：　シンプルな自動化プロジェクトに適している ステートマシン Global Exception Handler (グローバル例外ハンドラー)   参照：https://docs.uipath.com/studio/lang-ja/docs/workflow-design
- 選択肢  条件分岐(If)：　シーケンス用条件分岐 フロー条件分岐(flow desicion)：　フローチャート用条件分岐 フロースイッチ (Flow Switch)  繰り返し  繰り返し（前判定）(While) 繰り返し（後判定）(Do While) 繰り返し（コレクションの各要素）(For Each)  データ操作  CSVを読み込み(Read CSV)  オプションにエンコーディングを指定できる（日本語データがある場合、&amp;quot;SHIFT-JIS&amp;quot;を指定する） 列名を含める(IncludeColumnNames)を指定できる 出力タイプ：System.</description>
     </item>
     
     <item>
@@ -243,24 +148,67 @@ The comparison x == y, where x and y are values, produces true or false. Such a 
     </item>
     
     <item>
-      <title>Scala - Classes - Objects</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-12-scalaclassobject/</link>
-      <pubDate>Wed, 12 Apr 2017 09:00:00 +0000</pubDate>
+      <title>Scala - Abstract  - Generic Type</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-06-13-scalageneric/</link>
+      <pubDate>Wed, 13 Jun 2018 09:00:00 +0000</pubDate>
       
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-12-scalaclassobject/</guid>
-      <description>In this post we talk about Scala Class, Objects, Traits and Interfaces. Its relationships between different components and inheritance. We are assuming that classes, methods, and polymorphism are familiar to the reader and we will only delve into those terms that are new to the scenario at hand.
-The next example or its idea have been taken from Programming in scala, 3rd edition
-Defining classes in scala like in any other language is a blueprint for creating objects.</description>
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-06-13-scalageneric/</guid>
+      <description>In this post we will talk about Generic Elements. One of the most useful mechanisms in the Scala programming language. This mechanism is quite useful when a member of a class, feature or even a method definition does not have a complete definition in its body and can also be usable by different implementations.
+The following example is quite simple but jut to give an idea about using inheritance and polymorphism:</description>
+    </item>
+    
+    <item>
+      <title>Scala - Complex Types</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-06-20-scalacomplextypes/</link>
+      <pubDate>Wed, 13 Jun 2018 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-06-20-scalacomplextypes/</guid>
+      <description>In this post we will talk about scala complex type. One of the most useful mechanisms in the Scala programming language for deal with:
+Exceptions &amp;hellip;&amp;hellip;
+https://www.scala-lang.org/api/2.13.6/scala/util/Try.html https://www.scala-lang.org/api/2.13.6/scala/util/Either.html https://www.scala-lang.org/api/2.13.6/scala/Option.html
+look chained operation with Try !!
+(ver en otro blog scala loops)(for =&amp;gt; yield )</description>
     </item>
     
     <item>
       <title>Api Rest - Playframework - Testing</title>
       <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/</link>
-      <pubDate>Tue, 04 Apr 2017 09:00:00 +0000</pubDate>
+      <pubDate>Wed, 30 May 2018 09:00:00 +0000</pubDate>
       
       <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/</guid>
       <description>As was argued by Robert C. Martin in his Clean Code bible, there are several aspects that we have to pay attention when we design our tests:
  Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  </description>
+    </item>
+    
+    <item>
+      <title>Api Rest - Playframework - Htpp</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-23-scalahttpplay/</link>
+      <pubDate>Wed, 23 May 2018 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-23-scalahttpplay/</guid>
+      <description>In this post we talk about http api in play framework, addressing some basic standards to build RESTful API. Play Framework can be used widely in other scenarios which involve MVC for example. Honestly there are other frameworks more taylored for RESTful APIs. In my opinion trying to implement HATEOAS in Play Framework is a nightmare so this is a point that we won&amp;rsquo;t approach. I am assuming that you know the main concept of http protocol, its use and implementation as the core of concept when we talk properly about Restful Apis.</description>
+    </item>
+    
+    <item>
+      <title>Scala - Trait - inheritance</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-28-scalatraitinheritance/</link>
+      <pubDate>Fri, 28 Apr 2017 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-28-scalatraitinheritance/</guid>
+      <description>In this post we talk about the Scala traits and how to implement inheritance with classes. In some specifics scenarios like when you have to deal with base class with arguments it is beter to use abstract classes instead of traits. Classes and objects can extends from traits which encapsulate methods and field defnitions.
+A quite simple example below(base class with arguments) inherits(implements too) from abstract class:
+1abstract class Element { 2 def contents: Array[String] 3 def height = contents.</description>
+    </item>
+    
+    <item>
+      <title>Scala - Classes - Objects</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-12-scalaclassobject/</link>
+      <pubDate>Wed, 12 Apr 2017 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-12-scalaclassobject/</guid>
+      <description>In this post we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We are assuming that classes, methods, and polymorphism are familiar to the reader and we will only delve into those terms that are new to the scenario at hand.
+The next example or its idea have been taken from Programming in scala, 3rd edition
+Defining classes in scala like in any other language is a blueprint for creating objects.</description>
     </item>
     
     <item>
@@ -290,20 +238,10 @@ use :quit to exit from the scala REPL.</description>
       <pubDate>Tue, 21 Mar 2017 09:00:00 +0000</pubDate>
       
       <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-21-scalanutshell/</guid>
-      <description>In this post I am gonna explain one of the main collection in Scala, List. The performance in this inmutable collection for some scenarios is great with optimal features and not so good in others because this performance is proportional to the size of the collection.
+      <description>In this post I&amp;rsquo;m going to explain one of the main collections in Scala, List. The performance in this inmutable collection for some scenarios is great with optimal features however, it doesn&amp;rsquo;t work as well in others scenarios because this performance is proportional to the size of the collection.
 You can find the performance of List and other collections here.
-Especific for List this is what we have:
+Specific for List, this is what we have:
    head tail apply update prepend append insert     C C L L C L -    C	The operation takes (fast) constant time.</description>
-    </item>
-    
-    <item>
-      <title>composer中的autoload</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2016-11-05-php-composer-autoload/</link>
-      <pubDate>Sat, 05 Nov 2016 02:42:06 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2016-11-05-php-composer-autoload/</guid>
-      <description>composer的autoload可以轻松的实现php的自动加载。在composer.json中添加autoload字段即可。当前支持 PSR-0 PSR-4 classmap解析和files包含。官方推荐PSR-4标准（添加类时不需要重新生成加载器）。
-PSR-4 Under the psr-4 key you define a mapping from namespaces to paths, relative to the package root. When autoloading a class like Foo\\Bar\\Baz a namespace prefix Foo\\ pointing to a directory src/ means that the autoloader will look for a file named src/Bar/Baz.php and include it if present. Note that as opposed to the older PSR-0 style, the prefix (Foo\\) is not present in the file path.</description>
     </item>
     
     <item>

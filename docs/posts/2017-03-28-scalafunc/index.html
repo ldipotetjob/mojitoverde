@@ -189,7 +189,7 @@ use :quit to exit from the scala REPL."/>
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          2 minute read
+          3 minute read
         </div>
         
         
@@ -276,7 +276,16 @@ use :paste to enter a class and object as companions.
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#ff79c6">val</span> greeting <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">()</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">s&#34;hello, </span><span style="color:#f1fa8c">$name</span><span style="color:#f1fa8c">&#34;</span> <span style="color:#6272a4">//val greeting: () =&gt; String = $Lambda$1259/1959562325@64b05928 
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#6272a4"></span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>greeting<span style="color:#ff79c6">()</span> <span style="color:#6272a4">//val res18: String = hello, world
-</span></code></pre></div><p><strong>Not purely functional</strong></p>
+</span></code></pre></div><ol start="5">
+<li>Defining closures</li>
+</ol>
+<p>This is the best <a href="https://gist.github.com/ldipotetjob/08b41957431ec9014d02ac1c5e7eed23">definition that I&rsquo;ve found about closure</a>. It&rsquo;s a paradigm that can be applied to any language.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">def</span> closure_function<span style="color:#ff79c6">(</span>inc<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span> x <span style="color:#ff79c6">+</span> inc <span style="color:#6272a4">//def closure_function(inc: Int): Int =&gt; Int
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4"></span><span style="color:#ff79c6">val</span> increment <span style="color:#ff79c6">=</span> closure_function<span style="color:#ff79c6">(</span><span style="color:#bd93f9">10</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val increment: Int =&gt; Int = $Lambda$1140/653292129@2b55ea4d
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#6272a4"></span><span style="color:#ff79c6">val</span> increment5 <span style="color:#ff79c6">=</span> increment<span style="color:#ff79c6">(</span><span style="color:#bd93f9">5</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val increment5: Int = 15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#6272a4"></span>scala<span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">val</span> increment5 <span style="color:#ff79c6">=</span> increment<span style="color:#ff79c6">(</span><span style="color:#bd93f9">10</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val increment5: Int = 20
+</span></code></pre></div><p>Based on the above definition, the closure can be implemented in all scenarios where the value it returns depends on one or more variables(of any type) created or generated outside of it.</p>
+<p><strong>Not purely functional</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">def</span> greet<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">=</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Hello, world!&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//def greet(): Unit
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4"></span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#6272a4">/*Anonymous function*/</span>
@@ -392,7 +401,7 @@ use :paste to enter a class and object as companions.
 
   <footer id="footer">
   <div class="footer-left">
-    Copyright  &copy; 2022  Scadip 
+    Copyright  &copy; 2023  Scadip 
   </div>
   <div class="footer-right">
     <nav>

@@ -7,25 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Scadip</copyright>
-    <lastBuildDate>Sun, 27 Jun 2021 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>test</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/tags/test/</link>
-      <pubDate>Sun, 27 Jun 2021 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/tags/test/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Algorithms</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/tags/algorithms/</link>
-      <pubDate>Sat, 06 Jun 2020 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/tags/algorithms/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Wed, 29 Apr 2020 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>programming language</title>
       <link>https://ldipotetjob.github.io/mojitoverde/tags/programming-language/</link>
@@ -36,29 +18,11 @@
     </item>
     
     <item>
-      <title>racket</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/tags/racket/</link>
-      <pubDate>Sat, 29 Feb 2020 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/tags/racket/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>SML</title>
       <link>https://ldipotetjob.github.io/mojitoverde/tags/sml/</link>
       <pubDate>Mon, 30 Dec 2019 09:00:00 +0000</pubDate>
       
       <guid>https://ldipotetjob.github.io/mojitoverde/tags/sml/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RPA</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/tags/rpa/</link>
-      <pubDate>Sat, 23 Nov 2019 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/tags/rpa/</guid>
       <description></description>
     </item>
     
@@ -83,7 +47,7 @@
     <item>
       <title>Scala</title>
       <link>https://ldipotetjob.github.io/mojitoverde/tags/scala/</link>
-      <pubDate>Wed, 12 Apr 2017 09:00:00 +0000</pubDate>
+      <pubDate>Wed, 13 Jun 2018 09:00:00 +0000</pubDate>
       
       <guid>https://ldipotetjob.github.io/mojitoverde/tags/scala/</guid>
       <description></description>
@@ -92,7 +56,7 @@
     <item>
       <title>PlayFramework</title>
       <link>https://ldipotetjob.github.io/mojitoverde/tags/playframework/</link>
-      <pubDate>Tue, 04 Apr 2017 09:00:00 +0000</pubDate>
+      <pubDate>Wed, 30 May 2018 09:00:00 +0000</pubDate>
       
       <guid>https://ldipotetjob.github.io/mojitoverde/tags/playframework/</guid>
       <description></description>
@@ -101,18 +65,9 @@
     <item>
       <title>Testing</title>
       <link>https://ldipotetjob.github.io/mojitoverde/tags/testing/</link>
-      <pubDate>Tue, 04 Apr 2017 09:00:00 +0000</pubDate>
+      <pubDate>Wed, 30 May 2018 09:00:00 +0000</pubDate>
       
       <guid>https://ldipotetjob.github.io/mojitoverde/tags/testing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>php</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/tags/php/</link>
-      <pubDate>Sat, 05 Nov 2016 02:42:06 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/tags/php/</guid>
       <description></description>
     </item>
     
