@@ -76,7 +76,7 @@ rational + rational1 //res0: Rational = 19/12
 rational - rational1 //res1: Rational = -1/12
 
 rational*(2) //res2: Rational = 3/2
-rational+(3) res3: Rational = 15/4
+rational+(3) //res3: Rational = 15/4
 
 ```
 Based on the previous scenario, the operations between cardinal and rational numbers fail because the scala libraries do not support operations with rational numbers.
