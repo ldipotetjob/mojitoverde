@@ -10,7 +10,7 @@ keywords:
     - Data Types
 ---
 
-In this post we talk about Scala Data Types and its perspective in the easiest way.
+In this post, we talk about Scala Data Types and their perspective in the easiest way.
 
 ```
 Basic type    Range
@@ -25,8 +25,7 @@ Float         32-bit IEEE 754 single-precision float
 Double        64-bit IEEE 754 double-precision float
 Boolean       true or false
 ```
-Scala brings a mechanism for string interpolation, which allows to embed expressions within string literals. 
-An example below:
+Scala brings a mechanism for string interpolation, which allows embedding expressions within string literals:
 
 ```scala
 val userName = "Luis" //val userName: String = Luis
@@ -36,7 +35,7 @@ println(s"Good morning, $userName!") //Good morning, Luis!
 println(s"You have to check this value:${21%2}") //You have to check this value:1
 ```
 
-Repeated params. It implies that a params in a function can include one or more of element of the specific type:
+Repeated params, It implies that a param in a function can include one or more elements of the specific type:
 ```scala
 def echo(args: String*) =
             for (arg <- args) println(arg)
@@ -53,7 +52,7 @@ echo("hello","i am louis","and you")
 // and you
 ```
 
-Even when inside it's declared as an array you can't pass a collection(array, list, ...) as a parameter:
+Even when the parameter is declared as an array you can't pass the collection like array, list, sets or other type of collection as a parameter:
 
 ```scala
 // the same scenario when using arrays 
@@ -64,7 +63,8 @@ echo(List("hello","i am louis","and you ?"))
         required: String
 ```
 
-So we need to tell the compiler to pass each element of my list as its own argument to echo, rather than all of it as a single argument. This is the way, our single argument: _*. 
+To solve the previous error, we need to tell the compiler to pass each item in the list as its parameter rather than all of it(the collection) as a single argument. The items of the list are considered a single argument: _*.
+
 \
 Check below code:
 
@@ -78,5 +78,4 @@ i am louis
 and you ?
 ```
 
-
-
+The idea of this post is an overview of data types in Scala and somehow pass repeated parameters to function and handle it that takes as parameter repeated parameters or collections too.

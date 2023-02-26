@@ -8,10 +8,9 @@ categories:
 keywords:
     - Scala
 ---
-In this post I will talk about the role of functions in scala, how create them and its implication on the scala language. We are going to run many of them from Scala REPL (“**Read-Evaluate-Print-Loop**”). 
+In this post, I will talk about the role of functions in scala, how to create them, and their implication on the scala language. Scala REPL (“**Read-Evaluate-Print-Loop**”),scala 2.x, will help us.
 
-We want to make clear we are working with scala 2.x
-You can find below some useful commad and if you want to go deeper try the [Scala REPL page](https://docs.scala-lang.org/overviews/repl/overview.html):  
+[Scala REPL page](https://docs.scala-lang.org/overviews/repl/overview.html):  
 
 ```
 use :quit to exit from the scala REPL.
@@ -84,7 +83,7 @@ greeting() //val res18: String = hello, world
 
 5. Defining closures
 
-This is the best [definition that I've found about closure](https://gist.github.com/ldipotetjob/08b41957431ec9014d02ac1c5e7eed23). It's a paradigm that can be applied to any language.
+It is the finest [definition that I've found of closure](https://gist.github.com/ldipotetjob/08b41957431ec9014d02ac1c5e7eed23). It's a paradigm that can be applied to any language.
 
 ```scala
 def closure_function(inc: Int) = (x: Int) => x + inc //def closure_function(inc: Int): Int => Int
@@ -92,7 +91,7 @@ val increment = closure_function(10) //val increment: Int => Int = $Lambda$1140/
 val increment5 = increment(5) //val increment5: Int = 15
 scala> val increment5 = increment(10) //val increment5: Int = 20
 ```
-Based on the above definition, the closure can be implemented in all scenarios where the value it returns depends on one or more variables(of any type) created or generated outside of it.
+Based on the above definition, you can use closure in scenarios where the value it returns depends on one or more variables(of any type) created or generated outside of it.
 
 **Not purely functional**
 
@@ -105,4 +104,8 @@ val greet = () => println("Hello, world!")
 /* Other way of Function0 */
 val greet: Function0[Unit] = () => println("Hello, world!")
 ```
- In this post you have seen different paths to create functions in Scala. We avoid the definition of Function 0..2 in Scala, basically because it requires definitions like **Trait** and **Object** as a **Singleton**.  We'll address these concepts in next posts. 
+In this post, you have seen different ways to create functions in Scala. We avoid the definition of Function 0..2 in Scala, mainly because It requires knowledge like **Trait** and **Object** as **Singleton**. We’ll address these concepts in later posts.
+
+
+
+

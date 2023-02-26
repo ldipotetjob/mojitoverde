@@ -72,13 +72,13 @@ cities.filter(city=>city.startsWith("M")) == cities.filter(_.startsWith("M")) //
 cities.filter(city=>city.startsWith("x")) //val res0: List[String] = List()
 ```
 
-Many of the collection methods return a standard **Scala type for optional values**, we'll simply explain these optional values, which are implemented by the Option type:
+Many of the collection methods return a standard **Scala type for optional values**, which are implemented by the Option type:
 
 When a value is of type Option it indicates that it can be of two different types:
 * Some (x) where x is the current value.
-* None which indicates that it has no value or has a null value.
+* None that means that it has no value or has a null value.
 
-We filter a collection and if the **headOption** method is applied to the filtered collection, the method returns the first element of the collection in a **Some(first_element)** or a **None** as no element meets the requirements.
+The **headOption** method returns the first element of the collection in a **Some(first_element)** or a **None** if no items meets the requirements.
 ```scala
 def headOption: Option[A]
 ```
@@ -113,7 +113,7 @@ Creating a new collection by applying a specific function to each element that w
 ```scala
 def map[B](f: (A) ⇒ B): List[B]
 ```
-On next code segment a new list is created by applying a function to each items in the collection. The two lines return the same collection, so let see the utility of the placeholder(**\_**) in thi scenario:
+In code segment below, a new list is created by applying a function to each item in the collection. The two lines return the same collection, so let's see the utility of the placeholder(**\_**) in this scenario:
 
 ```scala
 List(10,20,30,40,50).map(_ * 2) //res13: List[Int] = List(20, 40, 60, 80, 100)
@@ -133,8 +133,7 @@ Collections can be grouped following different constraints or conditions.
 ```scala
 def groupBy[K](f: (A) ⇒ K): Map[K, List[A]]
 ```
-
-So this method **splits** the collection in a map of lists according to a particular function. For example, if we group a list of String by its length, all those elements of the list with the same length will be in a same key K and will belong to the same List [A].
+So this method **splits** the collection into a map of lists according to a particular function. For example, if we group a list of String by its length, all those elements of the list with the same length will be in the same key K and will belong to the same List [A].
 
 ```scala
 /** grouping by length */
@@ -146,14 +145,12 @@ List(1,2,34,33,56,56,32,20).groupBy(_<20)
 //res12: scala.collection.immutable.Map[Boolean,List[Int]] = HashMap(false -> List(34, 33, 56, 56, 32, 20), true -> List(1, 2))
 ```
 
-In a **partition**, all members of the collection that meet a boolean condition are grouped on the left side of the tuple and those that do not fulfill, on the right side.
+In a **partition**, all members of the collection that meet a boolean condition are grouped on the left side of the tuple, and those that do not fulfill it go to the right side.
 
 ```scala
 def partition(p: (A) ⇒ Boolean): (List[A], List[A])
 ```
-
-Let's see the next example about a list of integers that we want to divide into **the integers > 15** and **the rest**.
-Integers that satisfy the conditions are grouped at the left side and the rest at the right side.
+Let’s see the example below about a list of integers that we want to divide into **the integers > 15** and **the rest**. Integers that satisfy the conditions are grouped at the left side and the rest at the right side.
 ```scala
 val numberList: List[Int] = List(1,3,4,5,8,20,28,14,12)
 numberList.partition(_>15) //res12: (List[Int], List[Int]) = (List(20, 28),List(1, 3, 4, 5, 8, 14, 12))
@@ -193,13 +190,14 @@ List(Map("Six" -> 6, "five" -> 5, "four" -> 4),Map("Nine" -> 9, "eight" -> 8, "s
 List(Some(1),Some(3),Some(10),None).flatMap(x=>x) //res41: List[Int] = List(1, 3, 10)
 List(Some(1),Some(3),Some(10),None).flatten //res42: List[Int] = List(1, 3, 10)
 ```
-Let's see the operation of the fold method, which **"merge or synthesize"** the elements of the collection using an associative operator (which can be executed in an arbitrary order [sum, multiplication]). **Always have an initial value or accumulator.**
-In the fold method we talk about associative binary operation which means the order of operations is irrelevant. **The fold method**, is a monoid, have a look to our [source examples](https://github.com/ldipotetjob/functionalprog/blob/main/src/main/scala/functionalProg-monoids.sc)
+
+Let’s see the operation of the fold method, which **“merges or synthesizes”** the elements of the collection using an associative operator (which can be executed in an arbitrary order [sum, multiplication]). **Always have an initial value or accumulator.** In the fold method, we talk about an associative binary operation which means the order of operations is irrelevant. **The fold method** is a monoid, have a look at our [source examples](https://github.com/ldipotetjob/functionalprog/blob/main/src/main/scala/functionalProg-monoids.sc)
 
 ```scala
 def fold[A1 >: A](z: A1)(op: (A1, A1) ⇒ A1): A1
 ```
-It is important to emphasize that in the fold the operations on the elements set of the collection do not have an order and besides the accumulator (z) can be applied as parameter to the operator (op) an indeterminate amount of times.
+
+It is important to emphasize that in the fold method, the operations on the items in the collection do not have an order, the accumulator (z) can be applied as a parameter to the operator (op) an indeterminate amount of times.
 
 ```scala
 List(1,2,3).fold("gdg")( _.toString + _.toString) //res0: Any = gdg123
@@ -222,22 +220,23 @@ List (1,2,3,4,5).fold ("")((s1, s2) => s"$s1 - $s2") //res5: Any = " - 1 - 2 - 3
 List (1,2,3,4,5).fold ("acumulator")((s1, s2) => s"$s1 - $s2") //res6: Any = acumulator - 1 - 2 - 3 - 4 - 5
 ```
 
-Understanding difference when foldLeft instead of fold.
+There is difference when using the foldLeft method instead of fold. 
 The following operation will generate an error because it is an operation in which **the order of the operations to be performed is decisive**:
 ```scala
 List("1","2","3").fold(0)(_ + _.toInt)
 <console> error: value toInt is not a member of Any
 ```
 
-It is important to note the previous behaviour in situations like this (**where the order of operations is important**) we can not consider the use of fold. Based on the previous line of code would be **an error the following analysis**:
+It is essential to consider no use the fold method in scenarios **where the order of the operations is important**.
+Based on the above line of code would be **an error in the following analysis**:
 
 1st iteration -> op (0, "1") -> 0 + "1" .toInt -> 1\
 2nd iteration -> op (1, "2") -> 1 + "2" .toInt -> 3\
 3rd iteration -> op (3, "3") -> 3 + "3" .toInt -> 6
 
-Starting from the fact that the fold nature itself indicates that there is no set order for operations then **NOTHING** indicates that the first iteration is op (0, "1") -> 0 + "1" .toInt -> 1 could just be any other combination in which for example is **op (0, "1") -> 1 + 0.toInt -> 1** and we would already have our first error.
+Starting from the fact that the fold method nature itself indicates there is no set order for operations, nothing points out that the first iteration is op (0, “1”) -> 0 + “1” .toInt -> 1 could be any other combination in which for example is **op (0, “1”) -> 1 + 0.toInt -> 1** and we could have our first error.
 
-We must know an important detail of the functionality of fold, depending the object that apply this method the concept of **"synthesize or merge"** will not be the same in all types of collections or objects on which **fold method can be applied**, so we will assume here that the concept of **polymorphism** is known by all.
+A crucial detail of the functionality of the fold method is that depending on the object that applies this method, the concept of **“synthesize or merge”** will not be the same in all types of collections or other iterables on which **this method can be applied**, so we will assume here that the concept of **polymorphism** is known by all.
 ```scala
 def foldLeft[B](z: B)(op: (B, A) ⇒ B): B
 ```
@@ -250,9 +249,7 @@ List("1","2","3").fold(0)(_ + _.toInt) //<console> error: value toInt is not a m
 /** this scenario succeed */
 List("1","2","3").foldLeft(0)(_ + _.toInt) //res11: Int = 6
 ```
-
-So that from **LEFt** to **RIGht**
-The sequence order of the operations executed here is as follows:
+So from **LEFt** to **RIGht** Sequence order of the operations executed here is as follows:
 
 1st iteration (0 + "1" .toInt) -> 1\
 2nd iteration (1 + "2" .toInt) -> 3\
@@ -264,7 +261,7 @@ The same point of view is applied to foldRight.
 def foldRight[B](z: B)(op: (A, B) ⇒ B): B
 ```
 
-As you can appreciate the signature of the method is the same although the way to do the iterations is **RIGht -> LEFt**
+As you can appreciate syntax of the method is the same even if the way to do the iterations is **RIGht -> LEFt**
 
 Below, simple examples how foldRight works:
 
@@ -287,32 +284,34 @@ List(1,2,3,4,5,6,7,8,9,10).foldRight(1)((a,b) => {println(s"$a,$b");a})
 List("1","2","3").foldRight(0)(  _.toInt + _) //val res31: Int = 6
 ```
 
-We see how has been necessary to change the order of the parameters. And now let's see the order of the operations.
+We see how it has been necessary to change the order of the parameters. So let's see the order of the operations.
 
 **Important: See the order or position that the accumulator (on the right) occupies in our case.**
+
 
 1st iteration op (first_element_element, accumulator) -> Result_1\
 2nd iteration op (second_element_element, Result_1) -> Result_2\
 3rd iteration op (third_element_element_, Result_2) -> Result_3
 
-A common operation of all folds is that if the collection is empty we return the accumulator, in general it must be **NEUTRAL**.
+The Common operation in fold methods is when the collection is empty, this cases return the accumulator, in general, it must be **neutral**.
 
-What does NEUTRAL means:
+What does neutral means:
 
 If it's a list -> Nil\
 If it is a multiplication operator -> 1\
 If it is a String operator -> ""\
 And so on.
 
-If we can adapt our code to use fold it would be perfect although many times we will not be able to.. If **foldRight** and **foldRight**  are equivalent, choose foldLeft by default.
+We can adapt our code to use the fold method. Many times it won't be able. If **foldRight** and **foldLeft**  are equivalent, choose foldLeft by default.
 
-The **reduce** method, whose main difference with the **fold** method is that it does not have an initial value, so we have to make sure that the collection on which we use it is not an empty collection. With the **reduce** method a collection is "reduced or merged" using associative operators.
+In the **reduce** method, whose main difference from the fold method is that it does not have an initial value, the collection is "reduced or merged" using associative operators.
+Make sure to use this method in the not-empty collection.
 
 ```scala
 def reduce[A1 >: A](op: (A1, A1) ⇒ A1): A1
 ```
 
-**reduce** is quite similar to fold but don't include acumulator and **the ONLY** aspect that you have to guarantee is just don't traverse an empty collection(**list in this case**). 
+The **reduce method** is quite similar to the fold method with two main differences, **do not include any acumulator** also **you must guarantee do not traverse an empty collection**(list in this case). 
 ```scala
 List (1,2,3,4,5).fold ("")((s1, s2) => s"$s1 - $s2") //res20: Any = " - 1 - 2 - 3 - 4 - 5"
 /** check difference between the leftmost char comparing against the above line of code */
@@ -332,9 +331,8 @@ val longestLine = lines.reduceLeft((a, b) => if (a.length > b.length) a else b)
 //val longestLine: String = second_string_value
 ```
 
-The previous use case would be better to use **reduce**. But imagine that our op instead of being **max** or **min**, is a **division**, in this case we must care about the order of the operations and we would then have to see what **reduces method** (left or right) to use.
+In the previous use case better to use the **reduce** method. But suppose our op is a **division** instead of being **max** or **min**; then we must care about the order of the operations and decide what **reduces method** (left or right) to use.
 
-This post has described some of the most important List methods, but the rest of them can be found at [scala api](https://www.scala-lang.org/api/current/scala/index.html).  
 
 &nbsp;
 &nbsp;
