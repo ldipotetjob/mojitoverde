@@ -8,13 +8,13 @@ categories:
 keywords:
     - Scala
 ---
-In this post we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We are assuming **that classes, methods, and polymorphism are familiar to the reader** and we will only delve into those terms that are new to the scenario at hand.
+In this post, we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We assume **that classes, methods, and polymorphism are familiar to the reader**. We only will delve into new terms in this scenario.
 
-The next example or its idea have been taken from [Programming in scala, 3rd edition](https://www.amazon.co.uk/Programming-Scala-3rd-Martin-Odersky/dp/0981531687)
+The example below(or its idea) is from [Programming in scala, 3rd edition](https://www.amazon.co.uk/Programming-Scala-3rd-Martin-Odersky/dp/0981531687)
 
-Defining classes in scala like in any other language  is a blueprint for creating objects.
+When defining classes in Scala is like a blueprint for creating objects.
 
-Let's define a very simple implementation of the Rational numbers, just a few simple operations:
+Let's define a simple implementation of the Rational numbers(simple operations):
 
 ```scala
 // Modeling Rational numbers 
@@ -32,7 +32,7 @@ class Rational(n: Int, d: Int) {
       numer * that.denom + that.numer * denom,
       denom * that.denom
     )
-  // addition  operation between rational number and integer number
+  // addition operation between rational number and integer number
   def + (i: Int): Rational =
     new Rational(numer + i * denom, denom)
 
@@ -79,7 +79,8 @@ rational*(2) //res2: Rational = 3/2
 rational+(3) res3: Rational = 15/4
 
 ```
-Based in the revious scenario are operation between a cardinal numbers and rational numbers. Basically because the scala standar libraries do not contain operation with rational number. 
+Based on the previous scenario, the operations between cardinal and rational numbers fail because the scala libraries do not support operations with rational numbers.
+
 ```scala
 2*rational
         ^
@@ -95,16 +96,15 @@ Based in the revious scenario are operation between a cardinal numbers and ratio
 
 ```
 
-So basically a solution can be **implicit convertion**. Implicit definitions are those that the compiler is allowed to insert into a program in order to fix any of its type errors. For example, if x * Rational_number does not type check, then the compiler might change it
-to convert(x) * Rational_number, where convert is some available implicit conversion. If convert changes x into something that has a * method that accept Rational Number, then this change might fix a program so that it type checks and runs correctly. 
+A solution can be an **implicit conversion**, an implicit definition that the compiler can insert into a program to fix any type error. For example, if x * Rational_number does not type check, the compiler can change it to convert(x) * Rational_number, where convert is some available implicit conversion. If this "convert" function changes x into something with a * method that accepts Rational Number, then this change might fix a program so that its type checks and runs correctly. 
 
-Places where implicit convertions are implemented:
+Places where we can implement implicit conversions:
 
-1. Conversions to an expected type. It lets you use one type in a context where a different type is expected
-2. Conversions of the receiver of a selection. It lets you adapt the receiver of a method call (i.e., the object on which a method is invoked), if the method is not applicable on the original type
-3. Implicit parameters. They are usually used to provide more information to the called function about what the caller wants. Useful with generic functions. 
+1. Conversions to an expected type, we need to use one type in a context where we expect a different type .
+2. Conversions of the receiver of a selection. It lets you to adapt the receiver of a method call (i.e., the object on which the method is invoked) if you can't apply its original type.
+3. Implicit parameters. It lets to provide more information to the called function about what the caller wants. It is helpful in generic functions. 
 
-So the solution to the previous compilation error can be the next line of code:
+We can find below the solution to the previous complilation error:
 
 ```scala
 implicit def intToRational(x: Int) = new Rational(x)
@@ -121,12 +121,12 @@ def intToRational(x: Int): Rational
 ```
 In the previous piece of code when we execute 2*rational what's really happen is **intToRational**(2)***rational**
 
-The  warning on the previous piece of code can be solved with the following import on the scope of code:\
+We can solve the  warning that appears in the previous piece of code with the following import on the scope of code:\
 **scala.language.implicitConversions**
 
-Implicits conversion can complicate the code and made it confuse so use it just when it's needed.
+Implicit conversion complicates the code and makes it confusing. Use it when strictly needed.
 
-An **object** is a class that has exactly one instance. It is created lazily when it is referenced, like a lazy val. In scala doesn't exist static values but we have singleton objects which can be imported from everywhere in our code(**objects**). Every NOT private method can be used for any instant that imports the object previously. 
+An **object** is a class with one instance, created lazily when the instance is referenced, like a lazy value. The static values don't exist in Scala. In its place, there are singleton objects that we can import from everywhere in our code(**objects**).
 
 ```scala
 // Singleton object
@@ -137,7 +137,7 @@ object Person {
 }
 ```
 
-If there is a class with the same name as our objects the class is named **companion class** and the object is named **companion object**. **class or object can access the private members of its companion**. Take a look at the code below:
+When a class has the same name as an object, the class is named **companion class** and the object **companion object**. **class or object can access the private members of its companion**. Take a look at the code below:
 
 ```scala 
 // Companion class
@@ -181,9 +181,9 @@ PersonObj.unapply(person)
 //res5: Option[PersonObj] = Some(Person Peter Gabriel born 1970 and live on )
 ```
 
-On code above, the unapply method returns Some(our_object) and  our_object will return the default method, toString, which has been overridden.
+In the code above, the unapply method returns Some(our_object) and  our_object will return the default method, toString, which has been overridden.
 
-A better example is the scala **List object**, so let's check apply and unapply methods:
+A better example is the scala **List object**, so let's check to apply and unapply methods:
 
 ```scala
 // List constructor
@@ -214,17 +214,17 @@ val res14: Option[Int] = Some(2)
 res0.unapply(4)
 val res15: Option[Int] = None
 ```
+In the above code, pay attention to how unapply is invoking UnapplySeqWrapper.apply to get to the indexed value of the collection. As a proper extractor in the case of List, its extractor extracts a specific index of a value introduced as an argument.
 
-In the above code, pay attention to how unapply is invoking UnapplySeqWrapper.apply getting to the indexed value of the collection. As a proper extractor in case of List, its extractor extracts an specific index of a value introduced as an argument.
-
-Value classes(class with just one argument) can help to augment the ones that are built in.
+Value classes(classes with just one argument) can help to augment the ones that are built in.
 
 ```scala
 class Dollars(val amount: Int) extends AnyVal {
     override def toString() = "$" + amount
   }
 ```
-Adding the **case** identifier to the classes we get the case classes. Case classes are immutable and quite useful when dealing with pattern matching. In my opinion, we should use **case** classes instead of regular classes whenever we can.
+
+Once you add the **case** identifier to the reserved word **class**, we get the case class. Case classes are immutable and useful when implementing solutions with pattern matching. In my opinion, we should use **case** classes instead of regular classes whenever we can.
 
 ```scala
 case class PlayerStats (teamPlayer: String, namePlayer: String, goals: Int)
@@ -249,9 +249,9 @@ Explore this usefull definitions on case class:
 3. hasCode
 4. getClass
 
-A very important problem in pattern matching when you want to make sure you are covering all possibilities is played by **sealed classes** that will help you, even to be warned in case you miss any possible pattern in your execution.
+**Sealed classes** help us cover all possibilities when we implement pattern matching and can warn us if we miss any possible pattern in our execution.
 
-We show you here 2 quite simple example that we find in [the scala tutorial](https://docs.scala-lang.org/tour/pattern-matching.html#sealed-classes) 
+We show you here some simple examples that we find in [the scala tutorial](https://docs.scala-lang.org/tour/pattern-matching.html#sealed-classes). 
 
 ```scala 
 sealed trait Notification
@@ -272,8 +272,7 @@ def showNotification(notification: Notification): String = {
 }
 ```
 
-Pay attention below with **sealed class** and **definitions** inside case classes  
-
+Pay attention below to **sealed class** and **definitions** inside the case class
 
 ```scala
 sealed class Device
@@ -291,5 +290,4 @@ def goIdle(device: Device): String = device match {
 }
 ```
 
-
-In this post we have talked about case classes, pattern matching and the objects as a new element to model our data in scala and its relationship with classes
+In this post, we have talked about case classes, pattern matching, and the objects as a new element to model our data in scala and its relationship with classes.
