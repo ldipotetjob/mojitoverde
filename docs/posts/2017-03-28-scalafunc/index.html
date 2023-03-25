@@ -14,9 +14,9 @@
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Scala in a nutshell - Functions" />
-<meta property="og:description" content="In this post I will talk about the role of functions in scala, how create them and its implication on the scala language. We are going to run many of them from Scala REPL (“Read-Evaluate-Print-Loop”).
-We want to make clear we are working with scala 2.x You can find below some useful commad and if you want to go deeper try the Scala REPL page:
-use :quit to exit from the scala REPL." />
+<meta property="og:description" content="In this post, I will talk about the role of functions in scala, how to create them, and their implication on the scala language. Scala REPL (“Read-Evaluate-Print-Loop”),scala 2.x, will help us.
+Scala REPL page:
+use :quit to exit from the scala REPL. use tab for completion. use :help for a list of commands. use :paste to enter a class and object as companions. The telltale sign of a function with side effects is that its result type is Unit." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ldipotetjob.github.io/mojitoverde/posts/2017-03-28-scalafunc/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2017-03-28T09:00:00+00:00" />
@@ -25,9 +25,9 @@ use :quit to exit from the scala REPL." />
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Scala in a nutshell - Functions"/>
-<meta name="twitter:description" content="In this post I will talk about the role of functions in scala, how create them and its implication on the scala language. We are going to run many of them from Scala REPL (“Read-Evaluate-Print-Loop”).
-We want to make clear we are working with scala 2.x You can find below some useful commad and if you want to go deeper try the Scala REPL page:
-use :quit to exit from the scala REPL."/>
+<meta name="twitter:description" content="In this post, I will talk about the role of functions in scala, how to create them, and their implication on the scala language. Scala REPL (“Read-Evaluate-Print-Loop”),scala 2.x, will help us.
+Scala REPL page:
+use :quit to exit from the scala REPL. use tab for completion. use :help for a list of commands. use :paste to enter a class and object as companions. The telltale sign of a function with side effects is that its result type is Unit."/>
 
   
   
@@ -153,7 +153,7 @@ use :quit to exit from the scala REPL."/>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&name=Scala%20in%20a%20nutshell%20-%20Functions&description=In%20this%20post%20I%20will%20talk%20about%20the%20role%20of%20functions%20in%20scala%2c%20how%20create%20them%20and%20its%20implication%20on%20the%20scala%20language.%20We%20are%20going%20to%20run%20many%20of%20them%20from%20Scala%20REPL%20%28%e2%80%9cRead-Evaluate-Print-Loop%e2%80%9d%29.%0aWe%20want%20to%20make%20clear%20we%20are%20working%20with%20scala%202.x%20You%20can%20find%20below%20some%20useful%20commad%20and%20if%20you%20want%20to%20go%20deeper%20try%20the%20Scala%20REPL%20page%3a%0ause%20%3aquit%20to%20exit%20from%20the%20scala%20REPL." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&name=Scala%20in%20a%20nutshell%20-%20Functions&description=In%20this%20post%2c%20I%20will%20talk%20about%20the%20role%20of%20functions%20in%20scala%2c%20how%20to%20create%20them%2c%20and%20their%20implication%20on%20the%20scala%20language.%20Scala%20REPL%20%28%e2%80%9cRead-Evaluate-Print-Loop%e2%80%9d%29%2cscala%202.x%2c%20will%20help%20us.%0aScala%20REPL%20page%3a%0ause%20%3aquit%20to%20exit%20from%20the%20scala%20REPL.%20use%20tab%20for%20completion.%20use%20%3ahelp%20for%20a%20list%20of%20commands.%20use%20%3apaste%20to%20enter%20a%20class%20and%20object%20as%20companions.%20The%20telltale%20sign%20of%20a%20function%20with%20side%20effects%20is%20that%20its%20result%20type%20is%20Unit." aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -189,7 +189,7 @@ use :quit to exit from the scala REPL."/>
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          3 minute read
+          2 minute read
         </div>
         
         
@@ -215,9 +215,8 @@ use :quit to exit from the scala REPL."/>
 
   
     <div class="content" itemprop="articleBody">
-      <p>In this post I will talk about the role of functions in scala, how create them and its implication on the scala language. We are going to run many of them from Scala REPL (“<strong>Read-Evaluate-Print-Loop</strong>”).</p>
-<p>We want to make clear we are working with scala 2.x
-You can find below some useful commad and if you want to go deeper try the <a href="https://docs.scala-lang.org/overviews/repl/overview.html">Scala REPL page</a>:</p>
+      <p>In this post, I will talk about the role of functions in scala, how to create them, and their implication on the scala language. Scala REPL (“<strong>Read-Evaluate-Print-Loop</strong>”),scala 2.x, will help us.</p>
+<p><a href="https://docs.scala-lang.org/overviews/repl/overview.html">Scala REPL page</a>:</p>
 <pre><code>use :quit to exit from the scala REPL.
 use tab for completion.
 use :help for a list of commands.
@@ -279,12 +278,12 @@ use :paste to enter a class and object as companions.
 </span></code></pre></div><ol start="5">
 <li>Defining closures</li>
 </ol>
-<p>This is the best <a href="https://gist.github.com/ldipotetjob/08b41957431ec9014d02ac1c5e7eed23">definition that I&rsquo;ve found about closure</a>. It&rsquo;s a paradigm that can be applied to any language.</p>
+<p>It is the finest <a href="https://gist.github.com/ldipotetjob/08b41957431ec9014d02ac1c5e7eed23">definition that I&rsquo;ve found of closure</a>. It&rsquo;s a paradigm that can be applied to any language.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">def</span> closure_function<span style="color:#ff79c6">(</span>inc<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span> x <span style="color:#ff79c6">+</span> inc <span style="color:#6272a4">//def closure_function(inc: Int): Int =&gt; Int
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4"></span><span style="color:#ff79c6">val</span> increment <span style="color:#ff79c6">=</span> closure_function<span style="color:#ff79c6">(</span><span style="color:#bd93f9">10</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val increment: Int =&gt; Int = $Lambda$1140/653292129@2b55ea4d
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#6272a4"></span><span style="color:#ff79c6">val</span> increment5 <span style="color:#ff79c6">=</span> increment<span style="color:#ff79c6">(</span><span style="color:#bd93f9">5</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val increment5: Int = 15
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#6272a4"></span>scala<span style="color:#ff79c6">&gt;</span> <span style="color:#ff79c6">val</span> increment5 <span style="color:#ff79c6">=</span> increment<span style="color:#ff79c6">(</span><span style="color:#bd93f9">10</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val increment5: Int = 20
-</span></code></pre></div><p>Based on the above definition, the closure can be implemented in all scenarios where the value it returns depends on one or more variables(of any type) created or generated outside of it.</p>
+</span></code></pre></div><p>Based on the above definition, you can use closure in scenarios where the value it returns depends on one or more variables(of any type) created or generated outside of it.</p>
 <p><strong>Not purely functional</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">def</span> greet<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">=</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Hello, world!&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//def greet(): Unit
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4"></span>
@@ -293,7 +292,7 @@ use :paste to enter a class and object as companions.
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#6272a4">/* Other way of Function0 */</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#ff79c6">val</span> greet<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Function0</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Unit</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">()</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Hello, world!&#34;</span><span style="color:#ff79c6">)</span>
-</code></pre></div><p>In this post you have seen different paths to create functions in Scala. We avoid the definition of Function 0..2 in Scala, basically because it requires definitions like <strong>Trait</strong> and <strong>Object</strong> as a <strong>Singleton</strong>.  We&rsquo;ll address these concepts in next posts.</p>
+</code></pre></div><p>In this post, you have seen different ways to create functions in Scala. We avoid the definition of Function 0..2 in Scala, mainly because It requires knowledge like <strong>Trait</strong> and <strong>Object</strong> as <strong>Singleton</strong>. We’ll address these concepts in later posts.</p>
 
     </div>
   </article>
@@ -370,7 +369,7 @@ use :paste to enter a class and object as companions.
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&name=Scala%20in%20a%20nutshell%20-%20Functions&description=In%20this%20post%20I%20will%20talk%20about%20the%20role%20of%20functions%20in%20scala%2c%20how%20create%20them%20and%20its%20implication%20on%20the%20scala%20language.%20We%20are%20going%20to%20run%20many%20of%20them%20from%20Scala%20REPL%20%28%e2%80%9cRead-Evaluate-Print-Loop%e2%80%9d%29.%0aWe%20want%20to%20make%20clear%20we%20are%20working%20with%20scala%202.x%20You%20can%20find%20below%20some%20useful%20commad%20and%20if%20you%20want%20to%20go%20deeper%20try%20the%20Scala%20REPL%20page%3a%0ause%20%3aquit%20to%20exit%20from%20the%20scala%20REPL." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-03-28-scalafunc%2f&name=Scala%20in%20a%20nutshell%20-%20Functions&description=In%20this%20post%2c%20I%20will%20talk%20about%20the%20role%20of%20functions%20in%20scala%2c%20how%20to%20create%20them%2c%20and%20their%20implication%20on%20the%20scala%20language.%20Scala%20REPL%20%28%e2%80%9cRead-Evaluate-Print-Loop%e2%80%9d%29%2cscala%202.x%2c%20will%20help%20us.%0aScala%20REPL%20page%3a%0ause%20%3aquit%20to%20exit%20from%20the%20scala%20REPL.%20use%20tab%20for%20completion.%20use%20%3ahelp%20for%20a%20list%20of%20commands.%20use%20%3apaste%20to%20enter%20a%20class%20and%20object%20as%20companions.%20The%20telltale%20sign%20of%20a%20function%20with%20side%20effects%20is%20that%20its%20result%20type%20is%20Unit." aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>

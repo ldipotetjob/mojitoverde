@@ -8,10 +8,9 @@ categories:
 keywords:
     - Scala
 ---
-In this post we talk about the Scala traits and how to implement inheritance with classes. In some specifics scenarios like when you have to deal with base class with arguments it is beter to use abstract classes instead of traits.
-Classes and objects can extends from traits which encapsulate methods and field defnitions.
+We'll talk today about the Scala traits and how to implement inheritance with classes. In some scenarios like having to deal with a base class with arguments on its constructor, it's better to use abstract classes instead of traits. Classes and objects can extend from traits that encapsulate methods and field definitions.
 
-A quite simple example below(base class with arguments) inherits(implements too) from abstract class:
+We show here a quite simple example (base class with arguments) inherits(implements too) from abstract class:
 ```scala
 abstract class Element {
   def contents: Array[String]
@@ -37,7 +36,7 @@ val element: Element = new ArrayElement(Array("hello", "world"))
 element.width //res7: Int = 5
 ```
 
-A better solution for multiple inheritance is a class mixin any number of traits.  
+A better solution for multiple inheritances is a class mixin any number of traits.  
 
 ```scala
 trait Printable{
@@ -55,7 +54,7 @@ error: class A6 needs to be abstract. Missing implementation for:
 def print: Unit // inherited from trait Printable
 ```
 
-Previous **error** because if a class inherits a trait it must implements all methods not implemented in the **trait**.
+The previous **error** is because if a class inherits a trait, it must implement all methods not implemented in that **trait**.
 
 A proper solution:
 
@@ -81,8 +80,9 @@ val paperSize = new A6 //val paperSize: A6 = A6@3f3b0b19
 scala> paperSize.print //Hello, this is A6 Sheet
 ``` 
 
+PENDIENTE!!==> ver si queda algo mas y sino terminar el post y resumir  
 
+refs:\
+[Scala standar library](https://www.scala-lang.org/files/archive/spec/2.13/public/images/classhierarchy.png)  
+[Scala mixin class composition](https://docs.scala-lang.org/tour/mixin-class-composition.html) 
 
-
-
-ref: [Scala standar library](https://www.scala-lang.org/files/archive/spec/2.13/public/images/classhierarchy.png)   

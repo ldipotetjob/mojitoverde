@@ -195,8 +195,8 @@ look chained operation with Try !!
       <pubDate>Fri, 28 Apr 2017 09:00:00 +0000</pubDate>
       
       <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-28-scalatraitinheritance/</guid>
-      <description>In this post we talk about the Scala traits and how to implement inheritance with classes. In some specifics scenarios like when you have to deal with base class with arguments it is beter to use abstract classes instead of traits. Classes and objects can extends from traits which encapsulate methods and field defnitions.
-A quite simple example below(base class with arguments) inherits(implements too) from abstract class:
+      <description>We&amp;rsquo;ll talk today about the Scala traits and how to implement inheritance with classes. In some scenarios like having to deal with a base class with arguments on its constructor, it&amp;rsquo;s better to use abstract classes instead of traits. Classes and objects can extend from traits that encapsulate methods and field definitions.
+We show here a quite simple example (base class with arguments) inherits(implements too) from abstract class:
 1abstract class Element { 2 def contents: Array[String] 3 def height = contents.</description>
     </item>
     
@@ -206,9 +206,10 @@ A quite simple example below(base class with arguments) inherits(implements too)
       <pubDate>Wed, 12 Apr 2017 09:00:00 +0000</pubDate>
       
       <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-12-scalaclassobject/</guid>
-      <description>In this post we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We are assuming that classes, methods, and polymorphism are familiar to the reader and we will only delve into those terms that are new to the scenario at hand.
-The next example or its idea have been taken from Programming in scala, 3rd edition
-Defining classes in scala like in any other language is a blueprint for creating objects.</description>
+      <description>In this post, we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We assume that classes, methods, and polymorphism are familiar to the reader. We only will delve into new terms in this scenario.
+The example below(or its idea) is from Programming in scala, 3rd edition
+When defining classes in Scala is like a blueprint for creating objects.
+Let&amp;rsquo;s define a simple implementation of the Rational numbers(simple operations):</description>
     </item>
     
     <item>
@@ -217,8 +218,8 @@ Defining classes in scala like in any other language is a blueprint for creating
       <pubDate>Tue, 04 Apr 2017 09:00:00 +0000</pubDate>
       
       <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-04-04-scaladataoperator/</guid>
-      <description>In this post we talk about Scala Data Types and its perspective in the easiest way.
-Basic type Range Byte 8-bit signed two&#39;s complement integer (-27 to 27 - 1, inclusive) Short 16-bit signed two&#39;s complement integer (-215 to 215 - 1, inclusive) Int 32-bit signed two&#39;s complement integer (-231 to 231 - 1, inclusive) Long 64-bit signed two&#39;s complement integer (-263 to 263 - 1, inclusive) Char 16-bit unsigned Unicode character (0 to 216 - 1, inclusive) String a sequence of Chars Float 32-bit IEEE 754 single-precision float Double 64-bit IEEE 754 double-precision float Boolean true or false Scala brings a mechanism for string interpolation, which allows to embed expressions within string literals.</description>
+      <description>In this post, we talk about Scala Data Types and their perspective in the easiest way.
+Basic type Range Byte 8-bit signed two&#39;s complement integer (-27 to 27 - 1, inclusive) Short 16-bit signed two&#39;s complement integer (-215 to 215 - 1, inclusive) Int 32-bit signed two&#39;s complement integer (-231 to 231 - 1, inclusive) Long 64-bit signed two&#39;s complement integer (-263 to 263 - 1, inclusive) Char 16-bit unsigned Unicode character (0 to 216 - 1, inclusive) String a sequence of Chars Float 32-bit IEEE 754 single-precision float Double 64-bit IEEE 754 double-precision float Boolean true or false Scala brings a mechanism for string interpolation, which allows embedding expressions within string literals:</description>
     </item>
     
     <item>
@@ -227,9 +228,9 @@ Basic type Range Byte 8-bit signed two&#39;s complement integer (-27 to 27 - 1, 
       <pubDate>Tue, 28 Mar 2017 09:00:00 +0000</pubDate>
       
       <guid>https://ldipotetjob.github.io/mojitoverde/posts/2017-03-28-scalafunc/</guid>
-      <description>In this post I will talk about the role of functions in scala, how create them and its implication on the scala language. We are going to run many of them from Scala REPL (“Read-Evaluate-Print-Loop”).
-We want to make clear we are working with scala 2.x You can find below some useful commad and if you want to go deeper try the Scala REPL page:
-use :quit to exit from the scala REPL.</description>
+      <description>In this post, I will talk about the role of functions in scala, how to create them, and their implication on the scala language. Scala REPL (“Read-Evaluate-Print-Loop”),scala 2.x, will help us.
+Scala REPL page:
+use :quit to exit from the scala REPL. use tab for completion. use :help for a list of commands. use :paste to enter a class and object as companions. The telltale sign of a function with side effects is that its result type is Unit.</description>
     </item>
     
     <item>

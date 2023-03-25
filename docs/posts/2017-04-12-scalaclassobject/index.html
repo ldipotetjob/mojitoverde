@@ -14,9 +14,10 @@
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Scala - Classes - Objects" />
-<meta property="og:description" content="In this post we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We are assuming that classes, methods, and polymorphism are familiar to the reader and we will only delve into those terms that are new to the scenario at hand.
-The next example or its idea have been taken from Programming in scala, 3rd edition
-Defining classes in scala like in any other language is a blueprint for creating objects." />
+<meta property="og:description" content="In this post, we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We assume that classes, methods, and polymorphism are familiar to the reader. We only will delve into new terms in this scenario.
+The example below(or its idea) is from Programming in scala, 3rd edition
+When defining classes in Scala is like a blueprint for creating objects.
+Let&rsquo;s define a simple implementation of the Rational numbers(simple operations):" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ldipotetjob.github.io/mojitoverde/posts/2017-04-12-scalaclassobject/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2017-04-12T09:00:00+00:00" />
@@ -25,9 +26,10 @@ Defining classes in scala like in any other language is a blueprint for creating
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Scala - Classes - Objects"/>
-<meta name="twitter:description" content="In this post we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We are assuming that classes, methods, and polymorphism are familiar to the reader and we will only delve into those terms that are new to the scenario at hand.
-The next example or its idea have been taken from Programming in scala, 3rd edition
-Defining classes in scala like in any other language is a blueprint for creating objects."/>
+<meta name="twitter:description" content="In this post, we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We assume that classes, methods, and polymorphism are familiar to the reader. We only will delve into new terms in this scenario.
+The example below(or its idea) is from Programming in scala, 3rd edition
+When defining classes in Scala is like a blueprint for creating objects.
+Let&rsquo;s define a simple implementation of the Rational numbers(simple operations):"/>
 
   
   
@@ -153,7 +155,7 @@ Defining classes in scala like in any other language is a blueprint for creating
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&name=Scala%20-%20Classes%20-%20Objects&description=In%20this%20post%20we%20talk%20about%20Scala%20Classes%20and%20Objects.%20Its%20relationships%20between%20different%20components%20and%20inheritance.%20We%20are%20assuming%20that%20classes%2c%20methods%2c%20and%20polymorphism%20are%20familiar%20to%20the%20reader%20and%20we%20will%20only%20delve%20into%20those%20terms%20that%20are%20new%20to%20the%20scenario%20at%20hand.%0aThe%20next%20example%20or%20its%20idea%20have%20been%20taken%20from%20Programming%20in%20scala%2c%203rd%20edition%0aDefining%20classes%20in%20scala%20like%20in%20any%20other%20language%20is%20a%20blueprint%20for%20creating%20objects." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&name=Scala%20-%20Classes%20-%20Objects&description=In%20this%20post%2c%20we%20talk%20about%20Scala%20Classes%20and%20Objects.%20Its%20relationships%20between%20different%20components%20and%20inheritance.%20We%20assume%20that%20classes%2c%20methods%2c%20and%20polymorphism%20are%20familiar%20to%20the%20reader.%20We%20only%20will%20delve%20into%20new%20terms%20in%20this%20scenario.%0aThe%20example%20below%28or%20its%20idea%29%20is%20from%20Programming%20in%20scala%2c%203rd%20edition%0aWhen%20defining%20classes%20in%20Scala%20is%20like%20a%20blueprint%20for%20creating%20objects.%0aLet%26rsquo%3bs%20define%20a%20simple%20implementation%20of%20the%20Rational%20numbers%28simple%20operations%29%3a" aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -215,10 +217,10 @@ Defining classes in scala like in any other language is a blueprint for creating
 
   
     <div class="content" itemprop="articleBody">
-      <p>In this post we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We are assuming <strong>that classes, methods, and polymorphism are familiar to the reader</strong> and we will only delve into those terms that are new to the scenario at hand.</p>
-<p>The next example or its idea have been taken from <a href="https://www.amazon.co.uk/Programming-Scala-3rd-Martin-Odersky/dp/0981531687">Programming in scala, 3rd edition</a></p>
-<p>Defining classes in scala like in any other language  is a blueprint for creating objects.</p>
-<p>Let&rsquo;s define a very simple implementation of the Rational numbers, just a few simple operations:</p>
+      <p>In this post, we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We assume <strong>that classes, methods, and polymorphism are familiar to the reader</strong>. We only will delve into new terms in this scenario.</p>
+<p>The example below(or its idea) is from <a href="https://www.amazon.co.uk/Programming-Scala-3rd-Martin-Odersky/dp/0981531687">Programming in scala, 3rd edition</a></p>
+<p>When defining classes in Scala is like a blueprint for creating objects.</p>
+<p>Let&rsquo;s define a simple implementation of the Rational numbers(simple operations):</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#6272a4">// Modeling Rational numbers 
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#6272a4"></span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span>n<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span> d<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#6272a4">// rise java.lang.IllegalArgumentException
@@ -234,7 +236,7 @@ Defining classes in scala like in any other language is a blueprint for creating
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>      numer <span style="color:#ff79c6">*</span> that<span style="color:#ff79c6">.</span>denom <span style="color:#ff79c6">+</span> that<span style="color:#ff79c6">.</span>numer <span style="color:#ff79c6">*</span> denom<span style="color:#ff79c6">,</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>      denom <span style="color:#ff79c6">*</span> that<span style="color:#ff79c6">.</span>denom
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>    <span style="color:#ff79c6">)</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>  <span style="color:#6272a4">// addition  operation between rational number and integer number
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>  <span style="color:#6272a4">// addition operation between rational number and integer number
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">def</span> <span style="color:#ff79c6">+</span> <span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span> <span style="color:#ff79c6">=</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>    <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span>numer <span style="color:#ff79c6">+</span> i <span style="color:#ff79c6">*</span> denom<span style="color:#ff79c6">,</span> denom<span style="color:#ff79c6">)</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>
@@ -278,9 +280,9 @@ Defining classes in scala like in any other language is a blueprint for creating
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span><span style="color:#6272a4"></span>rational <span style="color:#ff79c6">-</span> rational1 <span style="color:#6272a4">//res1: Rational = -1/12
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58</span><span style="color:#6272a4"></span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59</span>rational<span style="color:#ff79c6">*(</span><span style="color:#bd93f9">2</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//res2: Rational = 3/2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60</span><span style="color:#6272a4"></span>rational<span style="color:#ff79c6">+(</span><span style="color:#bd93f9">3</span><span style="color:#ff79c6">)</span> res3<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Rational</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">15</span><span style="color:#ff79c6">/</span><span style="color:#bd93f9">4</span>
-<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61</span>
-</code></pre></div><p>Based in the revious scenario are operation between a cardinal numbers and rational numbers. Basically because the scala standar libraries do not contain operation with rational number.</p>
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60</span><span style="color:#6272a4"></span>rational<span style="color:#ff79c6">+(</span><span style="color:#bd93f9">3</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//res3: Rational = 15/4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61</span><span style="color:#6272a4"></span>
+</code></pre></div><p>Based on the previous scenario, the operations between cardinal and rational numbers fail because the scala libraries do not support operations with rational numbers.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#bd93f9">2</span><span style="color:#ff79c6">*</span>rational
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>        <span style="color:#ff79c6">^</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>       error<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">overloaded</span> <span style="color:#8be9fd">method</span> <span style="color:#8be9fd">*</span> <span style="color:#8be9fd">with</span> <span style="color:#8be9fd">alternatives:</span>
@@ -293,15 +295,14 @@ Defining classes in scala like in any other language is a blueprint for creating
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>         <span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Byte</span><span style="color:#ff79c6">)</span><span style="color:#50fa7b">Int</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>        cannot be applied to <span style="color:#ff79c6">(</span><span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">)</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>
-</code></pre></div><p>So basically a solution can be <strong>implicit convertion</strong>. Implicit definitions are those that the compiler is allowed to insert into a program in order to fix any of its type errors. For example, if x * Rational_number does not type check, then the compiler might change it
-to convert(x) * Rational_number, where convert is some available implicit conversion. If convert changes x into something that has a * method that accept Rational Number, then this change might fix a program so that it type checks and runs correctly.</p>
-<p>Places where implicit convertions are implemented:</p>
+</code></pre></div><p>A solution can be an <strong>implicit conversion</strong>, an implicit definition that the compiler can insert into a program to fix any type error. For example, if x * Rational_number does not type check, the compiler can change it to convert(x) * Rational_number, where convert is some available implicit conversion. If this &ldquo;convert&rdquo; function changes x into something with a * method that accepts Rational Number, then this change might fix a program so that its type checks and runs correctly.</p>
+<p>Places where we can implement implicit conversions:</p>
 <ol>
-<li>Conversions to an expected type. It lets you use one type in a context where a different type is expected</li>
-<li>Conversions of the receiver of a selection. It lets you adapt the receiver of a method call (i.e., the object on which a method is invoked), if the method is not applicable on the original type</li>
-<li>Implicit parameters. They are usually used to provide more information to the called function about what the caller wants. Useful with generic functions.</li>
+<li>Conversions to an expected type, we need to use one type in a context where we expect a different type .</li>
+<li>Conversions of the receiver of a selection. It lets you to adapt the receiver of a method call (i.e., the object on which the method is invoked) if you can&rsquo;t apply its original type.</li>
+<li>Implicit parameters. It lets to provide more information to the called function about what the caller wants. It is helpful in generic functions.</li>
 </ol>
-<p>So the solution to the previous compilation error can be the next line of code:</p>
+<p>We can find below the solution to the previous complilation error:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">implicit</span> <span style="color:#ff79c6">def</span> intToRational<span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Rational</span><span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">)</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>                    <span style="color:#ff79c6">^</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>       warning<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">implicit</span> <span style="color:#8be9fd">conversion</span> <span style="color:#8be9fd">method</span> <span style="color:#8be9fd">intToRational</span> <span style="color:#8be9fd">should</span> <span style="color:#8be9fd">be</span> <span style="color:#8be9fd">enabled</span>
@@ -314,17 +315,17 @@ to convert(x) * Rational_number, where convert is some available implicit conver
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#bd93f9">2</span><span style="color:#ff79c6">*</span>rational <span style="color:#6272a4">//val res6: Rational = 3/2
 </span></code></pre></div><p>In the previous piece of code when we execute 2*rational what&rsquo;s really happen is <strong>intToRational</strong>(2)*<strong>rational</strong></p>
-<p>The  warning on the previous piece of code can be solved with the following import on the scope of code:<br>
+<p>We can solve the  warning that appears in the previous piece of code with the following import on the scope of code:<br>
 <strong>scala.language.implicitConversions</strong></p>
-<p>Implicits conversion can complicate the code and made it confuse so use it just when it&rsquo;s needed.</p>
-<p>An <strong>object</strong> is a class that has exactly one instance. It is created lazily when it is referenced, like a lazy val. In scala doesn&rsquo;t exist static values but we have singleton objects which can be imported from everywhere in our code(<strong>objects</strong>). Every NOT private method can be used for any instant that imports the object previously.</p>
+<p>Implicit conversion complicates the code and makes it confusing. Use it when strictly needed.</p>
+<p>An <strong>object</strong> is a class with one instance, created lazily when the instance is referenced, like a lazy value. The static values don&rsquo;t exist in Scala. In its place, there are singleton objects that we can import from everywhere in our code(<strong>objects</strong>).</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4">// Singleton object
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4"></span><span style="color:#ff79c6">object</span> <span style="color:#50fa7b">Person</span> <span style="color:#ff79c6">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#ff79c6">import</span> java.time.LocalDate
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#ff79c6">val</span> year <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">LocalDate</span><span style="color:#ff79c6">.</span>now<span style="color:#ff79c6">.</span>getYear
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">def</span> calculateYearOfBirth<span style="color:#ff79c6">(</span>yearOfBirth<span style="color:#ff79c6">:</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span> <span style="color:#ff79c6">=</span>  year <span style="color:#ff79c6">-</span> yearOfBirth
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span style="color:#ff79c6">}</span>
-</code></pre></div><p>If there is a class with the same name as our objects the class is named <strong>companion class</strong> and the object is named <strong>companion object</strong>. <strong>class or object can access the private members of its companion</strong>. Take a look at the code below:</p>
+</code></pre></div><p>When a class has the same name as an object, the class is named <strong>companion class</strong> and the object <strong>companion object</strong>. <strong>class or object can access the private members of its companion</strong>. Take a look at the code below:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#6272a4">// Companion class
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#6272a4"></span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Person</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">val</span> firstName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">val</span> lastName<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">val</span> yearOfbirth<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">val</span> address<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>   <span style="color:#ff79c6">import</span> Person.calculateAge
@@ -360,8 +361,8 @@ to convert(x) * Rational_number, where convert is some available implicit conver
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#6272a4"></span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span style="color:#50fa7b">PersonObj</span><span style="color:#ff79c6">.</span>unapply<span style="color:#ff79c6">(</span>person<span style="color:#ff79c6">)</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span style="color:#6272a4">//res5: Option[PersonObj] = Some(Person Peter Gabriel born 1970 and live on )
-</span></code></pre></div><p>On code above, the unapply method returns Some(our_object) and  our_object will return the default method, toString, which has been overridden.</p>
-<p>A better example is the scala <strong>List object</strong>, so let&rsquo;s check apply and unapply methods:</p>
+</span></code></pre></div><p>In the code above, the unapply method returns Some(our_object) and  our_object will return the default method, toString, which has been overridden.</p>
+<p>A better example is the scala <strong>List object</strong>, so let&rsquo;s check to apply and unapply methods:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4">// List constructor
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4"></span><span style="color:#ff79c6">def</span> apply<span style="color:#ff79c6">[</span><span style="color:#8be9fd">A</span><span style="color:#ff79c6">](</span>elems<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">A*</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">List</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">A</span><span style="color:#ff79c6">]</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>
@@ -386,12 +387,12 @@ to convert(x) * Rational_number, where convert is some available implicit conver
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#6272a4">//list extractor 
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#6272a4"></span>res0<span style="color:#ff79c6">.</span>unapply<span style="color:#ff79c6">(</span><span style="color:#bd93f9">4</span><span style="color:#ff79c6">)</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#ff79c6">val</span> res15<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Option</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">None</span>
-</code></pre></div><p>In the above code, pay attention to how unapply is invoking UnapplySeqWrapper.apply getting to the indexed value of the collection. As a proper extractor in case of List, its extractor extracts an specific index of a value introduced as an argument.</p>
-<p>Value classes(class with just one argument) can help to augment the ones that are built in.</p>
+</code></pre></div><p>In the above code, pay attention to how unapply is invoking UnapplySeqWrapper.apply to get to the indexed value of the collection. As a proper extractor in the case of List, its extractor extracts a specific index of a value introduced as an argument.</p>
+<p>Value classes(classes with just one argument) can help to augment the ones that are built in.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Dollars</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">val</span> amount<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">AnyVal</span> <span style="color:#ff79c6">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">def</span> toString<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;$&#34;</span> <span style="color:#ff79c6">+</span> amount
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#ff79c6">}</span>
-</code></pre></div><p>Adding the <strong>case</strong> identifier to the classes we get the case classes. Case classes are immutable and quite useful when dealing with pattern matching. In my opinion, we should use <strong>case</strong> classes instead of regular classes whenever we can.</p>
+</code></pre></div><p>Once you add the <strong>case</strong> identifier to the reserved word <strong>class</strong>, we get the case class. Case classes are immutable and useful when implementing solutions with pattern matching. In my opinion, we should use <strong>case</strong> classes instead of regular classes whenever we can.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PlayerStats</span> <span style="color:#ff79c6">(</span>teamPlayer<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> namePlayer<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> goals<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Student</span> <span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> yearofbirth<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
@@ -412,8 +413,8 @@ to convert(x) * Rational_number, where convert is some available implicit conver
 <li>hasCode</li>
 <li>getClass</li>
 </ol>
-<p>A very important problem in pattern matching when you want to make sure you are covering all possibilities is played by <strong>sealed classes</strong> that will help you, even to be warned in case you miss any possible pattern in your execution.</p>
-<p>We show you here 2 quite simple example that we find in <a href="https://docs.scala-lang.org/tour/pattern-matching.html#sealed-classes">the scala tutorial</a></p>
+<p><strong>Sealed classes</strong> help us cover all possibilities when we implement pattern matching and can warn us if we miss any possible pattern in our execution.</p>
+<p>We show you here some simple examples that we find in <a href="https://docs.scala-lang.org/tour/pattern-matching.html#sealed-classes">the scala tutorial</a>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">sealed</span> <span style="color:#ff79c6">trait</span> <span style="color:#50fa7b">Notification</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Email</span><span style="color:#ff79c6">(</span>sender<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> title<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span> body<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">Notification</span>
@@ -430,7 +431,7 @@ to convert(x) * Rational_number, where convert is some available implicit conver
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>      <span style="color:#f1fa8c">s&#34;You received a Voice Recording from </span><span style="color:#f1fa8c">$name</span><span style="color:#f1fa8c">! Click the link to hear it: </span><span style="color:#f1fa8c">$link</span><span style="color:#f1fa8c">&#34;</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>  <span style="color:#ff79c6">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#ff79c6">}</span>
-</code></pre></div><p>Pay attention below with <strong>sealed class</strong> and <strong>definitions</strong> inside case classes</p>
+</code></pre></div><p>Pay attention below to <strong>sealed class</strong> and <strong>definitions</strong> inside the case class</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">sealed</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Device</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Phone</span><span style="color:#ff79c6">(</span>model<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">Device</span> <span style="color:#ff79c6">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#ff79c6">def</span> screenOff <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Turning screen off&#34;</span>
@@ -444,7 +445,7 @@ to convert(x) * Rational_number, where convert is some available implicit conver
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>  <span style="color:#ff79c6">case</span> p<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Phone</span> <span style="color:#ff79c6">=&gt;</span> p<span style="color:#ff79c6">.</span>screenOff
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>  <span style="color:#ff79c6">case</span> c<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Computer</span> <span style="color:#ff79c6">=&gt;</span> c<span style="color:#ff79c6">.</span>screenSaverOn
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#ff79c6">}</span>
-</code></pre></div><p>In this post we have talked about case classes, pattern matching and the objects as a new element to model our data in scala and its relationship with classes</p>
+</code></pre></div><p>In this post, we have talked about case classes, pattern matching, and the objects as a new element to model our data in scala and its relationship with classes.</p>
 
     </div>
   </article>
@@ -521,7 +522,7 @@ to convert(x) * Rational_number, where convert is some available implicit conver
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&name=Scala%20-%20Classes%20-%20Objects&description=In%20this%20post%20we%20talk%20about%20Scala%20Classes%20and%20Objects.%20Its%20relationships%20between%20different%20components%20and%20inheritance.%20We%20are%20assuming%20that%20classes%2c%20methods%2c%20and%20polymorphism%20are%20familiar%20to%20the%20reader%20and%20we%20will%20only%20delve%20into%20those%20terms%20that%20are%20new%20to%20the%20scenario%20at%20hand.%0aThe%20next%20example%20or%20its%20idea%20have%20been%20taken%20from%20Programming%20in%20scala%2c%203rd%20edition%0aDefining%20classes%20in%20scala%20like%20in%20any%20other%20language%20is%20a%20blueprint%20for%20creating%20objects." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2017-04-12-scalaclassobject%2f&name=Scala%20-%20Classes%20-%20Objects&description=In%20this%20post%2c%20we%20talk%20about%20Scala%20Classes%20and%20Objects.%20Its%20relationships%20between%20different%20components%20and%20inheritance.%20We%20assume%20that%20classes%2c%20methods%2c%20and%20polymorphism%20are%20familiar%20to%20the%20reader.%20We%20only%20will%20delve%20into%20new%20terms%20in%20this%20scenario.%0aThe%20example%20below%28or%20its%20idea%29%20is%20from%20Programming%20in%20scala%2c%203rd%20edition%0aWhen%20defining%20classes%20in%20Scala%20is%20like%20a%20blueprint%20for%20creating%20objects.%0aLet%26rsquo%3bs%20define%20a%20simple%20implementation%20of%20the%20Rational%20numbers%28simple%20operations%29%3a" aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>
