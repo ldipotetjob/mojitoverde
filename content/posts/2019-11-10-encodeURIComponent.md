@@ -1,5 +1,5 @@
 ---
-title: JavaScript URI エンコーディング
+title: JavaScript URI 1 エンコーディング
 date: 2029-11-10 09:00:00
 draft: true
 tags:
