@@ -18,16 +18,5 @@
 (* `\n`のようなエスケープシーケンスが利用できる *) val x = &amp;quot;hello\n&amp;quot;; (* 文字列の連結には&#39;^&#39;を使う *) val y = &amp;quot;hello &amp;quot; ^ &amp;quot;world&amp;quot;; An ML program is a sequence of bindings.</description>
     </item>
     
-    <item>
-      <title>JavaScript URI エンコーディング</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2019-11-10-encodeuricomponent/</link>
-      <pubDate>Sun, 10 Nov 2019 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2019-11-10-encodeuricomponent/</guid>
-      <description>まとめ encodeURI()とencodeURIComponent()はRFC 2396準拠である。 encodeURI() は完全な URI を表すのに必要な文字 (Reserved Characters) はエンコードしません。 また、予約されていないが &amp;ldquo;そのまま&amp;rdquo; URI に使用できる(Unreserved Marks) 文字をエンコードしません。 encodeURIComponent() は &amp;ldquo;Unreserved Marks&amp;rdquo; 文字をエンコードしません。
-1var set1 = &amp;#34;;,/?:@&amp;amp;=+$#&amp;#34;; // Reserved Characters 2var set2 = &amp;#34;-_.!~*&amp;#39;()&amp;#34;; // Unreserved Marks 3 4console.log(encodeURI(set1)); // ;,/?:@&amp;amp;=+$ 5console.log(encodeURI(set2)); // -_.!~*&amp;#39;() 6 7console.log(encodeURIComponent(set1)); // %3B%2C%2F%3F%3A%40%26%3D%2B%24 8console.log(encodeURIComponent(set2)); // -_.!~*&amp;#39;() rfc2396 appendix-A https://tools.ietf.org/html/rfc2396#appendix-A
-URI-reference = [ absoluteURI | relativeURI ] [ &amp;quot;#&amp;quot; fragment ] absoluteURI = scheme &amp;quot;:&amp;quot; ( hier_part | opaque_part ) relativeURI = ( net_path | abs_path | rel_path ) [ &amp;quot;?</description>
-    </item>
-    
   </channel>
 </rss>
