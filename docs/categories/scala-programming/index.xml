@@ -14,21 +14,9 @@
       <pubDate>Wed, 13 Jun 2018 09:00:00 +0000</pubDate>
       
       <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-06-13-scalageneric/</guid>
-      <description>In this post we will talk about Generic Elements. One of the most useful mechanisms in the Scala programming language. This mechanism is quite useful when a member of a class, feature or even a method definition does not have a complete definition in its body and can also be usable by different implementations.
-The following example is quite simple but jut to give an idea about using inheritance and polymorphism:</description>
-    </item>
-    
-    <item>
-      <title>Scala - Complex Types</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-06-20-scalacomplextypes/</link>
-      <pubDate>Wed, 13 Jun 2018 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-06-20-scalacomplextypes/</guid>
-      <description>In this post we will talk about scala complex type. One of the most useful mechanisms in the Scala programming language for deal with:
-Exceptions &amp;hellip;&amp;hellip;
-https://www.scala-lang.org/api/2.13.6/scala/util/Try.html https://www.scala-lang.org/api/2.13.6/scala/util/Either.html https://www.scala-lang.org/api/2.13.6/scala/Option.html
-look chained operation with Try !!
-(ver en otro blog scala loops)(for =&amp;gt; yield )</description>
+      <description>In this post, we talk about Generic Elements, one of the most useful mechanisms in the Scala programming language. The use of Generic Elements is quite helpful when a member of a class, feature, or method definition does not have a complete implementation in its body and can also be usable by different implementations.
+The following example is simple and will show how to use inheritance and polymorphism:
+1trait AddOper { 2 type T 3 def processElemnt(x: T, y: T): T 4} 5 6class ConcatString extends AddOper{ 7 type T = String 8 override def processElemnt (x: String, y: String): String = 9 x + y 10} 11 12class ConcatInt extends AddOper{ 13 type T = Int 14 override def processElemnt (x: Int, y: Int): Int = 15 x + y 16} In the same way, parameterization allows the writing of generic classes and traits.</description>
     </item>
     
     <item>
@@ -38,16 +26,7 @@ look chained operation with Try !!
       
       <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/</guid>
       <description>As was argued by Robert C. Martin in his Clean Code bible, there are several aspects that we have to pay attention when we design our tests:
- Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  </description>
-    </item>
-    
-    <item>
-      <title>Api Rest - Playframework - Htpp</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-23-scalahttpplay/</link>
-      <pubDate>Wed, 23 May 2018 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-23-scalahttpplay/</guid>
-      <description>In this post we talk about http api in play framework, addressing some basic standards to build RESTful API. Play Framework can be used widely in other scenarios which involve MVC for example. Honestly there are other frameworks more taylored for RESTful APIs. In my opinion trying to implement HATEOAS in Play Framework is a nightmare so this is a point that we won&amp;rsquo;t approach. I am assuming that you know the main concept of http protocol, its use and implementation as the core of concept when we talk properly about Restful Apis.</description>
+ Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  Test should pass or fail BUT you should not make process or any other thing for check if the Test was OK or failed.</description>
     </item>
     
     <item>

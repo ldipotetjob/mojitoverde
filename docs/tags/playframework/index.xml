@@ -15,16 +15,7 @@
       
       <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/</guid>
       <description>As was argued by Robert C. Martin in his Clean Code bible, there are several aspects that we have to pay attention when we design our tests:
- Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  </description>
-    </item>
-    
-    <item>
-      <title>Api Rest - Playframework - Htpp</title>
-      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-23-scalahttpplay/</link>
-      <pubDate>Wed, 23 May 2018 09:00:00 +0000</pubDate>
-      
-      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-23-scalahttpplay/</guid>
-      <description>In this post we talk about http api in play framework, addressing some basic standards to build RESTful API. Play Framework can be used widely in other scenarios which involve MVC for example. Honestly there are other frameworks more taylored for RESTful APIs. In my opinion trying to implement HATEOAS in Play Framework is a nightmare so this is a point that we won&amp;rsquo;t approach. I am assuming that you know the main concept of http protocol, its use and implementation as the core of concept when we talk properly about Restful Apis.</description>
+ Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  Test should pass or fail BUT you should not make process or any other thing for check if the Test was OK or failed.</description>
     </item>
     
   </channel>

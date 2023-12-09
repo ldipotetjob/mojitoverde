@@ -15,7 +15,7 @@
       
       <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/</guid>
       <description>As was argued by Robert C. Martin in his Clean Code bible, there are several aspects that we have to pay attention when we design our tests:
- Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  </description>
+ Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  Test should pass or fail BUT you should not make process or any other thing for check if the Test was OK or failed.</description>
     </item>
     
   </channel>

@@ -80,7 +80,7 @@ val paperSize = new A6 //val paperSize: A6 = A6@3f3b0b19
 scala> paperSize.print //Hello, this is A6 Sheet
 ``` 
 
-PENDIENTE!!==> ver si queda algo mas y sino terminar el post y resumir  
+In this post, we have talked about principal use cases on inheritance in the Scala ecosystem. 
 
 refs:\
 [Scala standar library](https://www.scala-lang.org/files/archive/spec/2.13/public/images/classhierarchy.png)  

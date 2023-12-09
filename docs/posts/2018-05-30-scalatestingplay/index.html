@@ -15,7 +15,7 @@
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Api Rest - Playframework - Testing" />
 <meta property="og:description" content="As was argued by Robert C. Martin in his Clean Code bible, there are several aspects that we have to pay attention when we design our tests:
- Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  " />
+ Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  Test should pass or fail BUT you should not make process or any other thing for check if the Test was OK or failed." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-05-30T09:00:00+00:00" />
@@ -25,7 +25,7 @@
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Api Rest - Playframework - Testing"/>
 <meta name="twitter:description" content="As was argued by Robert C. Martin in his Clean Code bible, there are several aspects that we have to pay attention when we design our tests:
- Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  "/>
+ Minimize the number of assert per concept. Test just one concept per test function. Test should not depend on each other. Test should run in any environment.  Test should pass or fail BUT you should not make process or any other thing for check if the Test was OK or failed."/>
 
   
   
@@ -78,14 +78,14 @@
       <ul>
         
         <li>
-          <a class="icon" href=" https://ldipotetjob.github.io/mojitoverde/posts/2018-05-23-scalahttpplay/" aria-label="Previous">
+          <a class="icon" href=" https://ldipotetjob.github.io/mojitoverde/posts/2017-04-28-scalatraitinheritance/" aria-label="Previous">
             <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
           </a>
         </li>
         
         
         <li>
-          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2018-06-20-scalacomplextypes/" aria-label="Next">
+          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2018-06-13-scalageneric/" aria-label="Next">
             <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
           </a>
         </li>
@@ -151,7 +151,7 @@
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&name=Api%20Rest%20-%20Playframework%20-%20Testing&description=As%20was%20argued%20by%20Robert%20C.%20Martin%20in%20his%20Clean%20Code%20bible%2c%20there%20are%20several%20aspects%20that%20we%20have%20to%20pay%20attention%20when%20we%20design%20our%20tests%3a%0a%20Minimize%20the%20number%20of%20assert%20per%20concept.%20Test%20just%20one%20concept%20per%20test%20function.%20Test%20should%20not%20depend%20on%20each%20other.%20Test%20should%20run%20in%20any%20environment.%20%20" aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&name=Api%20Rest%20-%20Playframework%20-%20Testing&description=As%20was%20argued%20by%20Robert%20C.%20Martin%20in%20his%20Clean%20Code%20bible%2c%20there%20are%20several%20aspects%20that%20we%20have%20to%20pay%20attention%20when%20we%20design%20our%20tests%3a%0a%20Minimize%20the%20number%20of%20assert%20per%20concept.%20Test%20just%20one%20concept%20per%20test%20function.%20Test%20should%20not%20depend%20on%20each%20other.%20Test%20should%20run%20in%20any%20environment.%20%20Test%20should%20pass%20or%20fail%20BUT%20you%20should%20not%20make%20process%20or%20any%20other%20thing%20for%20check%20if%20the%20Test%20was%20OK%20or%20failed." aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -187,7 +187,7 @@
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          0 minute read
+          12 minute read
         </div>
         
         
@@ -226,6 +226,370 @@
 <li>Test should not depend on each other.</li>
 <li>Test should run in any environment.</li>
 </ul>
+<p>Test should pass or fail BUT you should not make process or any other thing for check if the Test was OK or failed.
+Write the TEST first OR with the code, NOT after it be running in a production environment.</p>
+<p>I am going to talk about Test Implementation in Scala and more specific in Scala  Playframework applications. If you come from Java programming language perhaps the more easy way is by <a href="https://www.scalatest.org/at_a_glance/FlatSpec">ScalaTest - FlatSpec</a>, it is a good starting point.</p>
+<p>So when we are trying UNIT TEST in Play Framework, our minimal tests should include the followings artifacts:</p>
+<ul>
+<li>Controller</li>
+<li>Actions</li>
+<li>Routes</li>
+<li>Our services or functionalities, obviously</li>
+</ul>
+<p>For make the previous topics more easy I have some important tips:</p>
+<ol>
+<li>Encapsulate your operations in services.</li>
+<li>Inject the classes that manage the above services.</li>
+<li>Create the relationship Class - Trait. It will let you create binding in your tests with</li>
+<li>Guice in a more easy way and at the same time get the benefits already known of this programming practice.</li>
+</ol>
+<p>The main ideas are:</p>
+<ul>
+<li>Mock services that you don&rsquo;t want to test. Your tests must be focused as much as you can in the functionalities that you want try.</li>
+<li>Test the Controller.</li>
+<li>Test the actions: When we talk about test actions that means test our action builders,  test the definitions that process every path in each request. A good idea is that action builders can process all related with our request as for example content-type. It will let us  filter for an expected Content-Type request and if it isn&rsquo;t what we expect stop the processing.</li>
+<li>Test the routes: It is important to know that all routes defined for us are working properly or at least can be reached by the proper path.</li>
+<li>Test any other Function or Service related with HTTP request. For example methods/functions related with content negotiation normally need make use of HTTP Header and in that case we will need set the header in a Fake-request.</li>
+<li>Test services functionalities. I  won’t include anything related with HTTP request here. Just our own functionalities.</li>
+</ul>
+<p>In an &ldquo;Ideal Hello World Play Framework application&rdquo; EVERY THINGS is very simple BUT the problems arise in Real World application with escenarios like that:</p>
+<ul>
+<li>Multimodule applications.</li>
+<li>Several route files.</li>
+<li>Several bindings class that are injected in Singleton Class.</li>
+<li>Class referencing configurations files.</li>
+</ul>
+<p><strong>!!! revisar esto porque parece no concuerda mucho !!!<br>
+And for example you have bindings with Class that inject other Singleton class and that Class at the same time have some references to configuration files in your Project.
+!!Fin de la revision!!</strong></p>
+<p>I will talk here about testing problems that are not clearly treated in Play documentation and how tackle it. When you are in real life with play framework applications is when you understand <strong>how tedious is mock a binding in Guice when you trying to create Fake apps for Testing</strong>.
+It is more easy MockitoSugar in this context and could be better if when you mock any component  in Guice we could have the MockitoSugar concept instead of having to create a Well Mocked Object and binding it when you try to make an App via Guice Builder.</p>
+<p><strong>A design made for an easy/smart test</strong>:</p>
+<p>I will not tell here why is so important dependency injection, you can find that information in every where even in <a href="https://www.playframework.com/documentation/2.6.x/ScalaDependencyInjection">playframework documentationh</a></p>
+<p>In the following example I will show a controller<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> that manage the actions:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">FootballLeagueController</span> @Inject<span style="color:#ff79c6">()(</span>action<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">DefaultControllerComponents</span><span style="color:#ff79c6">,</span> services<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">TDataServices</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">BaseController</span> <span style="color:#ff79c6">with</span> <span style="color:#50fa7b">ContentNegotiation</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#6272a4">/**
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#6272a4">    * Best way, using a wrapper for an action that process a POST with a JSON 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#6272a4">    * in the request.
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#6272a4">    *
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#6272a4">    * @see utilities.DefaultControllerComponents.jsonActionBuilder a reference 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#6272a4">    *      to JsonActionBuilder a builder of actions that process POST request
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#6272a4">    * @return specific Result when every things is Ok so we send the status 
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#6272a4">    *         and the comment with the specific json that show the result
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#6272a4">    */</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    <span style="color:#ff79c6">def</span> insertMatchWithCustomized <span style="color:#ff79c6">=</span> action<span style="color:#ff79c6">.</span>jsonActionBuilder<span style="color:#ff79c6">{</span> <span style="color:#ff79c6">implicit</span> request <span style="color:#ff79c6">=&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>    <span style="color:#ff79c6">val</span> matchGame<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Match</span> <span style="color:#ff79c6">=</span> request<span style="color:#ff79c6">.</span>body<span style="color:#ff79c6">.</span>asJson<span style="color:#ff79c6">.</span>get<span style="color:#ff79c6">.</span>as<span style="color:#ff79c6">[</span><span style="color:#8be9fd">Match</span><span style="color:#ff79c6">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>      processContentNegotiationForJson<span style="color:#ff79c6">[</span><span style="color:#8be9fd">Match</span><span style="color:#ff79c6">](</span>matchGame<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span style="color:#6272a4">// ..............
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>  <span style="color:#ff79c6">def</span> insertMatchGeneric <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">JsonAction</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Match</span><span style="color:#ff79c6">](</span>matchReads<span style="color:#ff79c6">){</span> <span style="color:#ff79c6">implicit</span> request <span style="color:#ff79c6">=&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>    <span style="color:#ff79c6">val</span> matchGame<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Match</span> <span style="color:#ff79c6">=</span> request<span style="color:#ff79c6">.</span>body<span style="color:#ff79c6">.</span>asJson<span style="color:#ff79c6">.</span>get<span style="color:#ff79c6">.</span>as<span style="color:#ff79c6">[</span><span style="color:#8be9fd">Match</span><span style="color:#ff79c6">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>    processContentNegotiationForJson<span style="color:#ff79c6">[</span><span style="color:#8be9fd">Match</span><span style="color:#ff79c6">](</span>matchGame<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span style="color:#6272a4">// ..........
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>  <span style="color:#ff79c6">def</span> getMatchGame <span style="color:#ff79c6">=</span> action<span style="color:#ff79c6">.</span>defaultActionBuilder <span style="color:#ff79c6">{</span> <span style="color:#ff79c6">implicit</span> request <span style="color:#ff79c6">=&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>    <span style="color:#ff79c6">val</span> dataResults<span style="color:#ff79c6">:</span><span style="color:#8be9fd">Seq</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Match</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> services<span style="color:#ff79c6">.</span>modelOfMatchFootball<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;football.txt&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>    proccessContentNegotiation<span style="color:#ff79c6">[</span><span style="color:#8be9fd">Match</span><span style="color:#ff79c6">](</span>dataResults<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span style="color:#ff79c6">..............</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>
+</code></pre></div><p>Some of my recommendations for <strong>the real life</strong> Controllers:</p>
+<ul>
+<li>I mostly need a <strong>custom</strong> action so inject a component(line 1 in FootballLeagueController implementaion example<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>) in the previous snapshot of code [action: DefaultControllerComponents]) and this custom action will simplify the processing of your requests in Play and at the same time this design will make easy your test, something very important in our TDD process as we will see later.</li>
+<li>Encapsulate the operations that must be done in your actions in services and inject it in your controller(line 1 in FootballLeagueController implementaion example<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>) in the previous snapshot of code [services: TDataServices]), some tips here: Inject a trait and bind that trait to a concrete class both things are truly important.  If any service include for example any customizable object like a database connection do NOT inject at this level do it in the concrete class.</li>
+</ul>
+<p>In our ControllerSpec<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> we are going to Test first the Controller:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">....</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#ff79c6">package</span> com.ldg.play.test
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#ff79c6">import</span> com.ldg.basecontrollers.<span style="color:#ff79c6">{</span><span style="color:#50fa7b">DefaultActionBuilder</span><span style="color:#ff79c6">,</span> <span style="color:#50fa7b">DefaultControllerComponents</span><span style="color:#ff79c6">,</span> <span style="color:#50fa7b">JsonActionBuilder</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#ff79c6">.......</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#ff79c6">import</span> com.ldg.model.Match
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#ff79c6">import</span> com.ldg.play.baseclass.UnitSpec
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#ff79c6">import</span> controllers.FootballLeagueController
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#ff79c6">import</span> org.mockito.Mockito._
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#ff79c6">import</span> org.scalatest.mock.MockitoSugar
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#ff79c6">import</span> play.api.test.FakeRequest
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#ff79c6">import</span> play.api.test.Helpers._
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#ff79c6">.......</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#ff79c6">import</span> services.TDataServices
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">FootballControllerSpec</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">UnitSpec</span> <span style="color:#ff79c6">with</span> <span style="color:#50fa7b">MockitoSugar</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>  <span style="color:#ff79c6">val</span> mockDataServices <span style="color:#ff79c6">=</span> mock<span style="color:#ff79c6">[</span><span style="color:#8be9fd">TDataServices</span><span style="color:#ff79c6">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>  <span style="color:#ff79c6">val</span> mockDefaultControllerComponents <span style="color:#ff79c6">=</span> mock<span style="color:#ff79c6">[</span><span style="color:#8be9fd">DefaultControllerComponents</span><span style="color:#ff79c6">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>  <span style="color:#ff79c6">val</span> mockActionBuilder <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">JsonActionBuilder</span><span style="color:#ff79c6">()</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>  <span style="color:#ff79c6">val</span> mockDefaultActionBuilder <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">DefaultActionBuilder</span><span style="color:#ff79c6">()</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span style="color:#ff79c6">........</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>  <span style="color:#ff79c6">val</span> <span style="color:#50fa7b">TestDefaultControllerComponents</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">DefaultControllerComponents</span> <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">DefaultControllerComponents</span><span style="color:#ff79c6">(</span>mockDefaultActionBuilder<span style="color:#ff79c6">,</span>mockActionBuilder<span style="color:#ff79c6">,</span><span style="color:#6272a4">/*messagesApi,*/</span>langs<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>  <span style="color:#ff79c6">val</span> <span style="color:#50fa7b">TestFootballleagueController</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">FootballLeagueController</span><span style="color:#ff79c6">(</span><span style="color:#50fa7b">TestDefaultControllerComponents</span><span style="color:#ff79c6">,</span>mockDataServices<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>  <span style="color:#6272a4">/**
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span style="color:#6272a4">    *
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span style="color:#6272a4">    * Testing right response for acceptance of application/header
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span style="color:#6272a4">    * Request: plain text
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span style="color:#6272a4">    * Response: a Json
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span style="color:#6272a4">    *
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span style="color:#6272a4">    */</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span>  <span style="color:#f1fa8c">&#34;Request /GET/ with Content-Type:text/plain and application/json&#34;</span> should
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span>    <span style="color:#f1fa8c">&#34;return a json file Response with a 200 Code&#34;</span> in <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span>      when<span style="color:#ff79c6">(</span>mockDataServices<span style="color:#ff79c6">.</span>modelOfMatchFootball<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;football.txt&#34;</span><span style="color:#ff79c6">))</span> thenReturn <span style="color:#50fa7b">Seq</span><span style="color:#ff79c6">(</span>matchGame<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span>      <span style="color:#ff79c6">val</span> request <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">FakeRequest</span><span style="color:#ff79c6">(</span><span style="color:#50fa7b">GET</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;/football/matchs&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span>        <span style="color:#ff79c6">.</span>withHeaders<span style="color:#ff79c6">((</span><span style="color:#f1fa8c">&#34;Accept&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;application/json&#34;</span><span style="color:#ff79c6">),(</span><span style="color:#f1fa8c">&#34;Content-Type&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;text/plain&#34;</span><span style="color:#ff79c6">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span>      <span style="color:#ff79c6">val</span> result <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">TestFootballleagueController</span><span style="color:#ff79c6">.</span>getMatchGame<span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span>      <span style="color:#ff79c6">val</span> resultMatchGame<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Match</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>contentAsJson<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> \ <span style="color:#f1fa8c">&#34;message&#34;</span> \ <span style="color:#bd93f9">0</span><span style="color:#ff79c6">).</span>as<span style="color:#ff79c6">[</span><span style="color:#8be9fd">Match</span><span style="color:#ff79c6">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span>      status<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> shouldBe <span style="color:#50fa7b">OK</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span>      resultMatchGame<span style="color:#ff79c6">.</span>homeTeam<span style="color:#ff79c6">.</span>name should equal<span style="color:#ff79c6">(</span>matchGame<span style="color:#ff79c6">.</span>homeTeam<span style="color:#ff79c6">.</span>name<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span>      resultMatchGame<span style="color:#ff79c6">.</span>homeTeam<span style="color:#ff79c6">.</span>goals should equal<span style="color:#ff79c6">(</span>matchGame<span style="color:#ff79c6">.</span>homeTeam<span style="color:#ff79c6">.</span>goals<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span>    <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span>  <span style="color:#6272a4">/**
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span style="color:#6272a4">    *
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span><span style="color:#6272a4">    * Testing right response for acceptance of application/header
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span><span style="color:#6272a4">    * Testing  template work fine: Result of a mocked template shoulBe equal to Res
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span><span style="color:#6272a4">    * Request: plain text
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span><span style="color:#6272a4">    * Response: a CSV file
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span><span style="color:#6272a4">    *
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58</span><span style="color:#6272a4">    */</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60</span>  <span style="color:#f1fa8c">&#34;Request /GET/ with Content-Type:text/plain and txt/csv&#34;</span> should <span style="color:#f1fa8c">&#34;return a csv file Response with a 200 Code&#34;</span> in <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61</span>    when<span style="color:#ff79c6">(</span>mockDataServices<span style="color:#ff79c6">.</span>modelOfMatchFootball<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;football.txt&#34;</span><span style="color:#ff79c6">))</span> thenReturn <span style="color:#50fa7b">Seq</span><span style="color:#ff79c6">(</span>matchGame<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62</span>    <span style="color:#ff79c6">val</span> request <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">FakeRequest</span><span style="color:#ff79c6">(</span><span style="color:#50fa7b">GET</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;/football/matchs&#34;</span><span style="color:#ff79c6">).</span>withHeaders<span style="color:#ff79c6">((</span><span style="color:#f1fa8c">&#34;Accept&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;text/csv&#34;</span><span style="color:#ff79c6">),(</span><span style="color:#f1fa8c">&#34;Content-Type&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;text/plain&#34;</span><span style="color:#ff79c6">))</span>    <span style="color:#ff79c6">val</span> result <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">TestFootballleagueController</span><span style="color:#ff79c6">.</span>getMatchGame<span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63</span>    <span style="color:#ff79c6">val</span> content <span style="color:#ff79c6">=</span> views<span style="color:#ff79c6">.</span>csv<span style="color:#ff79c6">.</span>football<span style="color:#ff79c6">(</span><span style="color:#50fa7b">Seq</span><span style="color:#ff79c6">(</span>matchGame<span style="color:#ff79c6">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64</span>    <span style="color:#ff79c6">val</span> templateContent<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span> <span style="color:#ff79c6">=</span> contentAsString<span style="color:#ff79c6">(</span>content<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65</span>    <span style="color:#ff79c6">val</span> resultContent<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span> <span style="color:#ff79c6">=</span> contentAsString<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66</span>    status<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> shouldBe <span style="color:#50fa7b">OK</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67</span>    templateContent should equal<span style="color:#ff79c6">(</span>resultContent<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70</span>  <span style="color:#f1fa8c">&#34;Request /GET with Content-Type:text/plain and WRONG Accept: image/jpeg&#34;</span> should
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71</span>    <span style="color:#f1fa8c">&#34;return a json file Response with a 406 Code&#34;</span> in <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72</span>    <span style="color:#ff79c6">val</span> result <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">TestFootballleagueController</span><span style="color:#ff79c6">.</span>getMatchGame      <span style="color:#ff79c6">.</span>apply<span style="color:#ff79c6">(</span><span style="color:#50fa7b">FakeRequest</span><span style="color:#ff79c6">(</span><span style="color:#50fa7b">GET</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;/&#34;</span><span style="color:#ff79c6">).</span>withHeaders<span style="color:#ff79c6">((</span><span style="color:#f1fa8c">&#34;Accept&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;image/jpeg&#34;</span><span style="color:#ff79c6">),(</span><span style="color:#f1fa8c">&#34;Content-Type&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;text/plain&#34;</span><span style="color:#ff79c6">)))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73</span>    status<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> shouldBe <span style="color:#50fa7b">NOT_ACCEPTABLE</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75</span><span style="color:#ff79c6">}</span>
+</code></pre></div><p>So if I am planning to test my Controller and if at the same time it is being injected by several component, the first thing that I need to do is give value to those components and because our target here are NOT the components I will mock them! [ref. ControllerSpec<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> <strong>line 22 - 25</strong>]:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span>  <span style="color:#ff79c6">val</span> mockDataServices <span style="color:#ff79c6">=</span> mock<span style="color:#ff79c6">[</span><span style="color:#8be9fd">TDataServices</span><span style="color:#ff79c6">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>  <span style="color:#ff79c6">val</span> mockDefaultControllerComponents <span style="color:#ff79c6">=</span> mock<span style="color:#ff79c6">[</span><span style="color:#8be9fd">DefaultControllerComponents</span><span style="color:#ff79c6">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>  <span style="color:#ff79c6">val</span> mockActionBuilder <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">JsonActionBuilder</span><span style="color:#ff79c6">()</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>  <span style="color:#ff79c6">val</span> mockDefaultActionBuilder <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">DefaultActionBuilder</span><span style="color:#ff79c6">()</span>
+</code></pre></div><p><strong>TDataServices</strong> is a trait so we need binding it to a Concrete class,check the below code example<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>, <strong>that is a very good practice</strong>. As the play specification indicates: by default Play will load any class called Module that is defined in the root package (the &ldquo;app&rdquo; directory) or you can define them in any place and indicate where to find it in the play configuration file(<strong>application.conf</strong>) under <strong>play.modules</strong> configuration value.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">..............</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Module</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">AbstractModule</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>   <span style="color:#ff79c6">...................</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>   bind<span style="color:#ff79c6">(</span>classOf<span style="color:#ff79c6">[</span><span style="color:#8be9fd">TDataServices</span><span style="color:#ff79c6">]).</span>to<span style="color:#ff79c6">(</span>classOf<span style="color:#ff79c6">[</span><span style="color:#8be9fd">DataServices</span><span style="color:#ff79c6">])</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>      <span style="color:#ff79c6">.</span>asEagerSingleton<span style="color:#ff79c6">()</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span style="color:#ff79c6">}</span>
+</code></pre></div><p>You can find more information in <a href="https://www.playframework.com/documentation/2.6.x/ScalaDependencyInjection">Play Documentation about custom and eager bindings</a>. You should pay attention about this, it is important for several practices and in our case we will see the benefits of it in Testing.</p>
+<p>I recommend Test with Guice <strong>only when we do not have any other choice</strong>. That is why if I need to inject a data base connection, for example, I wouldn&rsquo;t do it in the Controller it is better do it in the service class indeed.</p>
+<p>Our first Test Testing Controllers begin in [ref. ControllerSpec<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> <strong>line 38 - 48</strong>] :
+I need to simulate a behaviour so if any process call <strong>services.modelOfMatchFootball</strong>[ref.FootballLeagueController<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> line 27] I will return Seq(matchGame):
+<strong>when(mockDataServices.modelOfMatchFootball(&ldquo;football.txt&rdquo;)) thenReturn Seq(matchGame)</strong> in my FootballControllerSpec.
+In the same way I will mock the controller because I want to inject all mocked component too and test the flow of the controller. Remember that we are in [<strong>ref</strong>. ControllerSpec<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> <strong>line 38 - 48</strong>] so I have a Fake request , something important is that we can add to this request a header, body(json, text, xml), cookies and whatever that any request has. Test will execute Controller but with mocked components and will process everything and return a response in the same way:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">.........................</span>      
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>when<span style="color:#ff79c6">(</span>mockDataServices<span style="color:#ff79c6">.</span>modelOfMatchFootball<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;football.txt&#34;</span><span style="color:#ff79c6">))</span> thenReturn <span style="color:#50fa7b">Seq</span><span style="color:#ff79c6">(</span>matchGame<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>      <span style="color:#ff79c6">val</span> request <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">FakeRequest</span><span style="color:#ff79c6">(</span><span style="color:#50fa7b">GET</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;/football/matchs&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>        <span style="color:#ff79c6">.</span>withHeaders<span style="color:#ff79c6">((</span><span style="color:#f1fa8c">&#34;Accept&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;application/json&#34;</span><span style="color:#ff79c6">),(</span><span style="color:#f1fa8c">&#34;Content-Type&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;text/plain&#34;</span><span style="color:#ff79c6">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>      <span style="color:#ff79c6">val</span> result <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">TestFootballleagueController</span><span style="color:#ff79c6">.</span>getMatchGame<span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>      <span style="color:#ff79c6">val</span> resultMatchGame<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Match</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>contentAsJson<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> \ <span style="color:#f1fa8c">&#34;message&#34;</span> \ <span style="color:#bd93f9">0</span><span style="color:#ff79c6">).</span>as<span style="color:#ff79c6">[</span><span style="color:#8be9fd">Match</span><span style="color:#ff79c6">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>      status<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> shouldBe <span style="color:#50fa7b">OK</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>      resultMatchGame<span style="color:#ff79c6">.</span>homeTeam<span style="color:#ff79c6">.</span>name should equal<span style="color:#ff79c6">(</span>matchGame<span style="color:#ff79c6">.</span>homeTeam<span style="color:#ff79c6">.</span>name<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>      resultMatchGame<span style="color:#ff79c6">.</span>homeTeam<span style="color:#ff79c6">.</span>goals should equal<span style="color:#ff79c6">(</span>matchGame<span style="color:#ff79c6">.</span>homeTeam<span style="color:#ff79c6">.</span>goals<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#ff79c6">..........................</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>
+</code></pre></div><p>If <strong>TestFootballleagueController.getMatchGame</strong> method had any parameter then the statement would be <strong>Test</strong>Football<strong>leagueController.getMatchGame(anyparam)(request)</strong>[ref.  line 5 previous code]. In our example I have to deal with content-negotiation so I have added a header easily to my FakeRequest and then we  expect the right processing from my content-negotiation method and the right response.
+It is important to know that <strong>FakeRequest</strong>(GET, &ldquo;/football/matchs&rdquo;) is the same that FakeRequest(GET, &ldquo;/&quot;), it has nothing to do with the routes defined in the conf/routes file.</p>
+<p>In our Controller [ref. FootballLeagueController<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>] we are going to Test now the <strong>Actions</strong> in the code below [ref. FootballActionsSpec<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>]:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">package</span> com.ldg.play.test
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#ff79c6">import</span> akka.stream.Materializer
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#ff79c6">import</span> com.ldg.basecontrollers.<span style="color:#ff79c6">{</span><span style="color:#50fa7b">BaseController</span><span style="color:#ff79c6">,</span> <span style="color:#50fa7b">DefaultActionBuilder</span><span style="color:#ff79c6">,</span> <span style="color:#50fa7b">JsonActionBuilder</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#ff79c6">import</span> com.ldg.implicitconversions.ImplicitConversions.matchReads
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#ff79c6">import</span> com.ldg.model.Match
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#ff79c6">import</span> com.ldg.play.baseclass.UnitSpec
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#ff79c6">import</span> play.api.test.FakeRequest
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#ff79c6">import</span> play.api.libs.json._
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#ff79c6">import</span> play.api.test.Helpers._
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#ff79c6">import</span> play.api.http.Status.OK
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#ff79c6">import</span> play.api.inject.guice.GuiceApplicationBuilder
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#ff79c6">import</span> play.api.mvc.Results.Status
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#ff79c6">import</span> scala.io.Source
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">FootballActionsSpec</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">UnitSpec</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>  <span style="color:#ff79c6">val</span> jsonActionBuilder <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">JsonActionBuilder</span><span style="color:#ff79c6">()</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>  <span style="color:#ff79c6">val</span> defaultActionBuilder <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">DefaultActionBuilder</span><span style="color:#ff79c6">()</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>  <span style="color:#ff79c6">val</span> jsonGenericAction <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">BaseController</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">JsonAction</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Match</span><span style="color:#ff79c6">](</span>matchReads<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>  <span style="color:#ff79c6">val</span> rightMatchJson <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">Source</span><span style="color:#ff79c6">.</span>fromURL<span style="color:#ff79c6">(</span>getClass<span style="color:#ff79c6">.</span>getResource<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;/rightmatch.json&#34;</span><span style="color:#ff79c6">)).</span>getLines<span style="color:#ff79c6">.</span>mkString
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>  <span style="color:#ff79c6">val</span> wrongMatchJson <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">Source</span><span style="color:#ff79c6">.</span>fromURL<span style="color:#ff79c6">(</span>getClass<span style="color:#ff79c6">.</span>getResource<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;/wrongmatch.json&#34;</span><span style="color:#ff79c6">)).</span>getLines<span style="color:#ff79c6">.</span>mkString
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>  <span style="color:#ff79c6">implicit</span> <span style="color:#ff79c6">lazy</span> <span style="color:#ff79c6">val</span> app<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">play.api.Application</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">GuiceApplicationBuilder</span><span style="color:#ff79c6">().</span>configure<span style="color:#ff79c6">().</span>build<span style="color:#ff79c6">()</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>  <span style="color:#ff79c6">implicit</span> <span style="color:#ff79c6">lazy</span> <span style="color:#ff79c6">val</span> materializer<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Materializer</span> <span style="color:#ff79c6">=</span> app<span style="color:#ff79c6">.</span>materializer
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>  <span style="color:#6272a4">/**
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span style="color:#6272a4">    * Test JsonActionBuilder:
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span style="color:#6272a4">    *
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span style="color:#6272a4">    * validate: content-type
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span style="color:#6272a4">    *           jsonBody must be specific Model
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span style="color:#6272a4">    *
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span style="color:#6272a4">    * @see com.ldg.basecontrollers.JsonActionBuilder
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span style="color:#6272a4">    *
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span style="color:#6272a4">    * Request: application/json
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span style="color:#6272a4">    *
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span style="color:#6272a4">    */</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span>  <span style="color:#f1fa8c">&#34;JsonActionBuilder with Content-Type:application/json and a right Json body&#34;</span> should <span style="color:#f1fa8c">&#34;return a 200 Code&#34;</span> in <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span>    <span style="color:#ff79c6">val</span> request <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">FakeRequest</span><span style="color:#ff79c6">(</span><span style="color:#50fa7b">POST</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;/&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span>      <span style="color:#ff79c6">.</span>withJsonBody<span style="color:#ff79c6">(</span><span style="color:#50fa7b">Json</span><span style="color:#ff79c6">.</span>parse<span style="color:#ff79c6">(</span>rightMatchJson<span style="color:#ff79c6">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span>      <span style="color:#ff79c6">.</span>withHeaders<span style="color:#ff79c6">((</span><span style="color:#f1fa8c">&#34;Content-Type&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;application/json&#34;</span><span style="color:#ff79c6">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span>    <span style="color:#ff79c6">def</span> action <span style="color:#ff79c6">=</span> jsonActionBuilder<span style="color:#ff79c6">{</span> <span style="color:#ff79c6">implicit</span> request <span style="color:#ff79c6">=&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span>      <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Status</span><span style="color:#ff79c6">(</span><span style="color:#50fa7b">OK</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span>    <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span>    <span style="color:#ff79c6">val</span> result <span style="color:#ff79c6">=</span> call<span style="color:#ff79c6">(</span>action<span style="color:#ff79c6">,</span> request<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span>    status<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> shouldBe <span style="color:#50fa7b">OK</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52</span><span style="color:#ff79c6">.......</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54</span>  <span style="color:#f1fa8c">&#34;JsonAction with Content-Type:application/json and a wrong Json body&#34;</span> should <span style="color:#f1fa8c">&#34;return a 400 Code&#34;</span> in <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55</span>    <span style="color:#ff79c6">val</span> request <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">FakeRequest</span><span style="color:#ff79c6">(</span><span style="color:#50fa7b">POST</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;/&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56</span>      <span style="color:#ff79c6">.</span>withJsonBody<span style="color:#ff79c6">(</span><span style="color:#50fa7b">Json</span><span style="color:#ff79c6">.</span>parse<span style="color:#ff79c6">(</span>wrongMatchJson<span style="color:#ff79c6">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57</span>      <span style="color:#ff79c6">.</span>withHeaders<span style="color:#ff79c6">((</span><span style="color:#f1fa8c">&#34;Content-Type&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;application/json&#34;</span><span style="color:#ff79c6">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59</span>    <span style="color:#ff79c6">def</span> action <span style="color:#ff79c6">=</span> jsonGenericAction<span style="color:#ff79c6">{</span> <span style="color:#ff79c6">implicit</span> request <span style="color:#ff79c6">=&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60</span>      <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Status</span><span style="color:#ff79c6">(</span><span style="color:#50fa7b">OK</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61</span>    <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62</span>    <span style="color:#ff79c6">val</span> result <span style="color:#ff79c6">=</span> call<span style="color:#ff79c6">(</span>action<span style="color:#ff79c6">,</span> request<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63</span>    status<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> shouldBe <span style="color:#50fa7b">BAD_REQUEST</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66</span><span style="color:#ff79c6">.......</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68</span>  <span style="color:#f1fa8c">&#34;DefaultActionBuilder with Content-Type:text/plain and a right Json body&#34;</span> should <span style="color:#f1fa8c">&#34;return a 200 Code&#34;</span> in <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69</span>    <span style="color:#ff79c6">val</span> request <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">FakeRequest</span><span style="color:#ff79c6">(</span><span style="color:#50fa7b">GET</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;/&#34;</span><span style="color:#ff79c6">).</span>withHeaders<span style="color:#ff79c6">((</span><span style="color:#f1fa8c">&#34;Accept&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;application/json&#34;</span><span style="color:#ff79c6">),(</span><span style="color:#f1fa8c">&#34;Content-Type&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;text/plain&#34;</span><span style="color:#ff79c6">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71</span>    <span style="color:#ff79c6">def</span> action <span style="color:#ff79c6">=</span> defaultActionBuilder<span style="color:#ff79c6">{</span> <span style="color:#ff79c6">implicit</span> request <span style="color:#ff79c6">=&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72</span>      <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Status</span><span style="color:#ff79c6">(</span><span style="color:#50fa7b">OK</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73</span>    <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74</span>    <span style="color:#ff79c6">val</span> result <span style="color:#ff79c6">=</span> call<span style="color:#ff79c6">(</span>action<span style="color:#ff79c6">,</span> request<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75</span>    status<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> shouldBe <span style="color:#50fa7b">OK</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78</span><span style="color:#ff79c6">.......</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80</span><span style="color:#ff79c6">}</span>
+</code></pre></div><p>We are going to highlight this import [ref. FootballActionsSpec<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> <strong>line 10</strong>]:</p>
+<ul>
+<li>import play.api.test.Helpers._</li>
+</ul>
+<p>The previous import will let <strong>call</strong> an <strong>action</strong> with an <strong>specific request(GET/POST&hellip;.)</strong>. An example of this call in [ref. FootballActionsSpec<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> line 48]:</p>
+<ul>
+<li>call(action, request)
+But the previous call need an implicit value, an instance of a <strong>Materializer</strong> so the best way for build it if we can not get an instance of our application is through Guice see [ref. FootballActionsSpec<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> line 25 - 26].
+I am testing the Actions so in my case I will test only Action/ActionBuilder and some aspects related with the request. I won&rsquo;t test here the service that is executed under an specific action. Take a look about [ref. FootballActionsSpec<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> line 42] about our JsonBody in our FakeRequest.
+It is not the objective of this post but you could take a look to <a href="https://github.com/ldipotetjob/restfulinplay/blob/master/modules/apirest/app/com/ldg/basecontrollers/ControllerComponents.scala">JsonActionBuilder</a> and <a href="https://github.com/ldipotetjob/restfulinplay/blob/master/modules/apirest/app/com/ldg/basecontrollers/ControllerComponents.scala">DefaultActionBuilder</a> [ref. FootballActionsSpec<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> line 19-20]</li>
+</ul>
+<p>In our Controller [ref. FootballLeagueController<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>] we are going to Test now the Routes[ref. FootballRoutesSpec<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>]:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">package</span> com.ldg.play.test
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#ff79c6">import</span> apirest.Routes
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#ff79c6">import</span> com.ldg.play.baseclass.UnitSpec
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#ff79c6">import</span> services.<span style="color:#ff79c6">{</span><span style="color:#50fa7b">MockTDataServices</span><span style="color:#ff79c6">,</span> <span style="color:#50fa7b">TDataServices</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#ff79c6">import</span> play.api.inject.bind
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#ff79c6">import</span> play.api.test.FakeRequest
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#ff79c6">import</span> play.api.test.Helpers._
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#ff79c6">import</span> play.api.inject.guice.GuiceApplicationBuilder
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">FootballRoutesSpec</span> <span style="color:#ff79c6">extends</span> <span style="color:#50fa7b">UnitSpec</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>  <span style="color:#ff79c6">val</span> app <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">GuiceApplicationBuilder</span><span style="color:#ff79c6">()</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>    <span style="color:#ff79c6">.</span>overrides<span style="color:#ff79c6">(</span>bind<span style="color:#ff79c6">[</span><span style="color:#8be9fd">TDataServices</span><span style="color:#ff79c6">].</span>to<span style="color:#ff79c6">[</span><span style="color:#8be9fd">MockTDataServices</span><span style="color:#ff79c6">])</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>    <span style="color:#ff79c6">.</span>configure<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;play.http.router&#34;</span> <span style="color:#ff79c6">-&gt;</span> classOf<span style="color:#ff79c6">[</span><span style="color:#8be9fd">Routes</span><span style="color:#ff79c6">].</span>getName<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>    <span style="color:#ff79c6">.</span>build<span style="color:#ff79c6">()</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span> <span style="color:#6272a4">// implicit lazy val materializer: Materializer = app.materializer
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>   <span style="color:#f1fa8c">&#34;Request /GET/football/PRML/matchs with Content-Type:text/plain and application/json&#34;</span> should    <span style="color:#f1fa8c">&#34;return a json file Response with a 200 Code&#34;</span> in <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>    <span style="color:#ff79c6">val</span> <span style="color:#50fa7b">Some</span><span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span> route<span style="color:#ff79c6">(</span>app<span style="color:#ff79c6">,</span> <span style="color:#50fa7b">FakeRequest</span><span style="color:#ff79c6">(</span><span style="color:#50fa7b">GET</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;/football/matchs&#34;</span><span style="color:#ff79c6">)</span>      <span style="color:#ff79c6">.</span>withHeaders<span style="color:#ff79c6">((</span><span style="color:#f1fa8c">&#34;Accept&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;application/json&#34;</span><span style="color:#ff79c6">),(</span><span style="color:#f1fa8c">&#34;Content-Type&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;text/plain&#34;</span><span style="color:#ff79c6">)))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>    status<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> shouldBe <span style="color:#50fa7b">OK</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span style="color:#ff79c6">}</span>
+</code></pre></div><p>This aspect is not clear in PlayFramework documentations. First of all I need to create a Fake application with the same skeleton that the real so I need to do the following:</p>
+<ol>
+<li>Create a fake app.</li>
+<li>Mock all service that I am going to use like in my real app.</li>
+<li>Create my route file.</li>
+</ol>
+<p>The previous 3 points are solved in [ref. code_example 5 line 15 - line 18]:</p>
+<ul>
+<li>[ref. code_example 5 line 15]: We create a mock using a binding. It was one of the important thing that explain at the beginning. Mocks implemented in Guice are completely different at Mockito. In Guice you will need to mock the whole object. So what we are doing here is overriding our binding with bindings to my mocked object. You can take a look of my mocked object MockTDataServices but in general you have to give fixed values in your mocked object to any definitions in your concrete class.</li>
+<li>[ref. FootballRoutesSpec<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> line 16]: I am indicating here to my Fake app the route file that I want to use. The way to indicate to my fake app the route file is overriding the route file in our case  play.http.router -&gt; the router class indicate the route file of our app(the routes that we want to test)
+I have to import the auto-generated/compiled scala class Routes. PlayFramework constructs a Route class for each configuration route file. In our Routes class generated there is an important method:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">def</span> routes<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">PartialFunction</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">RequestHeader</span>, <span style="color:#8be9fd">Handler</span><span style="color:#ff79c6">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>``
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>So in examples like the next snapshot of code in [framework documentation](https://www.playframework.com/documentation/2.6.x/ScalaFunctionalTestingWithScalaTest#testing-the-router)
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>```scala
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#f1fa8c">&#34;respond to the index Action&#34;</span> in <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">App</span><span style="color:#ff79c6">(</span>applicationWithRouter<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#ff79c6">val</span> <span style="color:#50fa7b">Some</span><span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span> route<span style="color:#ff79c6">(</span>app<span style="color:#ff79c6">,</span> <span style="color:#50fa7b">FakeRequest</span><span style="color:#ff79c6">(</span><span style="color:#50fa7b">GET_REQUEST</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;/Bob&#34;</span><span style="color:#ff79c6">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>  status<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> mustEqual <span style="color:#50fa7b">OK</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>  contentType<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> mustEqual <span style="color:#50fa7b">Some</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;text/html&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>  charset<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> mustEqual <span style="color:#50fa7b">Some</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;utf-8&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>  contentAsString<span style="color:#ff79c6">(</span>result<span style="color:#ff79c6">)</span> must include<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Hello Bob&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#ff79c6">}</span>
+</code></pre></div><p>They never explain how get <strong>applicationWithRouter</strong> in line 1 in the above code for instance. The solution:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">val</span> applicationWithRouter <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">GuiceApplicationBuilder</span><span style="color:#ff79c6">().</span>appRoutes <span style="color:#ff79c6">{</span> app <span style="color:#ff79c6">=&gt;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>      <span style="color:#ff79c6">val</span> <span style="color:#50fa7b">Action</span> <span style="color:#ff79c6">=</span> app<span style="color:#ff79c6">.</span>injector<span style="color:#ff79c6">.</span>instanceOf<span style="color:#ff79c6">[</span><span style="color:#8be9fd">DefaultActionBuilder</span><span style="color:#ff79c6">]</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>      <span style="color:#ff79c6">({</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>        <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;GET&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;/Bob&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#50fa7b">Action</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>          <span style="color:#50fa7b">Ok</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Hello Bob&#34;</span><span style="color:#ff79c6">)</span> as <span style="color:#f1fa8c">&#34;text/html; charset=utf-8&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>        <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>      <span style="color:#ff79c6">})</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>    <span style="color:#ff79c6">}.</span>build<span style="color:#ff79c6">()</span>
+</code></pre></div><p>Testing is easy and should be an style of programming, perhaps in lightbend the make it just a bit more difficult. Anyway, in my opinion, this play framework is terrific, not your documentation.</p>
+<p>refs:<br>
+<a href="https://github.com/playframework/playframework/blob/main/documentation/manual/working/scalaGuide/main/tests/code/specs2/ScalaFunctionalTestSpec.scala">ScalaFunctionalTestSpec</a></p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>source code implementation of FootballLeagueController&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>source code implementation of ControllerSpec&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>source code implementation of bindings in Modules&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p>source code implementation of FootballActionsSpec&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p>source code implementation of FootballRoutesSpec&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
     </div>
   </article>
@@ -302,7 +666,7 @@
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&name=Api%20Rest%20-%20Playframework%20-%20Testing&description=As%20was%20argued%20by%20Robert%20C.%20Martin%20in%20his%20Clean%20Code%20bible%2c%20there%20are%20several%20aspects%20that%20we%20have%20to%20pay%20attention%20when%20we%20design%20our%20tests%3a%0a%20Minimize%20the%20number%20of%20assert%20per%20concept.%20Test%20just%20one%20concept%20per%20test%20function.%20Test%20should%20not%20depend%20on%20each%20other.%20Test%20should%20run%20in%20any%20environment.%20%20" aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-05-30-scalatestingplay%2f&name=Api%20Rest%20-%20Playframework%20-%20Testing&description=As%20was%20argued%20by%20Robert%20C.%20Martin%20in%20his%20Clean%20Code%20bible%2c%20there%20are%20several%20aspects%20that%20we%20have%20to%20pay%20attention%20when%20we%20design%20our%20tests%3a%0a%20Minimize%20the%20number%20of%20assert%20per%20concept.%20Test%20just%20one%20concept%20per%20test%20function.%20Test%20should%20not%20depend%20on%20each%20other.%20Test%20should%20run%20in%20any%20environment.%20%20Test%20should%20pass%20or%20fail%20BUT%20you%20should%20not%20make%20process%20or%20any%20other%20thing%20for%20check%20if%20the%20Test%20was%20OK%20or%20failed." aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>

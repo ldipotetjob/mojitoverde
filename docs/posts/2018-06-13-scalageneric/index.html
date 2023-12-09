@@ -14,8 +14,9 @@
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Scala - Abstract  - Generic Type" />
-<meta property="og:description" content="In this post we will talk about Generic Elements. One of the most useful mechanisms in the Scala programming language. This mechanism is quite useful when a member of a class, feature or even a method definition does not have a complete definition in its body and can also be usable by different implementations.
-The following example is quite simple but jut to give an idea about using inheritance and polymorphism:" />
+<meta property="og:description" content="In this post, we talk about Generic Elements, one of the most useful mechanisms in the Scala programming language. The use of Generic Elements is quite helpful when a member of a class, feature, or method definition does not have a complete implementation in its body and can also be usable by different implementations.
+The following example is simple and will show how to use inheritance and polymorphism:
+1trait AddOper { 2 type T 3 def processElemnt(x: T, y: T): T 4} 5 6class ConcatString extends AddOper{ 7 type T = String 8 override def processElemnt (x: String, y: String): String = 9 x &#43; y 10} 11 12class ConcatInt extends AddOper{ 13 type T = Int 14 override def processElemnt (x: Int, y: Int): Int = 15 x &#43; y 16} In the same way, parameterization allows the writing of generic classes and traits." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ldipotetjob.github.io/mojitoverde/posts/2018-06-13-scalageneric/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-06-13T09:00:00+00:00" />
@@ -24,8 +25,9 @@ The following example is quite simple but jut to give an idea about using inheri
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Scala - Abstract  - Generic Type"/>
-<meta name="twitter:description" content="In this post we will talk about Generic Elements. One of the most useful mechanisms in the Scala programming language. This mechanism is quite useful when a member of a class, feature or even a method definition does not have a complete definition in its body and can also be usable by different implementations.
-The following example is quite simple but jut to give an idea about using inheritance and polymorphism:"/>
+<meta name="twitter:description" content="In this post, we talk about Generic Elements, one of the most useful mechanisms in the Scala programming language. The use of Generic Elements is quite helpful when a member of a class, feature, or method definition does not have a complete implementation in its body and can also be usable by different implementations.
+The following example is simple and will show how to use inheritance and polymorphism:
+1trait AddOper { 2 type T 3 def processElemnt(x: T, y: T): T 4} 5 6class ConcatString extends AddOper{ 7 type T = String 8 override def processElemnt (x: String, y: String): String = 9 x &#43; y 10} 11 12class ConcatInt extends AddOper{ 13 type T = Int 14 override def processElemnt (x: Int, y: Int): Int = 15 x &#43; y 16} In the same way, parameterization allows the writing of generic classes and traits."/>
 
   
   
@@ -78,17 +80,11 @@ The following example is quite simple but jut to give an idea about using inheri
       <ul>
         
         <li>
-          <a class="icon" href=" https://ldipotetjob.github.io/mojitoverde/posts/2018-06-20-scalacomplextypes/" aria-label="Previous">
+          <a class="icon" href=" https://ldipotetjob.github.io/mojitoverde/posts/2018-05-30-scalatestingplay/" aria-label="Previous">
             <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
           </a>
         </li>
         
-        
-        <li>
-          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2019-01-18-es6/" aria-label="Next">
-            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
-          </a>
-        </li>
         
         <li>
           <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
@@ -151,7 +147,7 @@ The following example is quite simple but jut to give an idea about using inheri
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-13-scalageneric%2f&name=Scala%20-%20Abstract%20%20-%20Generic%20Type&description=In%20this%20post%20we%20will%20talk%20about%20Generic%20Elements.%20One%20of%20the%20most%20useful%20mechanisms%20in%20the%20Scala%20programming%20language.%20This%20mechanism%20is%20quite%20useful%20when%20a%20member%20of%20a%20class%2c%20feature%20or%20even%20a%20method%20definition%20does%20not%20have%20a%20complete%20definition%20in%20its%20body%20and%20can%20also%20be%20usable%20by%20different%20implementations.%0aThe%20following%20example%20is%20quite%20simple%20but%20jut%20to%20give%20an%20idea%20about%20using%20inheritance%20and%20polymorphism%3a" aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-13-scalageneric%2f&name=Scala%20-%20Abstract%20%20-%20Generic%20Type&description=In%20this%20post%2c%20we%20talk%20about%20Generic%20Elements%2c%20one%20of%20the%20most%20useful%20mechanisms%20in%20the%20Scala%20programming%20language.%20The%20use%20of%20Generic%20Elements%20is%20quite%20helpful%20when%20a%20member%20of%20a%20class%2c%20feature%2c%20or%20method%20definition%20does%20not%20have%20a%20complete%20implementation%20in%20its%20body%20and%20can%20also%20be%20usable%20by%20different%20implementations.%0aThe%20following%20example%20is%20simple%20and%20will%20show%20how%20to%20use%20inheritance%20and%20polymorphism%3a%0a1trait%20AddOper%20%7b%202%20type%20T%203%20def%20processElemnt%28x%3a%20T%2c%20y%3a%20T%29%3a%20T%204%7d%205%206class%20ConcatString%20extends%20AddOper%7b%207%20type%20T%20%3d%20String%208%20override%20def%20processElemnt%20%28x%3a%20String%2c%20y%3a%20String%29%3a%20String%20%3d%209%20x%20%2b%20y%2010%7d%2011%2012class%20ConcatInt%20extends%20AddOper%7b%2013%20type%20T%20%3d%20Int%2014%20override%20def%20processElemnt%20%28x%3a%20Int%2c%20y%3a%20Int%29%3a%20Int%20%3d%2015%20x%20%2b%20y%2016%7d%20In%20the%20same%20way%2c%20parameterization%20allows%20the%20writing%20of%20generic%20classes%20and%20traits." aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -187,7 +183,7 @@ The following example is quite simple but jut to give an idea about using inheri
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          4 minute read
+          3 minute read
         </div>
         
         
@@ -213,8 +209,8 @@ The following example is quite simple but jut to give an idea about using inheri
 
   
     <div class="content" itemprop="articleBody">
-      <p>In this post we will talk about <strong>Generic Elements</strong>. One of the most useful mechanisms in the Scala programming language. This mechanism is quite useful when a member of a class, feature or even a method definition does not have a complete definition in its body and can also be usable by different implementations.</p>
-<p>The following example is quite simple but jut to give an idea about using inheritance and polymorphism:</p>
+      <p>In this post, we talk about <strong>Generic Elements</strong>, one of the most useful mechanisms in the Scala programming language. The use of <strong>Generic Elements</strong> is quite helpful when a member of a class, feature, or method definition does not have a complete implementation in its body and can also be usable by different implementations.</p>
+<p>The following example is simple and will show how to use inheritance and polymorphism:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">trait</span> <span style="color:#50fa7b">AddOper</span> <span style="color:#ff79c6">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>  <span style="color:#ff79c6">type</span> <span style="color:#8be9fd">T</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#ff79c6">def</span> processElemnt<span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">T</span><span style="color:#ff79c6">,</span> y<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">T</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">T</span>
@@ -231,13 +227,13 @@ The following example is quite simple but jut to give an idea about using inheri
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>  <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">def</span> processElemnt <span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span> y<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span> <span style="color:#ff79c6">=</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>    x <span style="color:#ff79c6">+</span> y
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#ff79c6">}</span>
-</code></pre></div><p>In the same way, parameterization allows writing generic classes and traits.
+</code></pre></div><p>In the same way, parameterization allows the writing of generic classes and traits.
 A simple example: with <strong>List[T]</strong> you can define List[String], List[Int], List[Any]</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Box</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">A</span><span style="color:#ff79c6">](</span><span style="color:#ff79c6">val</span> content<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">A</span><span style="color:#ff79c6">)</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#ff79c6">val</span> intBox<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Box</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Box</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">](</span><span style="color:#bd93f9">20</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//val intBox: Box[Int] = Box@11267e87
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#6272a4"></span><span style="color:#ff79c6">val</span> listBox <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">Box</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">List</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">]](</span><span style="color:#50fa7b">List</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">12</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">30</span><span style="color:#ff79c6">))</span> <span style="color:#6272a4">//val listBox: Box[List[Int]] = Box@469caf69
-</span></code></pre></div><p>Another example is the next code is an extractor of any colection, in the next piece of code we deal with type erasure, I asume that you are familiar with it, quickly it refers to the runtime encoding of parameterized classes performed by Scala compiler in which it removes all the generic type information after compilation<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+</span></code></pre></div><p>The example below, an extractor of any collection, deals with type erasure. It refers to the runtime encoding of parameterized classes performed by the Scala compiler in which it removes all the generic type information after compilation<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">import</span> scala.reflect.ClassTag
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#ff79c6">def</span> fNone<span style="color:#ff79c6">[</span><span style="color:#8be9fd">T</span><span style="color:#ff79c6">]</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Option</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">T</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">None</span>
@@ -253,7 +249,7 @@ A simple example: with <strong>List[T]</strong> you can define List[String], Lis
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>scala<span style="color:#ff79c6">&gt;</span> extractRightCollection<span style="color:#ff79c6">[</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">](</span><span style="color:#50fa7b">List</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">20</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">10</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">5</span><span style="color:#ff79c6">))</span> <span style="color:#6272a4">// val res26: Option[Int] = Some(20)
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span style="color:#6272a4"></span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>scala<span style="color:#ff79c6">&gt;</span> extractRightCollection<span style="color:#ff79c6">[</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">](</span><span style="color:#50fa7b">List</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">20</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">10</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">5</span><span style="color:#ff79c6">))</span> <span style="color:#6272a4">// val res27: Option[String] = None
-</span></code></pre></div><p>The <strong>variance</strong>, another way to defines inheritance relationships of parameterized types.</p>
+</span></code></pre></div><p>The <strong>variance</strong> is another way to define inheritance relationships of parameterized types.</p>
 <table>
 <thead>
 <tr>
@@ -280,8 +276,8 @@ A simple example: with <strong>List[T]</strong> you can define List[String], Lis
 </tr>
 </tbody>
 </table>
-<p>You can find some references on twitter documentation<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
-<p>Take a look to the following code where we will show you why you need here a <strong>covariant</strong> scenario:</p>
+<p>You can find some references on Twitter documentation<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+<p>Take a look at the following code, where we will show you why you need here a <strong>covariant</strong> scenario:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#ff79c6">trait</span> <span style="color:#50fa7b">Person</span><span style="color:#ff79c6">{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#ff79c6">val</span> name<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span>
@@ -308,13 +304,13 @@ A simple example: with <strong>List[T]</strong> you can define List[String], Lis
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>        required<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">PersonRegister</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Person</span><span style="color:#ff79c6">]</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>       <span style="color:#50fa7b">Note</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Student</span> <span style="color:#ff79c6">&lt;:</span> <span style="color:#8be9fd">Person</span><span style="color:#ff79c6">,</span> but <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PersonRegister</span> is invariant in <span style="color:#ff79c6">type</span> <span style="color:#8be9fd">A.</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>       <span style="color:#8be9fd">You</span> <span style="color:#8be9fd">may</span> <span style="color:#8be9fd">wish</span> <span style="color:#8be9fd">to</span> <span style="color:#8be9fd">define</span> <span style="color:#8be9fd">A</span> <span style="color:#8be9fd">as</span> <span style="color:#8be9fd">+A</span> <span style="color:#8be9fd">instead.</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">SLS</span> 4<span style="color:#8be9fd">.</span>5<span style="color:#ff79c6">)</span>
-</code></pre></div><p>Thus making the previous modification, indicated by the compiler we get the right compilation and create a <strong>covariant</strong> scope:</p>
+</code></pre></div><p>A solution to the previous exception, sugessted by the compiler,  can be to create a <strong>covariant</strong> scope:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4">// covariant: Student is a subtype of Person
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span style="color:#6272a4"></span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PersonRegister</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">+A</span><span style="color:#ff79c6">](</span>content<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">A</span><span style="color:#ff79c6">)</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span style="color:#ff79c6">val</span> ps<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">PersonRegister</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Student</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">PersonRegister</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Student</span><span style="color:#ff79c6">](</span><span style="color:#50fa7b">Student</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Louise&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">18</span><span style="color:#ff79c6">,</span> <span style="color:#50fa7b">List</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Math&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;Chemestry&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;History&#34;</span><span style="color:#ff79c6">)))</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span style="color:#ff79c6">val</span> registerStudentAsPerson<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">PersonRegister</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Person</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> ps <span style="color:#6272a4">// registerStudentAsPerson: PersonRegister[Person] = PersonRegister@ed52b9a
-</span></code></pre></div><p>The next piece of code is the <strong>contravariant scenario</strong> where we assign to a subtype to its parent type. Keep in mind that Student is a subclass of Person:</p>
+</span></code></pre></div><p>The next piece of code is the <strong>contravariant scenario</strong> and is assigned a subtype to its parent type. Keep in mind that the Student class is a subclass of the Person class:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#6272a4">// Student is a subtype of Person
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#6272a4"></span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PersonRegister</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">-A</span><span style="color:#ff79c6">](</span>content<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">A</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">// defined class PersonRegister
@@ -327,7 +323,7 @@ A simple example: with <strong>List[T]</strong> you can define List[String], Lis
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">// ps: PersonRegister[Person] = PersonRegister@1f171255
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#6272a4"></span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#ff79c6">val</span> registerStudentAsPerson<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">PersonRegister</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Person</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> ps <span style="color:#6272a4">// registerStudentAsPerson: PersonRegister[Person] = PersonRegister@1f171255
-</span></code></pre></div><p>There are scenarios where we need <strong>the utility of variances</strong> but they can not be applied. For instance in implementations where there are <strong>Reassignable fields</strong>. The following piece of code is an example:</p>
+</span></code></pre></div><p>There are scenarios where we need <strong>the utility of variances</strong>, but they can not be applied. The implementations where there are <strong>Reassignable fields</strong> are an example:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">trait</span> <span style="color:#50fa7b">PersonRegister</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">-A</span><span style="color:#ff79c6">]{</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>   <span style="color:#ff79c6">val</span> content<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">A</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#ff79c6">}</span>
@@ -364,8 +360,6 @@ A simple example: with <strong>List[T]</strong> you can define List[String], Lis
 </tr>
 </tbody>
 </table>
-<p>Going deeper with Upper and Lower bound resources in scala when implementing inheritance and generic class, have a look to the code below:</p>
-<p>TODO !!! Examples y resumen.</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -453,7 +447,7 @@ A simple example: with <strong>List[T]</strong> you can define List[String], Lis
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-13-scalageneric%2f&name=Scala%20-%20Abstract%20%20-%20Generic%20Type&description=In%20this%20post%20we%20will%20talk%20about%20Generic%20Elements.%20One%20of%20the%20most%20useful%20mechanisms%20in%20the%20Scala%20programming%20language.%20This%20mechanism%20is%20quite%20useful%20when%20a%20member%20of%20a%20class%2c%20feature%20or%20even%20a%20method%20definition%20does%20not%20have%20a%20complete%20definition%20in%20its%20body%20and%20can%20also%20be%20usable%20by%20different%20implementations.%0aThe%20following%20example%20is%20quite%20simple%20but%20jut%20to%20give%20an%20idea%20about%20using%20inheritance%20and%20polymorphism%3a" aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-06-13-scalageneric%2f&name=Scala%20-%20Abstract%20%20-%20Generic%20Type&description=In%20this%20post%2c%20we%20talk%20about%20Generic%20Elements%2c%20one%20of%20the%20most%20useful%20mechanisms%20in%20the%20Scala%20programming%20language.%20The%20use%20of%20Generic%20Elements%20is%20quite%20helpful%20when%20a%20member%20of%20a%20class%2c%20feature%2c%20or%20method%20definition%20does%20not%20have%20a%20complete%20implementation%20in%20its%20body%20and%20can%20also%20be%20usable%20by%20different%20implementations.%0aThe%20following%20example%20is%20simple%20and%20will%20show%20how%20to%20use%20inheritance%20and%20polymorphism%3a%0a1trait%20AddOper%20%7b%202%20type%20T%203%20def%20processElemnt%28x%3a%20T%2c%20y%3a%20T%29%3a%20T%204%7d%205%206class%20ConcatString%20extends%20AddOper%7b%207%20type%20T%20%3d%20String%208%20override%20def%20processElemnt%20%28x%3a%20String%2c%20y%3a%20String%29%3a%20String%20%3d%209%20x%20%2b%20y%2010%7d%2011%2012class%20ConcatInt%20extends%20AddOper%7b%2013%20type%20T%20%3d%20Int%2014%20override%20def%20processElemnt%20%28x%3a%20Int%2c%20y%3a%20Int%29%3a%20Int%20%3d%2015%20x%20%2b%20y%2016%7d%20In%20the%20same%20way%2c%20parameterization%20allows%20the%20writing%20of%20generic%20classes%20and%20traits." aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>
