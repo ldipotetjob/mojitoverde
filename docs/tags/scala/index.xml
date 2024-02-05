@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Scadip</copyright>
-    <lastBuildDate>Wed, 13 Jun 2018 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/tags/scala/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Sep 2018 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/tags/scala/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scheduling in Akka with Quartz - a wise solution</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-09-24-scalaakkaquartz/</link>
+      <pubDate>Mon, 24 Sep 2018 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-09-24-scalaakkaquartz/</guid>
+      <description>The problem I bring: how to execute several tasks following a specific schedule (day/time) for the long term and different patterns? The previous schedule must be able to vary in time.
+Our scenario:
+ A process like Linux cron services for running commands following a predetermined schedule. Objects that process configuration files that contain a list of command lines. The config file, which you can configure dynamically, contains the schedule of command invocation.</description>
+    </item>
+    
     <item>
       <title>Scala - Abstract  - Generic Type</title>
       <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-06-13-scalageneric/</link>

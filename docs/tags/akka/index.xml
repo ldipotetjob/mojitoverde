@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Akka on Green Mojito in technology</title>
+    <link>https://ldipotetjob.github.io/mojitoverde/tags/akka/</link>
+    <description>Recent content in Akka on Green Mojito in technology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Scadip</copyright>
+    <lastBuildDate>Mon, 24 Sep 2018 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/tags/akka/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scheduling in Akka with Quartz - a wise solution</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-09-24-scalaakkaquartz/</link>
+      <pubDate>Mon, 24 Sep 2018 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-09-24-scalaakkaquartz/</guid>
+      <description>The problem I bring: how to execute several tasks following a specific schedule (day/time) for the long term and different patterns? The previous schedule must be able to vary in time.
+Our scenario:
+ A process like Linux cron services for running commands following a predetermined schedule. Objects that process configuration files that contain a list of command lines. The config file, which you can configure dynamically, contains the schedule of command invocation.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -11,6 +11,7 @@ keywords:
     - orchestration
     - conatiner
 ---
+
 ![k8s_img](/mojitoverde/images/k8s.png#floatleft)
 Trying to explain Kubernetes(k8s), I bring here a guide about how to make a very fruitful study of it. These thoughts are from a software developer perspective and well explained in Kubernetes(k8s) documentation.
 
