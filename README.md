@@ -18,6 +18,20 @@ hugo server -D
 ####
 ```
 
+### It's time to build your website 
+
+In your root directory:
+
+```shell
+hugo 
+####
+# ........
+# build all html pages, so the next step must be populate the document which
+# have been created peeviouly
+####
+```
+
+
 ### How our Hugo static website can be deployed on github page 
  1. The hugo static site will need a binding to a github url publishing source:</br>
     In the [config.toml](https://github.com/ldipotetjob/mojitoverde/blob/main/config.toml) file the key baseURL must have the github url   
