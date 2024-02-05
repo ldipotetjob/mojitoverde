@@ -98,3 +98,5 @@ Some interesting reference links to work with k8s:
 3. [Kubernetes architecture](https://kubernetes.io/docs/concepts/architecture/) 
 4. [Containers](https://kubernetes.io/docs/concepts/containers/) 
 5. Workloads([Pods](https://kubernetes.io/docs/concepts/workloads/pods/) and [Controllers](https://kubernetes.io/docs/concepts/workloads/controllers/)) 
+
+This has been a first glance about physical and logical objects, to enable that every thing can work together I will need some abstract aspects like services. In next posts I am going to review in-depth k8s services and its relationship with the rest of k8s elements.
