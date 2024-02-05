@@ -85,3 +85,4 @@ weight = 4
   [[params.social]]
     name = "email"
     link = "ldipotet@scadip.com"  # no need for "mailto:" in the head
+

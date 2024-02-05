@@ -19,4 +19,11 @@ img[src$='#floatleft']
       margin: 0.7rem;      /* this margin is totally up to you */
       /* whatever else styles you fancy here */
   }
+
+    img[src$='#floatcenter']
+  {
+      float:center;
+      margin: 0.7rem;      /* this margin is totally up to you */
+      /* whatever else styles you fancy here */
+  }
   ```
