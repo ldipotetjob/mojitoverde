@@ -15,7 +15,7 @@
       
       <guid>https://ldipotetjob.github.io/mojitoverde/posts/2018-11-28-k8sfromscratch/</guid>
       <description>Trying to explain Kubernetes(k8s), I bring you here a first glance of this orchestrator.
-An advice before getting started with k8s:
+A piece of advice before getting started with k8s:
  You should study in-depth about any application container engine, I suggest docker but there are many others like rkt, runc or any other that follows OCI specifications.  You can find some resources that help in your journey to understand the main aspects related to the container engine:</description>
     </item>
     

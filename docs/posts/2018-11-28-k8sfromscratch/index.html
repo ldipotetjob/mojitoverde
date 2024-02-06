@@ -15,7 +15,7 @@
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Kubernetes from scratch for developers" />
 <meta property="og:description" content="Trying to explain Kubernetes(k8s), I bring you here a first glance of this orchestrator.
-An advice before getting started with k8s:
+A piece of advice before getting started with k8s:
  You should study in-depth about any application container engine, I suggest docker but there are many others like rkt, runc or any other that follows OCI specifications.  You can find some resources that help in your journey to understand the main aspects related to the container engine:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ldipotetjob.github.io/mojitoverde/posts/2018-11-28-k8sfromscratch/" /><meta property="article:section" content="posts" />
@@ -26,7 +26,7 @@ An advice before getting started with k8s:
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kubernetes from scratch for developers"/>
 <meta name="twitter:description" content="Trying to explain Kubernetes(k8s), I bring you here a first glance of this orchestrator.
-An advice before getting started with k8s:
+A piece of advice before getting started with k8s:
  You should study in-depth about any application container engine, I suggest docker but there are many others like rkt, runc or any other that follows OCI specifications.  You can find some resources that help in your journey to understand the main aspects related to the container engine:"/>
 
   
@@ -147,7 +147,7 @@ An advice before getting started with k8s:
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-11-28-k8sfromscratch%2f&name=Kubernetes%20from%20scratch%20for%20developers&description=Trying%20to%20explain%20Kubernetes%28k8s%29%2c%20I%20bring%20you%20here%20a%20first%20glance%20of%20this%20orchestrator.%0aAn%20advice%20before%20getting%20started%20with%20k8s%3a%0a%20You%20should%20study%20in-depth%20about%20any%20application%20container%20engine%2c%20I%20suggest%20docker%20but%20there%20are%20many%20others%20like%20rkt%2c%20runc%20or%20any%20other%20that%20follows%20OCI%20specifications.%20%20You%20can%20find%20some%20resources%20that%20help%20in%20your%20journey%20to%20understand%20the%20main%20aspects%20related%20to%20the%20container%20engine%3a" aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-11-28-k8sfromscratch%2f&name=Kubernetes%20from%20scratch%20for%20developers&description=Trying%20to%20explain%20Kubernetes%28k8s%29%2c%20I%20bring%20you%20here%20a%20first%20glance%20of%20this%20orchestrator.%0aA%20piece%20of%20advice%20before%20getting%20started%20with%20k8s%3a%0a%20You%20should%20study%20in-depth%20about%20any%20application%20container%20engine%2c%20I%20suggest%20docker%20but%20there%20are%20many%20others%20like%20rkt%2c%20runc%20or%20any%20other%20that%20follows%20OCI%20specifications.%20%20You%20can%20find%20some%20resources%20that%20help%20in%20your%20journey%20to%20understand%20the%20main%20aspects%20related%20to%20the%20container%20engine%3a" aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -220,41 +220,41 @@ An advice before getting started with k8s:
       <p><img src="/mojitoverde/images/k8s.png#floatleft" alt="k8s_img">
 <!-- raw HTML omitted --><!-- raw HTML omitted -->
 Trying to explain Kubernetes(k8s), I bring you here a first glance of this orchestrator.</p>
-<p>An advice before getting started with k8s:</p>
+<p>A piece of advice before getting started with k8s:</p>
 <ul>
 <li>You should study in-depth about any <strong>application container engine</strong>, I suggest <a href="https://docs.docker.com/">docker</a> but there are many others like <a href="https://coreos.com/rkt/">rkt</a>, <a href="https://github.com/opencontainers/runc">runc</a> or any other that follows <a href="https://www.opencontainers.org/">OCI</a> specifications.</li>
 </ul>
 <p>You can find some resources that help in your journey to understand the main aspects related to the container engine:</p>
 <ul>
-<li><a href="https://docs.docker.com/get-started/#containers-and-virtual-machines">The documentation site</a> can guide you throughth examples and practical tasks.</li>
-<li><a href="https://training.play-with-docker.com/">Docker free lab</a> is tool, easy and intuitive, that mainly encompasses the whole learning process in Docker.</li>
+<li><a href="https://docs.docker.com/get-started/#containers-and-virtual-machines">The documentation site</a> can guide you through examples and practical tasks.</li>
+<li><a href="https://training.play-with-docker.com/">Docker free lab</a> is a tool, easy and intuitive, and mainly encompasses the whole learning process in Docker.</li>
 </ul>
-<p>At this point concepts like Cluster or Node should be evident for everyone.</p>
+<p>At this point, concepts like Cluster or Node should be evident to everyone.</p>
 <p><img src="/mojitoverde/images/ClusterConcep.png#floatcenter" alt="ClusterConcep_img"></p>
 <p>First things to know:</p>
 <ol>
-<li>What <a href="https://kubernetes.io/docs/concepts/overview/">k8s</a> really is? It is an open source system for managing containerized applications across multiple hosts, providing basic mechanisms for deployment, maintenance and scaling of applications.</li>
+<li>What <a href="https://kubernetes.io/docs/concepts/overview/">k8s</a> really is? It is an open-source system for managing containerized applications across multiple hosts, providing basic mechanisms for the deployment, maintenance, and scaling of applications.</li>
 <li>The <a href="https://kubernetes.io/docs/concepts/overview/components/">components of k8s</a></li>
 </ol>
 <h3 id="kubernetes-basic-infrastructure">Kubernetes basic infrastructure</h3>
 <p><img src="/mojitoverde/images/masternode.png#floatcenter" alt="masternode_img">
 <img src="/mojitoverde/images/kubernetesKluster.png#floatcenter" alt="kubernetesKluster_img"></p>
-<p>Our target is to deploy and finally run applications that are <strong>living in our containers</strong> as well as these containers are living in the <strong>k8s PODs</strong>. PODs are the basic building block in <strong>k8s</strong>. Our applicacions are hosted in our containers and running in the <strong>k8s PODs</strong>.</p>
+<p>Our target is to deploy and finally run applications that are <strong>living in our containers</strong> as well as those containers are living in the <strong>k8s PODs</strong>. PODs are the basic building block in <strong>k8s</strong>. Our applications are hosted in our containers and running in the <strong>k8s PODs</strong>.</p>
 <p>Our target is to deploy and run applications finally, the whole picture at this point:</p>
 <p><strong>A Cluster</strong>: that contains NODEs [1 Master - 1.. n Worker]<br>
 <strong>Worker Nodes</strong>: Contain : PODs<br>
 <strong>PODs</strong>: Contain: Containers<br>
-<strong>Containers</strong>: It contains applications with their own environments.</p>
-<p>In the picture above, we haven&rsquo;t mentioned yet (<strong>volume</strong>). You can get the idea that the volume in PODs is similar to Docker Container volume in Docker.
+<strong>Containers</strong>: It contains applications with their environments.</p>
+<p>In the picture above, we haven&rsquo;t yet mentioned (<strong>volume</strong>). You can get the idea that the volume in PODs is similar to Docker Container volume in Docker.
 These PODs are living in NODEs, but which NODEs? Who decides which node spins up a specific POD?
-If we have a look in <a href="#kubernetes-basic-infrastructure">the Master Node components</a>, then we can see <strong>kube-scheduler</strong> is responsible for creating a POD in a specific node. The kube-scheduler watches newly created PODs with no node assigned, and selects a node for them to run on. This process is not simple, <a href="https://kubernetes.io/docs/concepts/overview/components/#kube-scheduler">many factors count for scheduling decisions</a>.
+If we have a look in <a href="#kubernetes-basic-infrastructure">the Master Node components</a>, then we can see <strong>kube-scheduler</strong> is responsible for creating a POD in a specific node. The kube-scheduler watches newly created PODs with no node assigned and selects a node for them to run on. This process is not simple, <a href="https://kubernetes.io/docs/concepts/overview/components/#kube-scheduler">many factors count for scheduling decisions</a>.
 Sometimes, you can choose <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/">in what node your POD can spin up</a>.</p>
-<p>Some of the main components in k8s PODs creations process:</p>
+<p>Some of the main components in the k8s PODs creation process:</p>
 <ul>
 <li>controller</li>
 <li>custom resource definition</li>
 </ul>
-<p>These are differents way to talk to the cluster:</p>
+<p>These are different ways to talk to the cluster:</p>
 <ul>
 <li>command line interface (<strong>kubectl</strong>) that will be running commands against K8s clusters.</li>
 <li><a href="https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api/#using-kubectl-proxy">execute kubectl as a reverse proxy</a>: <strong>kubectl proxy &ndash;port=8080</strong> &amp; and then call the <strong>k8s REST api</strong></li>
@@ -263,15 +263,15 @@ Sometimes, you can choose <a href="https://kubernetes.io/docs/concepts/schedulin
 <p>Let&rsquo;s check the scenario where we use the command line interface(<strong>kubectl</strong>) to run commands against the Kubernetes cluster.</p>
 <p><a href="https://kubernetes.io/docs/reference/kubectl/#syntax">kubectl syntax</a>: kubectl [command] [TYPE] [NAME] [flags]</p>
 <p><strong>kubectl + creations commands + definition document</strong></p>
-<p>Every time that <strong>kubectl + creations commands &hellip;</strong> take place, the <strong>kube-apiserver</strong> validates the object defined in the definitition document before configure data to any api objects(pods, services, replicationcontrollers, and others)</p>
+<p>Every time that <strong>kubectl + creations commands &hellip;</strong> take place, the <strong>kube-apiserver</strong> validates the object defined in the definition document before configuring data to any api objects(pods, services, replication controllers, and others)</p>
 <p><strong>creations commands(to create api objects)</strong>:</p>
 <ul>
 <li><a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create">create</a></li>
 <li><a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply">apply</a>
-<strong>definition document</strong>: a custom resource definition[yaml or json document] that should describe a Controller used during the creation process. In our case our target is the POD creation.
-In k8s, a <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/#kube-controller-manager">Controller</a> is a control loop that watches the shared state of the cluster through the apiserver and makes changes attempting to move the current state towards the desired state <strong>in this case we are talking about our desired state, it will be a POD.</strong></li>
+<strong>definition document</strong>: a custom resource definition[yaml or JSON document] that should describe a Controller used during the creation process. In our case, our target is the POD creation.
+In k8s, a <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/#kube-controller-manager">Controller</a> is a control loop that watches the shared state of the cluster through the apiserver and makes changes attempting to move the current state towards the desired state <strong>, in this case, we are talking about our desired state, it will be a POD.</strong></li>
 </ul>
-<p>Let&rsquo;s see some definition document examples and its relations with the commands that create resources.</p>
+<p>Let&rsquo;s see some definition document examples and their relations with the commands that create resources.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#6272a4"># nginx-deployment.yaml document describes a desired state in a Deployment object, and the Deployment controller changes the actual state to the desired state at a controlled rate. </span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>create -f https://raw.githubusercontent.com/ldipotetjob/k8straining/develop/yamldefinitions/nginx-deployment.yaml
@@ -280,7 +280,7 @@ In k8s, a <a href="https://kubernetes.io/docs/reference/command-line-tools-refer
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>create -f https://raw.githubusercontent.com/ldipotetjob/k8straining/develop/yamldefinitions/nginx-repcontroller.yaml
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span>
-</code></pre></div><p>Implementing the <strong>Local projects/environments</strong> previously indicated is  easy with <a href="https://minikube.sigs.k8s.io/docs/start/">minikube</a>. It is a configurable environment that lets you start a k8s cluster locally.</p>
+</code></pre></div><p>Implementing the <strong>Local projects/environments</strong> previously indicated is easy with <a href="https://minikube.sigs.k8s.io/docs/start/">minikube</a>. It is a configurable environment that lets you start a k8s cluster locally.</p>
 <p>Some interesting reference links to work with k8s:</p>
 <ol>
 <li>The <a href="https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands">kubectl command line, you can find here examples about how to use a kubectl command with its flags and arguments</a></li>
@@ -289,7 +289,7 @@ In k8s, a <a href="https://kubernetes.io/docs/reference/command-line-tools-refer
 <li><a href="https://kubernetes.io/docs/concepts/containers/">Containers</a></li>
 <li>Workloads(<a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pods</a> and <a href="https://kubernetes.io/docs/concepts/workloads/controllers/">Controllers</a>)</li>
 </ol>
-<p>We did here a first glance about physical and logical objects.For everything to work together we need some abstract concepts like services.</p>
+<p>We did here a first glance at physical and logical objects in k8s. For everything to work together, we need some abstract concepts like services.</p>
 
     </div>
   </article>
@@ -374,7 +374,7 @@ In k8s, a <a href="https://kubernetes.io/docs/reference/command-line-tools-refer
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-11-28-k8sfromscratch%2f&name=Kubernetes%20from%20scratch%20for%20developers&description=Trying%20to%20explain%20Kubernetes%28k8s%29%2c%20I%20bring%20you%20here%20a%20first%20glance%20of%20this%20orchestrator.%0aAn%20advice%20before%20getting%20started%20with%20k8s%3a%0a%20You%20should%20study%20in-depth%20about%20any%20application%20container%20engine%2c%20I%20suggest%20docker%20but%20there%20are%20many%20others%20like%20rkt%2c%20runc%20or%20any%20other%20that%20follows%20OCI%20specifications.%20%20You%20can%20find%20some%20resources%20that%20help%20in%20your%20journey%20to%20understand%20the%20main%20aspects%20related%20to%20the%20container%20engine%3a" aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2018-11-28-k8sfromscratch%2f&name=Kubernetes%20from%20scratch%20for%20developers&description=Trying%20to%20explain%20Kubernetes%28k8s%29%2c%20I%20bring%20you%20here%20a%20first%20glance%20of%20this%20orchestrator.%0aA%20piece%20of%20advice%20before%20getting%20started%20with%20k8s%3a%0a%20You%20should%20study%20in-depth%20about%20any%20application%20container%20engine%2c%20I%20suggest%20docker%20but%20there%20are%20many%20others%20like%20rkt%2c%20runc%20or%20any%20other%20that%20follows%20OCI%20specifications.%20%20You%20can%20find%20some%20resources%20that%20help%20in%20your%20journey%20to%20understand%20the%20main%20aspects%20related%20to%20the%20container%20engine%3a" aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>
