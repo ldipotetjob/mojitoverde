@@ -2,13 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ldipotetjob.github.io/mojitoverde/categories/</loc>
-    <lastmod>2018-11-28T09:00:00+00:00</lastmod>
+    <loc>https://ldipotetjob.github.io/mojitoverde/tags/akka/</loc>
+    <lastmod>2019-03-10T09:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ldipotetjob.github.io/mojitoverde/categories/container-orchestration/</loc>
-    <lastmod>2018-11-28T09:00:00+00:00</lastmod>
+    <loc>https://ldipotetjob.github.io/mojitoverde/posts/2019-03-10-akkaconcurrencysolution/</loc>
+    <lastmod>2019-03-10T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ldipotetjob.github.io/mojitoverde/categories/</loc>
+    <lastmod>2019-03-10T09:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ldipotetjob.github.io/mojitoverde/</loc>
+    <lastmod>2019-03-10T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ldipotetjob.github.io/mojitoverde/posts/</loc>
+    <lastmod>2019-03-10T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ldipotetjob.github.io/mojitoverde/tags/scala/</loc>
+    <lastmod>2019-03-10T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ldipotetjob.github.io/mojitoverde/categories/scala-programming/</loc>
+    <lastmod>2019-03-10T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ldipotetjob.github.io/mojitoverde/tags/</loc>
+    <lastmod>2019-03-10T09:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ldipotetjob.github.io/mojitoverde/categories/container-orchestration/</loc>
     <lastmod>2018-11-28T09:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ldipotetjob.github.io/mojitoverde/tags/kubernetes/</loc>
@@ -16,21 +34,6 @@
   </url><url>
     <loc>https://ldipotetjob.github.io/mojitoverde/posts/2018-11-28-k8sfromscratch/</loc>
     <lastmod>2018-11-28T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ldipotetjob.github.io/mojitoverde/posts/</loc>
-    <lastmod>2018-11-28T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ldipotetjob.github.io/mojitoverde/tags/</loc>
-    <lastmod>2018-11-28T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ldipotetjob.github.io/mojitoverde/tags/akka/</loc>
-    <lastmod>2018-09-24T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ldipotetjob.github.io/mojitoverde/tags/scala/</loc>
-    <lastmod>2018-09-24T09:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ldipotetjob.github.io/mojitoverde/categories/scala-programming/</loc>
-    <lastmod>2018-09-24T09:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ldipotetjob.github.io/mojitoverde/posts/2018-09-24-scalaakkaquartz/</loc>
     <lastmod>2018-09-24T09:00:00+00:00</lastmod>

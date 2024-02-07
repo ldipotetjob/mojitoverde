@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Scadip</copyright>
-    <lastBuildDate>Wed, 28 Nov 2018 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Mar 2019 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Akka an intelligent solution for concurrency</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2019-03-10-akkaconcurrencysolution/</link>
+      <pubDate>Sun, 10 Mar 2019 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2019-03-10-akkaconcurrencysolution/</guid>
+      <description>We have a concurrency problem to solve: I need to access hundreds of thousands of websites, parse and process all of them asynchronously. I tried many options, always with a main idea: Futures. So coding in that way I code something similar to the following:
+1//.................... 2 3//game_1: Int value indicating first game 4 5//game_n: Int value indicating game n 6 7val resultMatch:List[Future[List[Match]]] = (game_1 until game_n).map { 8 matchnum =&amp;gt; 9 Future{ 10 new ParserFootbalHTML(&amp;#34;https://www.</description>
+    </item>
+    
     <item>
       <title>Kubernetes from scratch for developers</title>
       <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-11-28-k8sfromscratch/</link>

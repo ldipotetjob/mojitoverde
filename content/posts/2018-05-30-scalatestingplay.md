@@ -400,7 +400,7 @@ val applicationWithRouter = GuiceApplicationBuilder().appRoutes { app =>
     }.build()
 ```
 
-Testing is easy and should be an style of programming, perhaps in lightbend the make it just a bit more difficult. Anyway, in my opinion, this play framework is terrific, not your documentation.
+Testing is easy and should be an style of programming, perhaps in lightbend the make it just a bit more difficult. Anyway, in my opinion, this game framework is fantastic, but not its documentation.
 
 
 [^1]: source code implementation of FootballLeagueController
