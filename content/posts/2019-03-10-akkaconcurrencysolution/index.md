@@ -45,13 +45,13 @@ def doComplete: PartialFunction[Try[List[Match]],Unit] = { //
 //....................
 ```
 
-With minimal changes, the main idea was to launch as many **"Futures"** as websites we needed to parse or process and then do something with the results, when every computation finishes(**onComplete**). I checked  the processing time then decided probe the Akka libraries  to improve the performance and reduce the calculation time.
+With minimal changes, the main idea was to launch as many **"Futures"** as websites we needed to parse or process and then do something with the results when every computation finishes(**onComplete**). I checked the processing time and then decided to probe the Akka libraries to improve the performance and reduce the calculation time.
 
-I recommend to understand the core of akka libraries, [the Actor Model](https://en.wikipedia.org/wiki/Actor_model), because it is the base of these libraries and the implementation that akka has made of this model. 
+I recommend understanding the core of Akka libraries, [the Actor Model](https://en.wikipedia.org/wiki/Actor_model) because it is the base of these libraries and the implementation that Akka has made of this model. 
 
 ![akka_actormodel_eng_img](/mojitoverde/images/akka_actormodel_eng.png#floatcenter)
 
-Let us to have a look at the actor model Akka implementation.
+Let us have a look at the actor model Akka implementation.
 
 ![akka_mailbox_img](/mojitoverde/images/akka_mailbox.png#floatleft)
 **Actor and Actor-1** communicate exclusively by exchanging messages( placing them into the recipient’s MailBox) asynchronously. \
@@ -59,7 +59,7 @@ Let us to have a look at the actor model Akka implementation.
 Message Should Not be mutable. \
 Something to know from the official documentation: \
 **The only meaningful way for a sender to know whether an interaction was successful is by receiving a business-level acknowledgment message, which is not something Akka could make up on its own (neither are we writing a “do what I mean” framework nor would you want us to).** \
-We are facing the autentic concept of encapsulation. **Everything happens inside the Actor**, and if the actor wants to delegate a task, have to send a message to the other Actor and keeps working. That is why you ought to granulate every task in the actor as simply as possible.
+We are facing the authentic concept of encapsulation. **Everything happens inside the Actor**, and if the actor wants to delegate a task, have to send a message to the other Actor and keep working. That is why you ought to granulate every task in the actor as simply as possible.
 
 Split up the tasks and delegate them until they become small enough to be handled in One piece!
 
@@ -89,7 +89,7 @@ The **ActorContext** exposes contextual info for the Actor:
 * [become()](https://doc.akka.io/api/akka/current/akka/actor/ActorContext.html#become(behavior:akka.actor.Actor.Receive,discardOld:Boolean):Unit): change the actor behavior. We decide what message we process and how. An actor can start processing any message and change its behavior for any reason.
 * [actorSelection](https://doc.akka.io/api/akka/current/akka/actor/ActorContext.html#actorSelection(path:akka.actor.ActorPath):akka.actor.ActorSelection)(actor path): We can select an actor for its path (ref. [the actor system heritage figure](#actor-system-heritage), user/Actor1/Actor1.2)
 
-You get an ActorRef, everytime  you create an Actor. This ActorRef is an immutable reference that identifies the actor until it terminates his life. Only when the actor restarts its ActorRef will change.
+You get an ActorRef, every time you create an Actor. This ActorRef is an immutable reference that identifies the actor until it terminates his life. Only when the actor restarts its ActorRef will change.
 
 Terminate(ActorRef that is being watched, ref [watch](https://doc.akka.io/api/akka/current/akka/actor/ActorContext.html#watch(subject:akka.actor.ActorRef):akka.actor.ActorRef)). When it happens the Actor frees up its resources.
 

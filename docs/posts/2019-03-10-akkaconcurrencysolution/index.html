@@ -248,17 +248,17 @@ By coding in that manner, I produce something akin to the following:</p>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span> <span style="color:#ff79c6">case</span> fail <span style="color:#ff79c6">@</span> <span style="color:#50fa7b">Failure</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">_</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;error&#34;</span><span style="color:#ff79c6">)</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span style="color:#ff79c6">}</span>
 <span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span style="color:#6272a4">//....................
-</span></code></pre></div><p>With minimal changes, the main idea was to launch as many <strong>&ldquo;Futures&rdquo;</strong> as websites we needed to parse or process and then do something with the results, when every computation finishes(<strong>onComplete</strong>). I checked  the processing time then decided probe the Akka libraries  to improve the performance and reduce the calculation time.</p>
-<p>I recommend to understand the core of akka libraries, <a href="https://en.wikipedia.org/wiki/Actor_model">the Actor Model</a>, because it is the base of these libraries and the implementation that akka has made of this model.</p>
+</span></code></pre></div><p>With minimal changes, the main idea was to launch as many <strong>&ldquo;Futures&rdquo;</strong> as websites we needed to parse or process and then do something with the results when every computation finishes(<strong>onComplete</strong>). I checked the processing time and then decided to probe the Akka libraries to improve the performance and reduce the calculation time.</p>
+<p>I recommend understanding the core of Akka libraries, <a href="https://en.wikipedia.org/wiki/Actor_model">the Actor Model</a> because it is the base of these libraries and the implementation that Akka has made of this model.</p>
 <p><img src="/mojitoverde/images/akka_actormodel_eng.png#floatcenter" alt="akka_actormodel_eng_img"></p>
-<p>Let us to have a look at the actor model Akka implementation.</p>
+<p>Let us have a look at the actor model Akka implementation.</p>
 <p><img src="/mojitoverde/images/akka_mailbox.png#floatleft" alt="akka_mailbox_img">
 <strong>Actor and Actor-1</strong> communicate exclusively by exchanging messages( placing them into the recipient’s MailBox) asynchronously.<br>
 <strong>Actor and Actor 1</strong> should avoid hogging resources.<br>
 Message Should Not be mutable.<br>
 Something to know from the official documentation:<br>
 <strong>The only meaningful way for a sender to know whether an interaction was successful is by receiving a business-level acknowledgment message, which is not something Akka could make up on its own (neither are we writing a “do what I mean” framework nor would you want us to).</strong><br>
-We are facing the autentic concept of encapsulation. <strong>Everything happens inside the Actor</strong>, and if the actor wants to delegate a task, have to send a message to the other Actor and keeps working. That is why you ought to granulate every task in the actor as simply as possible.</p>
+We are facing the authentic concept of encapsulation. <strong>Everything happens inside the Actor</strong>, and if the actor wants to delegate a task, have to send a message to the other Actor and keep working. That is why you ought to granulate every task in the actor as simply as possible.</p>
 <p>Split up the tasks and delegate them until they become small enough to be handled in One piece!</p>
 <p>As you can see in the picture below:
 At the time you invoke the <strong>ActorSystem</strong>,  various actors have already been created.
@@ -286,7 +286,7 @@ As we can see in <a href="#actor-system-heritage">the actor system heritage figu
 <li><a href="https://doc.akka.io/api/akka/current/akka/actor/ActorContext.html#become(behavior:akka.actor.Actor.Receive,discardOld:Boolean):Unit">become()</a>: change the actor behavior. We decide what message we process and how. An actor can start processing any message and change its behavior for any reason.</li>
 <li><a href="https://doc.akka.io/api/akka/current/akka/actor/ActorContext.html#actorSelection(path:akka.actor.ActorPath):akka.actor.ActorSelection">actorSelection</a>(actor path): We can select an actor for its path (ref. <a href="#actor-system-heritage">the actor system heritage figure</a>, user/Actor1/Actor1.2)</li>
 </ul>
-<p>You get an ActorRef, everytime  you create an Actor. This ActorRef is an immutable reference that identifies the actor until it terminates his life. Only when the actor restarts its ActorRef will change.</p>
+<p>You get an ActorRef, every time you create an Actor. This ActorRef is an immutable reference that identifies the actor until it terminates his life. Only when the actor restarts its ActorRef will change.</p>
 <p>Terminate(ActorRef that is being watched, ref <a href="https://doc.akka.io/api/akka/current/akka/actor/ActorContext.html#watch(subject:akka.actor.ActorRef):akka.actor.ActorRef">watch</a>). When it happens the Actor frees up its resources.</p>
 <p>When we have an ActorRef:
 <a href="https://doc.akka.io/api/akka/current/akka/actor/ActorRef.html#!(message:Any)(implicitsender:akka.actor.ActorRef):Unit">! or tell</a>: fire a message and forget.
