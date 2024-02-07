@@ -14,8 +14,8 @@
       <pubDate>Sun, 10 Mar 2019 09:00:00 +0000</pubDate>
       
       <guid>https://ldipotetjob.github.io/mojitoverde/posts/2019-03-10-akkaconcurrencysolution/</guid>
-      <description>We have a concurrency problem to solve: I need to access hundreds of thousands of websites, parse and process all of them asynchronously. I tried many options, always with a main idea: Futures. So coding in that way I code something similar to the following:
-1//.................... 2 3//game_1: Int value indicating first game 4 5//game_n: Int value indicating game n 6 7val resultMatch:List[Future[List[Match]]] = (game_1 until game_n).map { 8 matchnum =&amp;gt; 9 Future{ 10 new ParserFootbalHTML(&amp;#34;https://www.</description>
+      <description>We have a concurrency problem: I need to process and parse hundreds of thousands of websites asynchronously. I tried many options with something in mind always: Futures. By coding in that manner, I produce something akin to the following:
+1//.................... 2 3//game_1: Int value indicating first game 4 5//game_n: Int value indicating game n 6 7val resultMatch:List[Future[List[Match]]] = (game_1 until game_n).map { 8 matchnum =&amp;gt; 9 Future{ 10 new ParserFootbalHTML(&amp;#34;https://www.anyurl.com/...&amp;#34; + matchnum).</description>
     </item>
     
     <item>
