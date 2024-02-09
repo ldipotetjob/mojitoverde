@@ -19,6 +19,16 @@
     </item>
     
     <item>
+      <title>Generating scala application distribution in akka &amp; play for different environments</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2019-02-12-generatedistroplayscala/</link>
+      <pubDate>Tue, 12 Feb 2019 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2019-02-12-generatedistroplayscala/</guid>
+      <description>From my perspective, Sbt is quite complex. I need to work with the sbt documentation at hand. Many people think that SBT is confusing, complicated, and opaque. My goal today: **how to generate distribution packages for different environments ** just in one command line clean + compile + build distribution + specific environment.
+What do we need:  Pass parameters to our process indicating what environment you want to build. Create a plugin to read the parameters.</description>
+    </item>
+    
+    <item>
       <title>Scheduling in Akka with Quartz - a wise solution</title>
       <link>https://ldipotetjob.github.io/mojitoverde/posts/2018-09-24-scalaakkaquartz/</link>
       <pubDate>Mon, 24 Sep 2018 09:00:00 +0000</pubDate>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>software distribution on Green Mojito in technology</title>
+    <link>https://ldipotetjob.github.io/mojitoverde/categories/software-distribution/</link>
+    <description>Recent content in software distribution on Green Mojito in technology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Scadip</copyright>
+    <lastBuildDate>Tue, 12 Feb 2019 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/categories/software-distribution/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Generating scala application distribution in akka &amp; play for different environments</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2019-02-12-generatedistroplayscala/</link>
+      <pubDate>Tue, 12 Feb 2019 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2019-02-12-generatedistroplayscala/</guid>
+      <description>From my perspective, Sbt is quite complex. I need to work with the sbt documentation at hand. Many people think that SBT is confusing, complicated, and opaque. My goal today: **how to generate distribution packages for different environments ** just in one command line clean + compile + build distribution + specific environment.
+What do we need:  Pass parameters to our process indicating what environment you want to build. Create a plugin to read the parameters.</description>
+    </item>
+    
+  </channel>
+</rss>

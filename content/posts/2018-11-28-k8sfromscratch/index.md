@@ -7,9 +7,9 @@ categories:
     - container orchestration 
 keywords:
     - Kubernetes
-    - Akkak8s
+    - k8s
     - orchestration
-    - conatiner
+    - container
 ---
 
 ![k8s_img](/mojitoverde/images/k8s.png#floatleft)
