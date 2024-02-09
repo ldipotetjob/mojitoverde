@@ -2,11 +2,11 @@
 title: Scala - Classes - Objects
 date: 2017-04-12 09:00:00
 tags:
-    - Scala
+    - scala
 categories:
     - scala programming 
 keywords:
-    - Scala
+    - scala
 ---
 In this post, we talk about Scala Classes and Objects. Its relationships between different components and inheritance. We assume **that classes, methods, and polymorphism are familiar to the reader**. We only will delve into new terms in this scenario.
 

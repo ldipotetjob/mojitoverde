@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Scadip</copyright>
-    <lastBuildDate>Sun, 10 Mar 2019 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Apr 2020 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>scala</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/categories/scala/</link>
+      <pubDate>Mon, 06 Apr 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/categories/scala/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>scala programming</title>
       <link>https://ldipotetjob.github.io/mojitoverde/categories/scala-programming/</link>

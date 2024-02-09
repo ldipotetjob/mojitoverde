@@ -2,7 +2,7 @@
 title: Generating scala application distribution in akka & play for different environments
 date: 2019-02-12 09:00:00
 tags:
-    - Scala
+    - scala
 categories:
     - software distribution 
 keywords:

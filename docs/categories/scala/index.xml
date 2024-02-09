@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>scala on Green Mojito in technology</title>
+    <link>https://ldipotetjob.github.io/mojitoverde/categories/scala/</link>
+    <description>Recent content in scala on Green Mojito in technology</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Scadip</copyright>
+    <lastBuildDate>Mon, 06 Apr 2020 09:00:00 +0000</lastBuildDate><atom:link href="https://ldipotetjob.github.io/mojitoverde/categories/scala/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>With Futures in Scala who brings the core, Java Concurrency api?</title>
+      <link>https://ldipotetjob.github.io/mojitoverde/posts/2020-04-06-futureinscala/</link>
+      <pubDate>Mon, 06 Apr 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://ldipotetjob.github.io/mojitoverde/posts/2020-04-06-futureinscala/</guid>
+      <description>I will not talk about the syntax of Scala&amp;rsquo;s Future. You can find everything at Scala Official documentation.
+It is clear what Scala Futures is for. I think that it is the best solution for concurrency and any other asynchronous processing.
+My challenge today will be to try to explain the core of Scala Futures and who provides it. I will attempt to give you an idea in relation to the link between the Scala Concurrency package and the Java Concurrency package.</description>
+    </item>
+    
+  </channel>
+</rss>

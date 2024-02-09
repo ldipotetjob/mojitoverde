@@ -2,11 +2,11 @@
 title: Scala in a nutshell - Collections - List
 date: 2017-03-21 09:00:00
 tags:
-    - Scala
+    - scala
 categories:
     - scala programming
 keywords:
-    - Scala
+    - scala
 ---
 In this post I'm going to explain one of the main collections in Scala, **List**. The performance in this inmutable collection for some scenarios is great with optimal features however, it doesn't work as well in others scenarios because this performance is proportional to the size of the collection.\
 You can find the performance of List and other collections 

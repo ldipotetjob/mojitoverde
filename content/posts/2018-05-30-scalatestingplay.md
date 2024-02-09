@@ -2,15 +2,15 @@
 title: Api Rest - Playframework - Testing 
 date: 2018-05-30 09:00:00
 tags:
-    - Scala
-    - PlayFramework
-    - Testing
+    - scala
+    - playFramework
+    - testing
 categories:
     - scala programming 
 keywords:
-    - Scala
-    - PlayFramework
-    - Testing
+    - scala
+    - playFramework
+    - testing
 ---
 
 As was  argued by [Robert C. Martin in his Clean Code bible](https://www.amazon.es/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882), there are several aspects that we have to pay attention when we design our tests:

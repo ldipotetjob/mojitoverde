@@ -2,11 +2,11 @@
 title: Scala - Abstract  - Generic Type
 date: 2018-06-13 09:00:00
 tags:
-    - Scala
+    - scala
 categories:
     - scala programming 
 keywords:
-    - Scala
+    - scala
 ---
 In this post, we talk about **Generic Elements**, one of the most useful mechanisms in the Scala programming language. The use of **Generic Elements** is quite helpful when a member of a class, feature, or method definition does not have a complete implementation in its body and can also be usable by different implementations.
 

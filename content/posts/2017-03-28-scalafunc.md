@@ -2,11 +2,11 @@
 title: Scala in a nutshell - Functions
 date: 2017-03-28 09:00:00
 tags:
-    - Scala
+    - scala
 categories:
     - scala programming 
 keywords:
-    - Scala
+    - scala
 ---
 In this post, I will talk about the role of functions in scala, how to create them, and their implication on the scala language. Scala REPL (“**Read-Evaluate-Print-Loop**”),scala 2.x, will help us.
 

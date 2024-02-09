@@ -2,14 +2,14 @@
 title: Scheduling in Akka with Quartz - a wise solution
 date: 2018-09-24 09:00:00
 tags:
-    - Scala
-    - Akka
+    - scala
+    - akka
 categories:
     - scala programming 
 keywords:
-    - Scala
-    - Akka
-    - Quartz
+    - scala
+    - akka
+    - quartz
 ---
 
 The problem I bring: how to execute several tasks following a specific schedule (day/time) for the long term and different patterns? The previous schedule must be able to vary in time.

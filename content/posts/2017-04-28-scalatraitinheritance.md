@@ -2,11 +2,11 @@
 title: Scala - Trait - inheritance
 date: 2017-04-28 09:00:00
 tags:
-    - Scala
+    - scala
 categories:
     - scala programming 
 keywords:
-    - Scala
+    - scala
 ---
 We'll talk today about the Scala traits and how to implement inheritance with classes. In some scenarios like having to deal with a base class with arguments on its constructor, it's better to use abstract classes instead of traits. Classes and objects can extend from traits that encapsulate methods and field definitions.
 
