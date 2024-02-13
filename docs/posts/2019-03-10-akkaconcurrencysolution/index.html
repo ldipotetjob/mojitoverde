@@ -85,7 +85,7 @@
         
         
         <li>
-          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2020-04-06-futureinscala/" aria-label="Next">
+          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2019-07-20-pattermatching/" aria-label="Next">
             <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
           </a>
         </li>
@@ -343,7 +343,7 @@ What do you have to consider when dealing with configuration files in Akka:</p>
 <li>How the configuration files are loaded or read. [related class/interfaces: <a href="https://www.javadoc.io/doc/com.typesafe/config/1.3.3/com/typesafe/config/ConfigFactory.html">ConfigFactory</a>, <a href="https://www.javadoc.io/doc/com.typesafe/config/1.3.3/com/typesafe/config/Config.html">Config</a>]</li>
 </ul>
 <p>The main Akka configuration files are usually <strong>application.conf</strong> and placed in the <strong>&ldquo;resource&rdquo;</strong> folder.
-In real life, we usually need to work in different environments, and we can create the <strong>application.conf</strong> during the compilation process. We include the config file in our specific configurations sometimes depending on the work environments. We have created a real-world config example where you can configure a production(<strong>production.conf</strong>) or development(<strong>development.conf</strong>) environment. If you want to learn how to work, set, and manage the config file, you can go to my post about how <a href="https://mojitoverdeintw.blogspot.com/2019/02/generating-scala-app-distribution-with.html">generating distributions for different environments</a>.</p>
+In real life, we usually need to work in different environments, and we can create the <strong>application.conf</strong> during the compilation process. We include the config file in our specific configurations sometimes depending on the work environments. We have created a real-world config example where you can configure a production(<strong>production.conf</strong>) or development(<strong>development.conf</strong>) environment. If you want to learn how to work, set, and manage the config file, you can go to my post about how <a href="https://ldipotetjob.github.io/mojitoverde/posts/2019-02-12-generatedistroplayscala/">generating distributions for different environments</a>.</p>
 <p>We already have minimal information to create an Akka App only using the actor module anyway you can have a look at my repository <a href="https://github.com/ldipotetjob/akka-quickstart-scala">akka-quickstart-scala</a> and check out how to install and launch it(try the first option in your terminal[<strong>sbt</strong> &ldquo;AkkaSchedulerPoc/runMain com.ldg.BootNotScheduled 1 5&rdquo;)]</p>
 <p>We gave you today a first glance at how to solve concurrency problems in Scala using Akka libraries.</p>
 <section class="footnotes" role="doc-endnotes">

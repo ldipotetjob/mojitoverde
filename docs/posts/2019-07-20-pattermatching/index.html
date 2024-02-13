@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/mojitoverde/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/mojitoverde/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/mojitoverde/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/mojitoverde/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Pattern Matching | Green Mojito in technology</title>
+  <link rel = 'canonical' href = 'https://ldipotetjob.github.io/mojitoverde/posts/2019-07-20-pattermatching/'>
+  <meta name="description" content="Green Mojito is a fresh site where the knowledge must be fresh but not simple, where the content can be complex but nice. This is a site where you can find different scenarios and use cases related with different technologies. We believe in the beginnings but we won&#39;t deal with &#39;hello world&#39; projects.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Pattern Matching" />
+<meta property="og:description" content="Some examples of patterns are:
+ The pattern ex: IOException matches all instances of class IOException, binding variable ex to the instance. The pattern Some(x) matches values of the form Some(v), binding x to the argument value v of the Some constructor. The pattern (x, _) matches pairs of values, binding x to the first component of the pair. The second component is matched with a wildcard pattern. The pattern x :: y :: xs matches lists of length ≥2, binding x to the list&rsquo;s first element, y to the list&rsquo;s second element, and xs to the remainder." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ldipotetjob.github.io/mojitoverde/posts/2019-07-20-pattermatching/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-07-20T09:00:00+00:00" />
+<meta property="article:modified_time" content="2019-07-20T09:00:00+00:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Pattern Matching"/>
+<meta name="twitter:description" content="Some examples of patterns are:
+ The pattern ex: IOException matches all instances of class IOException, binding variable ex to the instance. The pattern Some(x) matches values of the form Some(v), binding x to the argument value v of the Some constructor. The pattern (x, _) matches pairs of values, binding x to the first component of the pair. The second component is matched with a wildcard pattern. The pattern x :: y :: xs matches lists of length ≥2, binding x to the list&rsquo;s first element, y to the list&rsquo;s second element, and xs to the remainder."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://ldipotetjob.github.io/mojitoverde/css/styles.685a7e873a497dbcea0bfa576da7a90a6fdfa467b15d351ce89f3174ed69210334f9b2965fe482172b4c8af3ce8aa5c4fbc6a257f86ab893f5a3ed0191338446.css" integrity="sha512-aFp&#43;hzpJfbzqC/pXbaepCm/fpGexXTUc6J8xdO1pIQM0&#43;bKWX&#43;SCFytMivPOiqXE&#43;8aiV/hquJP1o&#43;0BkTOERg=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://ldipotetjob.github.io/mojitoverde/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/mojitoverde/">Home</a></li>
+         
+        <li><a href="/mojitoverde/posts">Blog</a></li>
+         
+        <li><a href="/mojitoverde/tags">Tags</a></li>
+         
+        <li><a href="/mojitoverde/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://ldipotetjob.github.io/mojitoverde/posts/2019-03-10-akkaconcurrencysolution/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://ldipotetjob.github.io/mojitoverde/posts/2019-09-20-pattermatching-i/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f&text=Pattern%20Matching" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f&title=Pattern%20Matching" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f&is_video=false&description=Pattern%20Matching" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Pattern%20Matching&body=Check out this article: https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f&title=Pattern%20Matching" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f&title=Pattern%20Matching" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f&name=Pattern%20Matching&description=Some%20examples%20of%20patterns%20are%3a%0a%20The%20pattern%20ex%3a%20IOException%20matches%20all%20instances%20of%20class%20IOException%2c%20binding%20variable%20ex%20to%20the%20instance.%20The%20pattern%20Some%28x%29%20matches%20values%20of%20the%20form%20Some%28v%29%2c%20binding%20x%20to%20the%20argument%20value%20v%20of%20the%20Some%20constructor.%20The%20pattern%20%28x%2c%20_%29%20matches%20pairs%20of%20values%2c%20binding%20x%20to%20the%20first%20component%20of%20the%20pair.%20The%20second%20component%20is%20matched%20with%20a%20wildcard%20pattern.%20The%20pattern%20x%20%3a%3a%20y%20%3a%3a%20xs%20matches%20lists%20of%20length%20%e2%89%a52%2c%20binding%20x%20to%20the%20list%26rsquo%3bs%20first%20element%2c%20y%20to%20the%20list%26rsquo%3bs%20second%20element%2c%20and%20xs%20to%20the%20remainder." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f&t=Pattern%20Matching" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents"></nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Pattern Matching
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2019-07-20 09:00:00 &#43;0000 UTC" itemprop="datePublished">2019-07-20</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          6 minute read
+        </div>
+        
+        
+        <div class="article-category">
+            <i class="fas fa-archive"></i>
+            
+            
+            <a class="category-link" href="/mojitoverde/categories/scala-programming">scala programming</a>
+            
+        </div>
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/mojitoverde/tags/scala" rel="tag">scala</a>
+            
+             ,  
+            <a class="tag-link" href="/mojitoverde/tags/spec-2.12" rel="tag">spec 2.12</a>
+            
+             ,  
+            <a class="tag-link" href="/mojitoverde/tags/pattern-matching" rel="tag">pattern matching</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <p><a href="https://www.scala-lang.org/files/archive/spec/2.12/08-pattern-matching.html">Some examples of patterns are:</a></p>
+<ol>
+<li>The pattern ex: IOException matches all instances of class  IOException, binding variable ex to the instance.</li>
+<li>The pattern Some(x) matches values of the form Some(v), binding x to the argument value v of the Some constructor.</li>
+<li>The pattern (x, _) matches pairs of values, binding x to the first component of the pair. The second component is matched with a wildcard pattern.</li>
+<li>The pattern x :: y :: xs matches lists of length ≥2, binding x to the list&rsquo;s first element, y to the list&rsquo;s second element, and xs to the remainder.</li>
+<li>The pattern 1 | 2 | 3 matches the integers between 1 and 3.</li>
+</ol>
+<hr>
+<p><a href="https://www.scala-lang.org/files/archive/spec/2.12/08-pattern-matching.html#variable-patterns">Variable Patterns:</a></p>
+<blockquote>
+<p>SimplePattern   ::=  ‘_’<br>
+|  varid</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">import</span> scala.util.Random
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#ff79c6">val</span> x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span> <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">Random</span><span style="color:#ff79c6">.</span>nextInt<span style="color:#ff79c6">(</span><span style="color:#bd93f9">10</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>x <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#ff79c6">case</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;zero&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>  <span style="color:#ff79c6">case</span> <span style="color:#bd93f9">1</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;one&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>  <span style="color:#ff79c6">case</span> <span style="color:#bd93f9">2</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;two&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">_</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;many&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#6272a4">// the result can be any value is a random function
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#ff79c6">def</span> matchTest<span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span> <span style="color:#ff79c6">=</span> x <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>  <span style="color:#ff79c6">case</span> <span style="color:#bd93f9">1</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;one&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>  <span style="color:#ff79c6">case</span> <span style="color:#bd93f9">2</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;two&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>  <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">_</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;many&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>matchTest<span style="color:#ff79c6">(</span><span style="color:#bd93f9">3</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//res1: String = many
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span style="color:#6272a4"></span>matchTest<span style="color:#ff79c6">(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//res2: String = one
+</span></code></pre></div><p><a href="https://www.scala-lang.org/files/archive/spec/2.12/08-pattern-matching.html#typed-patterns">Typed Patterns:</a></p>
+<blockquote>
+<p>Pattern1        ::=  varid ‘:’ TypePat<br>
+|  ‘_’ ‘:’ TypePat</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">val</span> mystrType<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;String value for Pattern matching&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>mystrType <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>  <span style="color:#ff79c6">case</span> tmpstrValue<span style="color:#ff79c6">:</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">=&gt;</span><span style="color:#f1fa8c">s&#34;String value: </span><span style="color:#f1fa8c">$tmpstrValue</span><span style="color:#f1fa8c">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>  <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">_</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;Any other str value&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#ff79c6">val</span> testListType<span style="color:#ff79c6">:</span><span style="color:#8be9fd">List</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">List</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">2</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">3</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">4</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>testListType <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>  <span style="color:#ff79c6">case</span> tmpListIntValue<span style="color:#ff79c6">:</span><span style="color:#8be9fd">List</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">]</span><span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">s&#34;List[Int] value: </span><span style="color:#f1fa8c">$tmpListIntValue</span><span style="color:#f1fa8c">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>  <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">_</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;No list[Int] Type&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>testListType <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>  <span style="color:#ff79c6">case</span> tmpListgenericValue<span style="color:#ff79c6">:</span><span style="color:#8be9fd">List</span><span style="color:#ff79c6">[</span><span style="color:#ff79c6">_</span><span style="color:#ff79c6">]</span><span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">s&#34;List[_] generic value: </span><span style="color:#f1fa8c">$tmpListgenericValue</span><span style="color:#f1fa8c">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>  <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">_</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;No list[Int] Type&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span style="color:#6272a4">// mystrType: String = String value for Pattern matching
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#6272a4">// res3: String = String value: String value for Pattern matching
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span style="color:#6272a4"></span>
+</code></pre></div><p><a href="https://www.scala-lang.org/files/archive/spec/2.12/08-pattern-matching.html#pattern-binders">Pattern Binders:</a></p>
+<blockquote>
+<p>Pattern2        ::=  varid ‘@’ Pattern3</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#6272a4">/**
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#6272a4">  *   
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#6272a4">  *   is very useful is the var tha you want to match can have different type of values and
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#6272a4">  *   at the same time you need to discriminate de type and process its values at the same time
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#6272a4">  *   A pattern binder x@p consists of a pattern variable x and a pattern p.
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#6272a4">  *   The type of the variable x is the static type T of the pattern p.
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#6272a4">  *   Is very important to KNOW that this pattern matches any value v matched by the pattern p, provided the
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#6272a4">  *   run-time type of v is also an instance of T, and it binds the variable name to that value.
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#6272a4">  *
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#6272a4">  */</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#ff79c6">val</span> testListBinding<span style="color:#ff79c6">:</span><span style="color:#8be9fd">List</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">List</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">2</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">3</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">4</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>testListBinding <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>  <span style="color:#ff79c6">case</span> testingList@List<span style="color:#ff79c6">(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">_</span><span style="color:#ff79c6">*)</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">s&#34;list start with1, we&#39;re testing binging with this list:</span><span style="color:#f1fa8c">$testingList</span><span style="color:#f1fa8c">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>  <span style="color:#ff79c6">case</span> testingList@List<span style="color:#ff79c6">(</span><span style="color:#bd93f9">3</span><span style="color:#ff79c6">,</span> <span style="color:#ff79c6">_</span><span style="color:#ff79c6">*)</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">s&#34;list start with3, we&#39;re testing binging with this list:</span><span style="color:#f1fa8c">$testingList</span><span style="color:#f1fa8c">&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>  <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">_</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34; nothing match  binding&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span style="color:#6272a4">// testListBinding: List[Int] = List(1, 2, 3, 4)
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#6272a4">// res3: String = list start with1, we&#39;re testing binging with this list:List(1, 2, 3, 4)
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span style="color:#ff79c6">val</span> optBindingStrval<span style="color:#ff79c6">:</span><span style="color:#8be9fd">String</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Testing scala specification&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span style="color:#ff79c6">val</span> optbinding<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Option</span><span style="color:#ff79c6">[</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">Some</span><span style="color:#ff79c6">(</span>optBindingStrval<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>optbinding <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>  <span style="color:#ff79c6">case</span> optbinding@Some<span style="color:#ff79c6">(</span>optStrValue<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span> optbinding<span style="color:#ff79c6">.</span>getOrElse<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;wrong value&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>  <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">_</span> <span style="color:#ff79c6">=&gt;</span><span style="color:#f1fa8c">&#34;no optStrValue&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>
+</code></pre></div><p><a href="https://www.scala-lang.org/files/archive/spec/2.12/08-pattern-matching.html#literal-patterns">Literal Patterns:</a></p>
+<blockquote>
+<p>SimplePattern   ::=  StableId</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span style="color:#ff79c6">val</span> literalPattern<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Any</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span>literalPattern <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span>  <span style="color:#ff79c6">case</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;zero&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span>  <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">true</span> <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span style="color:#ff79c6">}</span>
+</code></pre></div><p><a href="https://www.scala-lang.org/files/archive/spec/2.12/08-pattern-matching.html#stable-identifier-patterns">Stable Identifier Patterns:</a></p>
+<blockquote>
+<p>SimplePattern   ::=  StableId</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">def</span> f<span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span> y<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Int</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span> x <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>  <span style="color:#6272a4">/**
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#6272a4">    * in this case y =&gt; s&#34;$x and $y are equals&#34;
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#6272a4">    * the other cases are unreachable because always match with y
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#6272a4">    */</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>  <span style="color:#ff79c6">case</span> `y` <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">s&#34;</span><span style="color:#f1fa8c">$x</span><span style="color:#f1fa8c"> and </span><span style="color:#f1fa8c">$y</span><span style="color:#f1fa8c"> are equals&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>  <span style="color:#ff79c6">case</span>  <span style="color:#ff79c6">_</span>  <span style="color:#ff79c6">=&gt;</span> <span style="color:#f1fa8c">&#34;x and y are not equals&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>f<span style="color:#ff79c6">(</span><span style="color:#bd93f9">5</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">5</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">// res9: String = 5 and 5 are equals
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>f<span style="color:#ff79c6">(</span><span style="color:#bd93f9">5</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">4</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">// res10: String = x and y are not equals
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#ff79c6">def</span> mMatch<span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span>target<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>  s <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>    <span style="color:#ff79c6">case</span> `target` <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;It was &#34;</span> <span style="color:#ff79c6">+</span> target<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>    <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">_</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;It was something else&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>mMatch<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;a&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;b&#34;</span><span style="color:#ff79c6">)</span>  <span style="color:#6272a4">// It was something else
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span style="color:#ff79c6">def</span> mMatchrefactored<span style="color:#ff79c6">(</span>s<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>  <span style="color:#ff79c6">val</span> target<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">String</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;a&#34;</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>  <span style="color:#ff79c6">val</span> x <span style="color:#ff79c6">=</span> target
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>  s <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>    <span style="color:#ff79c6">case</span> `x` <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;It was &#34;</span> <span style="color:#ff79c6">+</span> target<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>    <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">_</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;It was something else&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>mMatchrefactored<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;a&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span style="color:#6272a4">// It was a
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span style="color:#6272a4">// res12: Unit = ()
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span style="color:#6272a4"></span>
+</code></pre></div><p><a href="https://www.scala-lang.org/files/archive/spec/2.12/08-pattern-matching.html#constructor-patterns">Constructor Patterns:</a></p>
+<blockquote>
+<p>SimplePattern   ::=  StableId ‘(’ [Patterns] ‘)’</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#6272a4">/**
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#6272a4">  * there are better implementations for these examples but the main idea is the explanation
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#6272a4">  * of this pattern as easy as possible
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#6272a4">  */</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Student</span><span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">:</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span>age<span style="color:#ff79c6">:</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span>birtdate<span style="color:#ff79c6">:</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Teacher</span><span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">:</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span>age<span style="color:#ff79c6">:</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span>birtdate<span style="color:#ff79c6">:</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#ff79c6">def</span> studentOrTeacher<span style="color:#ff79c6">(</span>person<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Any</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Unit</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>  person <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    <span style="color:#ff79c6">case</span> person@Student<span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">,</span>age<span style="color:#ff79c6">,</span>birthdate<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">s&#34;the Student:</span><span style="color:#f1fa8c">$name</span><span style="color:#f1fa8c"> is </span><span style="color:#f1fa8c">$age</span><span style="color:#f1fa8c"> old and born </span><span style="color:#f1fa8c">$birthdate</span><span style="color:#f1fa8c"> &#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>    <span style="color:#ff79c6">case</span> person@Teacher<span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">,</span>age<span style="color:#ff79c6">,</span>birthdate<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">s&#34;the Teacher:</span><span style="color:#f1fa8c">$name</span><span style="color:#f1fa8c"> is </span><span style="color:#f1fa8c">$age</span><span style="color:#f1fa8c"> old and born </span><span style="color:#f1fa8c">$birthdate</span><span style="color:#f1fa8c"> &#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>    <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">_</span>  <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Could be any one, No teacher or Person&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>studentOrTeacher<span style="color:#ff79c6">(</span><span style="color:#50fa7b">Student</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Jose Luis&#34;</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">18</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;28 feb 1971&#34;</span><span style="color:#ff79c6">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#6272a4">//the Student:Jose Luis is 18 and born 28 feb 1971
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span style="color:#6272a4">// res13: Unit = ()
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span style="color:#ff79c6">def</span> studentOrTeacherVer1<span style="color:#ff79c6">(</span>person<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Any</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Unit</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>  person <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>    <span style="color:#ff79c6">case</span> <span style="color:#50fa7b">Student</span><span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">,</span>age<span style="color:#ff79c6">,</span>birthdate<span style="color:#ff79c6">)</span><span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">s&#34;the Student:</span><span style="color:#f1fa8c">$name</span><span style="color:#f1fa8c"> is </span><span style="color:#f1fa8c">$age</span><span style="color:#f1fa8c"> old and born </span><span style="color:#f1fa8c">$person</span><span style="color:#f1fa8c">.birthdate &#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>    <span style="color:#ff79c6">case</span> <span style="color:#50fa7b">Teacher</span><span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">,</span>age<span style="color:#ff79c6">,</span>birthdate<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">s&#34;the Teacher:</span><span style="color:#f1fa8c">$name</span><span style="color:#f1fa8c"> is </span><span style="color:#f1fa8c">$age</span><span style="color:#f1fa8c"> old and born </span><span style="color:#f1fa8c">$birthdate</span><span style="color:#f1fa8c"> &#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>    <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">_</span>  <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Could be any one, No teacher or Person&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>studentOrTeacher<span style="color:#ff79c6">(</span><span style="color:#50fa7b">Teacher</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Jose Luis&#34;</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">18</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;28 feb 1971&#34;</span><span style="color:#ff79c6">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span style="color:#50fa7b">Teacher</span><span style="color:#ff79c6">.</span>unapply<span style="color:#ff79c6">(</span><span style="color:#50fa7b">Teacher</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Jose Luis&#34;</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">18</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;28 feb 1971&#34;</span><span style="color:#ff79c6">))</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span style="color:#6272a4">//the Teacher:Jose Luis is 18 old and born 28 feb 1971
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span style="color:#6272a4">//res14: Unit = ()
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span style="color:#6272a4"></span>
+</code></pre></div><p><a href="https://www.scala-lang.org/files/archive/spec/2.12/08-pattern-matching.html#tuple-patterns">Tuple Patterns:</a></p>
+<blockquote>
+<p>SimplePattern   ::=  ‘(’ [Patterns] ‘)’</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#6272a4">/**
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#6272a4">  * For this specification you&#39;ll need to know what is Tuple in scala.
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#6272a4">  * If you don&#39;t know We recommend this link: https://docs.scala-lang.org/tour/tuples.html
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span style="color:#6272a4">  *
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#6272a4"> */</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#ff79c6">val</span> ingredient <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Sugar&#34;</span> <span style="color:#ff79c6">,</span> <span style="color:#bd93f9">25</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span style="color:#ff79c6">val</span> <span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">,</span> quantity<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span> ingredient
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#ff79c6">val</span> fruit <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;orange&#34;</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">10</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;spain&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span style="color:#ff79c6">val</span> <span style="color:#ff79c6">(</span>namefruit<span style="color:#ff79c6">,</span> amount<span style="color:#ff79c6">,</span>origin<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span> fruit
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#ff79c6">def</span> anyObject<span style="color:#ff79c6">(</span>param<span style="color:#ff79c6">:</span><span style="color:#8be9fd">Any</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Unit</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>  param  <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>    <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">,</span>amount<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">s&#34;we are talking about the ingredients:</span><span style="color:#f1fa8c">$name</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>    <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">,</span>amount<span style="color:#ff79c6">,</span>origin<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">s&#34;we are talking about the fruits:</span><span style="color:#f1fa8c">$name</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>anyObject<span style="color:#ff79c6">(</span>fruit<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#6272a4">// we are talking about the fruits:orange
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span style="color:#6272a4">// res15: Unit = ()
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>anyObject<span style="color:#ff79c6">(</span>ingredient<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span style="color:#6272a4">//we are talking about the ingredients:Sugar
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span style="color:#6272a4">//res16: Unit = ()
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span style="color:#6272a4"></span>
+</code></pre></div><p><a href="https://www.scala-lang.org/files/archive/spec/2.12/08-pattern-matching.html#extractor-patterns">Extractor Patterns:</a></p>
+<blockquote>
+<p>SimplePattern   ::=  StableId ‘(’ [Patterns] ‘)’</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#6272a4">// For a better understanding of this pattern I recommend to read the following next link:
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span style="color:#6272a4">// https://docs.scala-lang.org/tour/extractor-objects.html
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span style="color:#ff79c6">case</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">StudentVer</span><span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">:</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span>age<span style="color:#ff79c6">:</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span>birtdate<span style="color:#ff79c6">:</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span style="color:#6272a4">// Internally what&#39;s going on? :
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span style="color:#ff79c6">object</span> <span style="color:#50fa7b">StudentVer</span><span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>  <span style="color:#ff79c6">def</span> apply<span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">:</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">,</span>age<span style="color:#ff79c6">:</span><span style="color:#8be9fd">Int</span><span style="color:#ff79c6">,</span>birtdate<span style="color:#ff79c6">:</span><span style="color:#8be9fd">String</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">StudentVer</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#50fa7b">StudentVer</span><span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">,</span>age<span style="color:#ff79c6">,</span>birtdate<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span style="color:#6272a4">// when create en new case class
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span style="color:#6272a4"></span><span style="color:#ff79c6">val</span> myFirstStudentVer<span style="color:#ff79c6">:</span><span style="color:#8be9fd">StudentVer</span> <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">StudentVer</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Craig Page&#34;</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">20</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;20 August,1999&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span style="color:#6272a4">// Internally, it is calling the apply method of StudentVer1 companion object to create new StudentVer1 object:
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span style="color:#ff79c6">val</span> myFirstStudentVer1 <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">StudentVer</span><span style="color:#ff79c6">.</span>apply<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Craig Page&#34;</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">20</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;20 August,1999&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span style="color:#6272a4">// The reverse operation to Apply could be the case in which we have the case class value and we want to
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span style="color:#6272a4">// know its values
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span style="color:#ff79c6">val</span> mytuplaOfUnapply <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">StudentVer</span><span style="color:#ff79c6">.</span>unapply<span style="color:#ff79c6">(</span>myFirstStudentVer1<span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span style="color:#6272a4">//val (namestudent,age,brithdate) = StudentVer.unapply(myFirstStudentVer1)
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span style="color:#6272a4"></span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>mytuplaOfUnapply <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span>  <span style="color:#ff79c6">case</span> <span style="color:#50fa7b">Some</span><span style="color:#ff79c6">((</span>namestudent<span style="color:#ff79c6">,</span>age<span style="color:#ff79c6">,</span>brithdate<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">s&#34;Testing extractor name:</span><span style="color:#f1fa8c">$namestudent</span><span style="color:#f1fa8c">,age:</span><span style="color:#f1fa8c">$age</span><span style="color:#f1fa8c">,birthdate:</span><span style="color:#f1fa8c">$brithdate</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span>  <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">_</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;nothing to show&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span style="color:#ff79c6">val</span> <span style="color:#50fa7b">StudentVer</span><span style="color:#ff79c6">(</span>nameStudentVer<span style="color:#ff79c6">,</span>ageStudentVer<span style="color:#ff79c6">,</span>birtdateStudentVer<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=</span> myFirstStudentVer1
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span>println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">s&#34;Another example testing extractor name:</span><span style="color:#f1fa8c">$nameStudentVer</span><span style="color:#f1fa8c">,age:</span><span style="color:#f1fa8c">$ageStudentVer</span><span style="color:#f1fa8c">,birthdate:</span><span style="color:#f1fa8c">$ageStudentVer</span><span style="color:#f1fa8c">&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span style="color:#ff79c6">def</span> studentOrTeacherUsingExtractors<span style="color:#ff79c6">(</span>person<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Any</span><span style="color:#ff79c6">)</span><span style="color:#ff79c6">:</span> <span style="color:#8be9fd">Unit</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span>  <span style="color:#6272a4">//Pattern matching is using extractors in this point
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span style="color:#6272a4"></span>  person <span style="color:#ff79c6">match</span> <span style="color:#ff79c6">{</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span>    <span style="color:#ff79c6">case</span> <span style="color:#50fa7b">Student</span><span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">,</span>age<span style="color:#ff79c6">,</span>birthdate<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">s&#34;the Student:</span><span style="color:#f1fa8c">$name</span><span style="color:#f1fa8c"> is </span><span style="color:#f1fa8c">$age</span><span style="color:#f1fa8c"> old and born </span><span style="color:#f1fa8c">$birthdate</span><span style="color:#f1fa8c"> &#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span>    <span style="color:#ff79c6">case</span> <span style="color:#50fa7b">Teacher</span><span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">,</span>age<span style="color:#ff79c6">,</span>birthdate<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">s&#34;the Teacher:</span><span style="color:#f1fa8c">$name</span><span style="color:#f1fa8c"> is </span><span style="color:#f1fa8c">$age</span><span style="color:#f1fa8c"> old and born </span><span style="color:#f1fa8c">$birthdate</span><span style="color:#f1fa8c"> &#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span>    <span style="color:#ff79c6">case</span> <span style="color:#ff79c6">_</span>  <span style="color:#ff79c6">=&gt;</span> println<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Could be any one, No teacher or Person&#34;</span><span style="color:#ff79c6">)</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span>  <span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span style="color:#ff79c6">}</span>
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span>
+</code></pre></div>
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/mojitoverde/">Home</a></li>
+         
+          <li><a href="/mojitoverde/posts">Blog</a></li>
+         
+          <li><a href="/mojitoverde/tags">Tags</a></li>
+         
+          <li><a href="/mojitoverde/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents"></nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f&text=Pattern%20Matching" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f&title=Pattern%20Matching" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f&is_video=false&description=Pattern%20Matching" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Pattern%20Matching&body=Check out this article: https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f&title=Pattern%20Matching" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f&title=Pattern%20Matching" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f&name=Pattern%20Matching&description=Some%20examples%20of%20patterns%20are%3a%0a%20The%20pattern%20ex%3a%20IOException%20matches%20all%20instances%20of%20class%20IOException%2c%20binding%20variable%20ex%20to%20the%20instance.%20The%20pattern%20Some%28x%29%20matches%20values%20of%20the%20form%20Some%28v%29%2c%20binding%20x%20to%20the%20argument%20value%20v%20of%20the%20Some%20constructor.%20The%20pattern%20%28x%2c%20_%29%20matches%20pairs%20of%20values%2c%20binding%20x%20to%20the%20first%20component%20of%20the%20pair.%20The%20second%20component%20is%20matched%20with%20a%20wildcard%20pattern.%20The%20pattern%20x%20%3a%3a%20y%20%3a%3a%20xs%20matches%20lists%20of%20length%20%e2%89%a52%2c%20binding%20x%20to%20the%20list%26rsquo%3bs%20first%20element%2c%20y%20to%20the%20list%26rsquo%3bs%20second%20element%2c%20and%20xs%20to%20the%20remainder." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fldipotetjob.github.io%2fmojitoverde%2fposts%2f2019-07-20-pattermatching%2f&t=Pattern%20Matching" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2024  Scadip 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/mojitoverde/">Home</a></li>
+         
+        <li><a href="/mojitoverde/posts">Blog</a></li>
+         
+        <li><a href="/mojitoverde/tags">Tags</a></li>
+         
+        <li><a href="/mojitoverde/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/mojitoverde/lib/font-awesome/css/all.min.css>
+<script src=/mojitoverde/lib/jquery/jquery.min.js></script>
+<script src=/mojitoverde/js/main.js></script>
+<script src=/mojitoverde/js/code-copy.js></script>
+
+
+
+</html>
