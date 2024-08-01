@@ -9,6 +9,16 @@
       "name":"GenomixCloud.bioinformatic",
       "url":"https://github.com/ldipotetjob/genomixcloud.bioinformatic/",
       "desc":"A curated repository of source code of bioinformatic tools docker images."
+    },
+    {
+      "name":"AWS architecture solutions",
+      "url":"https://github.com/ldipotetjob/AWS",
+      "desc":"This project contains AWS architecture solutions and AWS solution architect certification materials."
+    },
+    {
+      "name":"scadip.datasets",
+      "url":"https://github.com/ldipotetjob/datasets",
+      "desc":"Massive datasets, but is not limited to european football data and commodity trading data."
     }
   ]
 }
