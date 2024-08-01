@@ -1,0 +1,14 @@
+{
+  "list": [
+    {
+      "name":"GenomixCloud",
+      "url":"https://genomixcloud.com/",
+      "desc":"GenomixCloud is a cloud-based platform designed for genome analysis."
+    },
+    {
+      "name":"GenomixCloud.bioinformatic",
+      "url":"https://github.com/ldipotetjob/genomixcloud.bioinformatic/",
+      "desc":"A curated repository of source code of bioinformatic tools docker images."
+    }
+  ]
+}
